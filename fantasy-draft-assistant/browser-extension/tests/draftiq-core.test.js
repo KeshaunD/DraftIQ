@@ -974,6 +974,86 @@ test("compares completed mock openings by projected starting lineup", () => {
   assert.equal(report.bestOpening.sampleSize, 2);
 });
 
+test("matches the current draft path to historical continuations", () => {
+  const player = (name, pos, projection) => ({
+    name,
+    pos,
+    projection,
+  });
+  const drafts = [
+    {
+      draftId: "path-a",
+      completed: true,
+      userPicks: [
+        player("RB One", "RB", 300),
+        player("RB Two", "RB", 285),
+        player("WR One", "WR", 275),
+        player("WR Two", "WR", 270),
+        player("TE One", "TE", 220),
+      ],
+    },
+    {
+      draftId: "path-b",
+      completed: true,
+      userPicks: [
+        player("RB Three", "RB", 295),
+        player("RB Four", "RB", 280),
+        player("WR Three", "WR", 276),
+        player("WR Four", "WR", 268),
+        player("QB One", "QB", 340),
+      ],
+    },
+    {
+      draftId: "path-c",
+      completed: true,
+      userPicks: [
+        player("RB Five", "RB", 292),
+        player("RB Six", "RB", 282),
+        player("WR Five", "WR", 274),
+        player("RB Seven", "RB", 235),
+        player("WR Six", "WR", 250),
+      ],
+    },
+    {
+      draftId: "different-path",
+      completed: true,
+      userPicks: [
+        player("WR Seven", "WR", 300),
+        player("RB Eight", "RB", 280),
+        player("WR Eight", "WR", 270),
+        player("RB Nine", "RB", 260),
+      ],
+    },
+  ];
+
+  const report = Core.getDraftPathStrategyReport(
+    drafts,
+    [
+      player("My RB One", "RB", 300),
+      player("My RB Two", "RB", 290),
+      player("My WR One", "WR", 280),
+    ],
+    { teamCount: 12, qb: 1, rb: 2, wr: 2, te: 1, flex: 1 }
+  );
+
+  assert.equal(report.currentPath, "RB-RB-WR");
+  assert.equal(report.matchedDraftCount, 3);
+  assert.equal(report.nextPickSampleSize, 3);
+  assert.equal(report.bestNextPosition.position, "WR");
+  assert.equal(
+    report.nextPositionOptions.find((option) => option.position === "WR")
+      .sampleSize,
+    2
+  );
+  assert.ok(
+    Core.getDraftPathPositionFitAdjustment({ pos: "WR" }, report) >
+      Core.getDraftPathPositionFitAdjustment({ pos: "RB" }, report)
+  );
+  assert.ok(
+    Core.getDraftPathPositionFitAdjustment({ pos: "WR" }, report) <= 8
+  );
+});
+
 test("blends small personal samples with the existing availability model", () => {
   assert.equal(
     Core.blendAvailabilityProbability(

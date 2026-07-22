@@ -3671,6 +3671,40 @@ const DRAFT_COPILOT_CSS = `
   font-size: 10px;
 }
 
+.dc-report-path-card {
+  display: grid;
+  grid-template-columns: 82px minmax(90px, 0.3fr) minmax(0, 1fr);
+  gap: 9px;
+  align-items: center;
+  margin: 7px 0 8px;
+  padding: 8px 10px;
+  border: 1px solid rgba(243, 184, 63, 0.28);
+  border-radius: 9px;
+  background: linear-gradient(135deg, rgba(243, 184, 63, 0.12), rgba(20, 30, 45, 0.56));
+}
+
+.dc-report-path-card span {
+  color: #F3B83F;
+  font-size: 8px;
+  font-weight: 850;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.dc-report-path-card strong {
+  color: #EEF3F9;
+  font-size: 11px;
+}
+
+.dc-report-path-card small {
+  color: #AEB8BE;
+  font-size: 9px;
+}
+
+.dc-report-path-list {
+  margin-bottom: 9px;
+}
+
 .dc-report-strategy-list {
   display: grid;
   gap: 5px;

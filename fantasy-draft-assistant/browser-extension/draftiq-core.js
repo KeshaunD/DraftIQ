@@ -2364,6 +2364,187 @@
     };
   }
 
+  function getDraftPathPositions(players = [], limit = 5) {
+    const maxPicks = wholeNumber(limit, 5, 1, 12);
+
+    return (Array.isArray(players) ? players : [])
+      .map((player) =>
+        String(player?.pos || player?.position || "").toUpperCase()
+      )
+      .filter((position) => ["QB", "RB", "WR", "TE"].includes(position))
+      .slice(0, maxPicks);
+  }
+
+  function getDraftPathStrategyReport(
+    drafts = [],
+    currentUserPicks = [],
+    inputSettings = {},
+    replacementSnapshot = null,
+    options = {}
+  ) {
+    const settings = normalizeLeagueSettings(inputSettings);
+    const maxPathLength = wholeNumber(options.maxPathLength, 5, 1, 8);
+    const currentPositions = getDraftPathPositions(
+      currentUserPicks,
+      maxPathLength
+    );
+    const currentPath = currentPositions.join("-");
+
+    if (!currentPath) {
+      return {
+        currentPath: "",
+        currentPositions,
+        matchedDraftCount: 0,
+        nextPickSampleSize: 0,
+        nextPositionOptions: [],
+        bestNextPosition: null,
+      };
+    }
+
+    const completedDrafts = (Array.isArray(drafts) ? drafts : [])
+      .filter(
+        (draft) =>
+          draft?.completed &&
+          Array.isArray(draft.userPicks) &&
+          draft.userPicks.length > currentPositions.length
+      )
+      .map((draft) => {
+        const userPicks = draft.userPicks.filter(Boolean);
+        const positions = getDraftPathPositions(userPicks, maxPathLength + 1);
+
+        return {
+          draft,
+          userPicks,
+          positions,
+        };
+      })
+      .filter((entry) =>
+        currentPositions.every(
+          (position, index) => entry.positions[index] === position
+        )
+      );
+    const groupsByNextPosition = new Map();
+
+    completedDrafts.forEach((entry) => {
+      const nextPick = entry.userPicks[currentPositions.length];
+      const nextPosition = String(
+        nextPick?.pos || nextPick?.position || ""
+      ).toUpperCase();
+
+      if (!["QB", "RB", "WR", "TE"].includes(nextPosition)) return;
+
+      const lineup = getProjectedLineupValue(entry.userPicks, settings);
+      const totalVorp = replacementSnapshot
+        ? entry.userPicks.reduce((sum, player) => {
+            const vorp = getPlayerReplacementValue(
+              player,
+              replacementSnapshot
+            ).valueOverReplacement;
+
+            return sum + Math.max(0, vorp ?? 0);
+          }, 0)
+        : 0;
+      const group = groupsByNextPosition.get(nextPosition) || {
+        position: nextPosition,
+        sampleSize: 0,
+        starterProjectionTotal: 0,
+        totalVorpTotal: 0,
+        playerCounts: {},
+      };
+      const playerName = nextPick?.name || "Unknown player";
+
+      group.sampleSize += 1;
+      group.starterProjectionTotal += lineup.starterProjection;
+      group.totalVorpTotal += totalVorp;
+      group.playerCounts[playerName] = (group.playerCounts[playerName] || 0) + 1;
+      groupsByNextPosition.set(nextPosition, group);
+    });
+
+    const nextPickSampleSize = Array.from(groupsByNextPosition.values())
+      .reduce((sum, group) => sum + group.sampleSize, 0);
+    const nextPositionOptions = Array.from(groupsByNextPosition.values())
+      .map((group) => ({
+        position: group.position,
+        sampleSize: group.sampleSize,
+        probability: nextPickSampleSize
+          ? Number(((group.sampleSize / nextPickSampleSize) * 100).toFixed(1))
+          : 0,
+        averageStarterProjection:
+          group.starterProjectionTotal / group.sampleSize,
+        averageTotalVorp:
+          group.totalVorpTotal / group.sampleSize,
+        commonPlayers: Object.entries(group.playerCounts)
+          .map(([name, count]) => ({ name, count }))
+          .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name))
+          .slice(0, 3),
+      }))
+      .sort(
+        (a, b) =>
+          b.averageStarterProjection - a.averageStarterProjection ||
+          b.averageTotalVorp - a.averageTotalVorp ||
+          b.sampleSize - a.sampleSize
+      );
+    const qualifiedOptions = nextPositionOptions.filter(
+      (option) => option.sampleSize >= 2
+    );
+
+    return {
+      currentPath,
+      currentPositions,
+      matchedDraftCount: completedDrafts.length,
+      nextPickSampleSize,
+      nextPositionOptions,
+      bestNextPosition: qualifiedOptions[0] || nextPositionOptions[0] || null,
+    };
+  }
+
+  function getDraftPathPositionFitAdjustment(player, pathReport = {}) {
+    const position = String(player?.pos || player?.position || "").toUpperCase();
+    const best = pathReport?.bestNextPosition;
+
+    if (
+      !["QB", "RB", "WR", "TE"].includes(position) ||
+      !best ||
+      (pathReport?.matchedDraftCount || 0) < 2 ||
+      (pathReport?.nextPickSampleSize || 0) < 2
+    ) {
+      return 0;
+    }
+
+    const option = (pathReport.nextPositionOptions || [])
+      .find((entry) => entry.position === position);
+
+    if (!option) return 0;
+
+    const confidence =
+      clamp(
+        (pathReport.matchedDraftCount || 0) /
+          ((pathReport.matchedDraftCount || 0) + 8),
+        0,
+        1
+      ) *
+      clamp(
+        (pathReport.nextPickSampleSize || 0) /
+          ((pathReport.nextPickSampleSize || 0) + 6),
+        0,
+        1
+      );
+
+    if (option.position === best.position) {
+      return Number(clamp(2 + confidence * 7, 0, 8).toFixed(1));
+    }
+
+    const projectionRatio = best.averageStarterProjection
+      ? option.averageStarterProjection / best.averageStarterProjection
+      : 0;
+
+    if (projectionRatio >= 0.97) {
+      return Number(clamp(confidence * 3, 0, 3).toFixed(1));
+    }
+
+    return 0;
+  }
+
   function getMockDraftStrategyReport(
     drafts = [],
     inputSettings = {},
@@ -2535,6 +2716,9 @@
     getHistoricalDraftMetrics,
     getHistoricalAvailabilityAtPicks,
     getProjectedLineupValue,
+    getDraftPathPositions,
+    getDraftPathStrategyReport,
+    getDraftPathPositionFitAdjustment,
     getMockDraftStrategyReport,
     blendAvailabilityProbability,
   });

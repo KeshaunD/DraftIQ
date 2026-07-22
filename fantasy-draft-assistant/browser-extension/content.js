@@ -1761,6 +1761,52 @@
       : [];
   }
 
+  function getMyTeamDraftPicks() {
+    return getCurrentDraftPicks()
+      .map((pick) => {
+        const matchedPlayer =
+          getPlayerById(pick.playerId) ||
+          getPlayerById(pick.name);
+        const fallbackPlayer = {
+          id: pick.playerId,
+          playerId: pick.playerId,
+          name: pick.name,
+          pos: pick.pos,
+          position: pick.pos,
+          team: pick.team,
+        };
+        const player = matchedPlayer || fallbackPlayer;
+        const isMine = matchedPlayer
+          ? isPlayerOnMyTeam(matchedPlayer)
+          : playerDraftKeys(fallbackPlayer).some((key) =>
+              myTeamIds.has(String(key)) ||
+              myTeamIds.has(normalizeDraftKey(key))
+            );
+        const overall = numberOrNull(pick.overall);
+
+        if (!isMine || overall === null) return null;
+
+        return {
+          ...player,
+          overall,
+          sourcePick: pick,
+        };
+      })
+      .filter(Boolean)
+      .sort((a, b) => a.overall - b.overall);
+  }
+
+  function getStrategyDraftHistory() {
+    return mockAdpAnalytics.drafts.map((draft) => ({
+      ...draft,
+      userPicks: (Array.isArray(draft.userPicks) ? draft.userPicks : [])
+        .map((pick) =>
+          getPlayerById(pick.playerId || pick.name)
+        )
+        .filter(Boolean),
+    }));
+  }
+
   function getRecentDraftedPlayers(draftedCount, limit = 12) {
     return getCurrentDraftPicks()
       .filter((pick) => {
@@ -2386,6 +2432,10 @@
       context.availablePlayers,
       context.nextTurnGap
     );
+    const pathFitScore = Core.getDraftPathPositionFitAdjustment(
+      player,
+      context.currentPathReport
+    );
     const availabilityCurve = getPersonalAvailabilityCurve(
       player,
       context.upcomingUserPicks
@@ -2433,6 +2483,7 @@
         starterCompletionScore +
         benchAllocationScore +
         tierCliffScore +
+        pathFitScore +
         vorpScore +
         scoringAdjustment +
         projectionScore -
@@ -2458,6 +2509,7 @@
       completionAfterPick,
       benchAllocationScore,
       tierCliffScore,
+      pathFitScore,
       replacementValue,
       vorpScore,
       availabilityCurve,
@@ -2832,6 +2884,13 @@
       draftPlayers,
       leagueSettings
     );
+    const currentPathReport = Core.getDraftPathStrategyReport(
+      getStrategyDraftHistory(),
+      getMyTeamDraftPicks(),
+      leagueSettings,
+      replacementSnapshot,
+      { maxPathLength: 5 }
+    );
     const upcomingUserPicks = Core.getUpcomingUserPicks(
       recommendationPick,
       leagueSettings,
@@ -2870,6 +2929,7 @@
       stackTargets,
       handcuffTargets,
       replacementSnapshot,
+      currentPathReport,
       upcomingUserPicks,
       nextTurnGap,
       starterCompletionOutlook,
@@ -3746,18 +3806,18 @@
       draftPlayers,
       leagueSettings
     );
-    const strategyDrafts = mockAdpAnalytics.drafts.map((draft) => ({
-      ...draft,
-      userPicks: (Array.isArray(draft.userPicks) ? draft.userPicks : [])
-        .map((pick) =>
-          getPlayerById(pick.playerId || pick.name)
-        )
-        .filter(Boolean),
-    }));
+    const strategyDrafts = getStrategyDraftHistory();
     const mockStrategyReport = Core.getMockDraftStrategyReport(
       strategyDrafts,
       leagueSettings,
       replacementSnapshot
+    );
+    const currentPathReport = Core.getDraftPathStrategyReport(
+      strategyDrafts,
+      getMyTeamDraftPicks(),
+      leagueSettings,
+      replacementSnapshot,
+      { maxPathLength: 5 }
     );
     const recommendationCalibration =
       Core.getAvailabilityCalibrationReport(
@@ -3792,6 +3852,7 @@
       targetRosterSize,
       replacementSnapshot,
       mockStrategyReport,
+      currentPathReport,
       recommendationCalibration,
     };
   }
@@ -3913,6 +3974,30 @@
           })
           .join("")
       : `<div class="dc-report-empty-line">Exact pick values will appear as Yahoo board selections are recorded.</div>`;
+    const pathReport = report.currentPathReport || {};
+    const pathRows = pathReport.nextPositionOptions?.length
+      ? pathReport.nextPositionOptions
+          .slice(0, 4)
+          .map((option, index) => {
+            const commonPlayers = option.commonPlayers?.length
+              ? ` · common: ${option.commonPlayers
+                  .map((player) => escapeMarkup(player.name))
+                  .join(", ")}`
+              : "";
+
+            return `
+              <div class="dc-report-strategy-row${index === 0 ? " dc-report-strategy-best" : ""}">
+                <strong>${escapeMarkup(option.position)}</strong>
+                <span>${option.sampleSize} mock${option.sampleSize === 1 ? "" : "s"}</span>
+                <span>${formatNumber(option.averageStarterProjection, 1)} projected starter pts${commonPlayers}</span>
+                <span>${formatNumber(option.probability, 0)}% next</span>
+              </div>
+            `;
+          })
+          .join("")
+      : pathReport.currentPath
+        ? `<div class="dc-report-empty-line">No saved mocks have continued this exact path far enough yet.</div>`
+        : `<div class="dc-report-empty-line">Current path appears after DraftIQ detects your roster picks.</div>`;
     const strategyRows = report.mockStrategyReport.openings.length
       ? report.mockStrategyReport.openings
           .slice(0, 6)
@@ -4012,6 +4097,18 @@
 
       <section class="dc-report-strategies">
         <div class="dc-report-roster-title">Mock Strategy Lab</div>
+        <div class="dc-report-path-card">
+          <span>Current Path</span>
+          <strong>${pathReport.currentPath ? escapeMarkup(pathReport.currentPath) : "Building"}</strong>
+          <small>${
+            pathReport.currentPath && pathReport.bestNextPosition
+              ? `Best next historical fit: ${escapeMarkup(pathReport.bestNextPosition.position)} from ${pathReport.matchedDraftCount} matching mock${pathReport.matchedDraftCount === 1 ? "" : "s"}.`
+              : pathReport.currentPath
+                ? `${pathReport.matchedDraftCount || 0} matching mock${pathReport.matchedDraftCount === 1 ? "" : "s"} found so far.`
+                : "DraftIQ will compare your opener against saved mocks."
+          }</small>
+        </div>
+        <div class="dc-report-strategy-list dc-report-path-list">${pathRows}</div>
         <p>${
           report.mockStrategyReport.bestOpening
             ? `Best opening so far: <strong>${escapeMarkup(report.mockStrategyReport.bestOpening.opening)}</strong> across ${report.mockStrategyReport.draftCount} eligible completed mocks.`
