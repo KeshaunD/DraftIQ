@@ -1,0 +1,6 @@
+2026/07/07-15:11:36.085 c1ec Creating DB C:\Users\17012\documents\projects\fantasy-draft-assistant\.chrome-yahoo-manual\Default\WebStorage\22\IndexedDB\indexeddb.leveldb since it was missing.
+2026/07/07-15:11:36.089 c1ec Reusing MANIFEST C:\Users\17012\documents\projects\fantasy-draft-assistant\.chrome-yahoo-manual\Default\WebStorage\22\IndexedDB\indexeddb.leveldb/MANIFEST-000001
+2026/07/07-15:12:07.431 b3d0 Level-0 table #5: started
+2026/07/07-15:12:07.432 b3d0 Level-0 table #5: 480 bytes OK
+2026/07/07-15:12:07.434 b3d0 Delete type=0 #3
+2026/07/07-15:12:07.434 b3d0 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

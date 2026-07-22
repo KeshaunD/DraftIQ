@@ -1,0 +1,645 @@
+function init(){
+	console.dev = function(message) {
+		if (inPreviewENV()) {
+			//console.log(`%cIn Preview: ${message}`, 'color: green;');
+		}
+	}
+
+	gsap.registerPlugin(DrawSVGPlugin, MotionPathPlugin);
+
+	const width = 728;
+	const height = 90;
+	let tl;
+	let tenta_L = null;
+	let tenta_R = null;
+	const creative = myFT.instantAds.creative.toLowerCase();
+
+	// uncomment these lines in case extra variables are needed 
+	// let extraVars_obj = {};
+	// let extraVars_details = myFT.instantAds.extra_vars;
+	// parseExtraVars(extraVars_obj, extraVars_details);
+
+	IDsToVars();
+
+	// POPULATE IMAGES
+	insertSVG(holder_wifi, 'images/CMI26_1158550_X26_Minions_wifi.svg');
+	insertImage(bg, myFT.instantAds.bg, myFT.instantAds.bg_style, true);
+	insertImage(fg, myFT.instantAds.fg, myFT.instantAds.fg_style, true);
+	insertImage(logo, myFT.instantAds.logo, myFT.instantAds.logo_style, true);
+	insertImage(logo_ef, myFT.instantAds.logo_ef, myFT.instantAds.logo_ef_style, true);
+	insertImage(logo_minion, myFT.instantAds.logo_minion, myFT.instantAds.logo_minion_style, true);
+	insertImage(book, myFT.instantAds.img_elem1, myFT.instantAds.img_elem1_style, true);
+	insertImage(hero1, myFT.instantAds.img_elem4, myFT.instantAds.img_elem4_style, true);
+	insertImage(hero2, myFT.instantAds.img_elem5, myFT.instantAds.img_elem5_style, true);
+	insertImage(glow, myFT.instantAds.img_elem6, myFT.instantAds.img_elem6_style, true);
+
+	insertImage(ef_img, myFT.instantAds.ef_img, myFT.instantAds.ef_img_style, true);
+	insertImage(extra_img, myFT.instantAds.extra_img, myFT.instantAds.extra_img_style, true);
+
+	
+	// POPULATE COPY( and their styling if declared in manifest.js )
+	insertCopy(f1_copy, myFT.instantAds.f1_copy, myFT.instantAds.f1_copy_style);
+	insertCopy(f2_copy, myFT.instantAds.f2_copy, myFT.instantAds.f2_copy_style);
+	insertCopy(f3_copy, myFT.instantAds.f3_copy, myFT.instantAds.f3_copy_style);
+	insertCopy(f4_copy, myFT.instantAds.f4_copy, myFT.instantAds.f4_copy_style);
+	insertCopy(ef_copy, myFT.instantAds.ef_copy, myFT.instantAds.ef_copy_style);
+	insertCopy(disclaimer, myFT.instantAds.disclaimer, myFT.instantAds.disclaimer_style);
+	insertCopy(legal, myFT.instantAds.legal, myFT.instantAds.legal_style);
+	insertCopy(ctaCopy, myFT.instantAds.ctaCopy, myFT.instantAds.ctaCopy_style);
+
+	// POPULATE OFFER DETAILS
+	// insertCopy(offer_sideBar, myFT.instantAds.offer_sideBar, myFT.instantAds.offer_sideBar_style);
+	// insertCopy(offer_title, myFT.instantAds.offer_title, myFT.instantAds.offer_title_style);
+	// insertCopy(offer_dollarSign, myFT.instantAds.offer_dollarSign, myFT.instantAds.offer_dollarSign_style);
+	// insertCopy(offer_price, myFT.instantAds.offer_price, myFT.instantAds.offer_price_style);
+	// insertCopy(offer_cents, myFT.instantAds.offer_cents, myFT.instantAds.offer_cents_style);
+	// insertCopy(offer_terms, myFT.instantAds.offer_terms, myFT.instantAds.offer_terms_style);
+	// insertCopy(offer_agree, myFT.instantAds.offer_agree, myFT.instantAds.offer_agree_style);
+	// insertCopy(offer_boltOn_copy, myFT.instantAds.offer_boltOn_copy, myFT.instantAds.offer_boltOn_copy_style);
+	// insertImage(offer_boltOn_img, myFT.instantAds.offer_boltOn_img, myFT.instantAds.offer_boltOn_img_style, true);
+
+	// insertCopy(ef_offer_sideBar, myFT.instantAds.offer_sideBar, extraVars_obj.ef_offer_sideBar_style);
+	// insertCopy(ef_offer_title, extraVars_obj.ef_offer_title, extraVars_obj.ef_offer_title_style);
+	// insertCopy(ef_offer_dollarSign, myFT.instantAds.offer_dollarSign, extraVars_obj.ef_offer_dollarSign_style);
+	// insertCopy(ef_offer_price, myFT.instantAds.offer_price, extraVars_obj.ef_offer_price_style);
+	// insertCopy(ef_offer_terms, extraVars_obj.ef_offer_terms, extraVars_obj.ef_offer_terms_style);
+	// insertCopy(ef_offer_agree, extraVars_obj.ef_offer_agree, extraVars_obj.ef_offer_agree_style);
+	
+	
+	initClickTag();
+
+	// Preload all images before starting animation
+	function preloadImages(callback) {
+		const startTime = performance.now();
+		const imageUrls = [
+			myFT.instantAds.bg,
+			myFT.instantAds.logo,
+			myFT.instantAds.logo_ef,
+			myFT.instantAds.logo_minion,
+			myFT.instantAds.tentacleLeft,
+			myFT.instantAds.tentacleRight,
+			myFT.instantAds.img_elem1,
+			myFT.instantAds.img_elem2,
+			myFT.instantAds.img_elem3,
+			myFT.instantAds.img_elem4,
+			myFT.instantAds.img_elem5,
+			myFT.instantAds.img_elem6,
+			myFT.instantAds.img_elem7,
+			myFT.instantAds.tentacleRight,
+			myFT.instantAds.ef_img,
+			myFT.instantAds.extra_img,
+			myFT.instantAds.offer_boltOn_img,
+			"images/CMI26_1158550_X26_Minions_wifi.svg",
+		].filter(url => url && url !== '' && url !== 'images/blank.png');
+
+		let loadedCount = 0;
+		const totalImages = imageUrls.length;
+
+		if (totalImages === 0) {
+			console.dev('No images to preload');
+			callback();
+			return;
+		}
+
+		console.dev(`Starting to preload ${totalImages} images...`);
+
+		imageUrls.forEach(url => {
+			const img = new Image();
+			img.onload = img.onerror = function() {
+				loadedCount++;
+				if (loadedCount === totalImages) {
+					const endTime = performance.now();
+					const loadTime = ((endTime - startTime) / 1000).toFixed(2);
+					console.dev(`All ${totalImages} images loaded in ${loadTime}s`);
+					callback();
+				}
+			};
+			img.src = url;
+		});
+	}
+
+	myFT.on("load", function(){
+		preloadImages(function() {
+			wrapper.className = 'show';
+			// All images loaded, now start animation
+			initAnimation();
+			startAnimation();
+			fireReportingEvent();
+		});
+	});
+	
+	
+	function initAnimation() {
+
+		gsap.set([f3_copy, ctaBox, disclaimer, legal, extra_img, hero1, glow, holder_wifi, logo_ef, logo_minion, ctaBox, hero2], {alpha:0});
+		gsap.set([hero1, hero2, glow], {y:"+=0", transformOrigin:"50% 80%"});
+		gsap.set(hero1, {alpha:1});
+		gsap.set(tentacleLeft_holder, {x:-width * .9, y:0, transformOrigin:"0% 100%"});
+		gsap.set(tentacleRight_holder, {x:20, y:height, transformOrigin:"100% 100%"});
+		gsap.set(glow, {transformOrigin:"50% 100%"});
+		gsap.set(holder_minion, {transformOrigin:"50% 50%"});
+
+		gsap.set(holder_wifi, {x:218, y:-132, scale:.33});
+		
+		let f1_span_elems = document.querySelectorAll('#f1_copy span');
+		let f2_span_elems = document.querySelectorAll('#f2_copy span');
+		let ef_span_elems = document.querySelectorAll('#ef_copy span');
+
+		setPos(f1_span_elems);
+		setPos(f2_span_elems);
+		setPos(ef_span_elems);
+		
+
+		tl = gsap.timeline( {
+				delay:.5,
+				onComplete: onAnimationComplete
+			} );
+
+		tl.pause();
+			
+		// // frame 1
+		tl.add(() => {
+			pan();
+		}, 0);
+		tl.add(() => {
+			//tenta_L = moveTentacle(myFT.instantAds.img_elem2, 'tentacle_L_canvas', 3, .03, .05);
+			tenta_L = moveTentacle(myFT.instantAds.img_elem2, 'tentacle_L_canvas', 0, 0, 0);
+		}, 0);
+		tl.add(() => {
+			//tenta_R = moveTentacle(myFT.instantAds.img_elem3, 'tentacle_R_canvas', 4, .05, .04);
+			tenta_R = moveTentacle(myFT.instantAds.img_elem3, 'tentacle_R_canvas', 0, 0, 0);
+		}, .1);
+		
+		tl.to(tentacleLeft_holder, {duration:.6, x:0, y:0, scale:1, ease:"power3.inOut"});
+		tl.to(tentacleRight_holder, {duration:.6, x:0, y:0, scale:1, ease:"power3.inOut"}, '-=.6');
+		tl.to([hero1, hero2, glow], {duration:.6, y:0, ease:"power3.inOut", onStart:function(){
+			// gsap.set(hero2, {alpha:1, delay:.4});
+			// gsap.set(hero1, {alpha:0, delay:.4});
+		}}, "-=.6");
+		tl.to(glow, {duration:.6, alpha:0, ease:"power3.inOut"}, '-=.6');
+
+		tl.to(f1_span_elems, {duration:.6, alpha:1, stagger:"0", ease:"power3.inOut"}, "-=.6");
+
+
+		// frame 2
+		tl.to(tentacleLeft_holder, {duration:.6, x:-width * .5, y:90, ease:"power3.inOut", onStart:function(){
+			gsap.set(hero2, {alpha:1, delay:.3});
+			gsap.set(hero1, {alpha:0, delay:.3});
+			gsap.to([hero1, hero2], {duration:.6, y:"+=0", scaleY:1, ease:"power3.inOut"});
+		}}, '+=1.5');
+		tl.to(tentacleRight_holder, {duration:.6, x:width * .1, y:90, ease:"power3.inOut"}, '-=.6');
+		tl.add(() => {
+			tenta_L.stopTenta();
+			tenta_R.stopTenta();
+		});
+
+		tl.to(f1_copy, {duration:.6, alpha:0, ease:"power3.inOut", onStart:function(){
+			gsap.set(hero2, {alpha:0, delay:.2});
+			gsap.set(hero1, {alpha:1, delay:.2});
+			gsap.to([hero1, hero2, glow], {duration:.2, y:"+=0", scaleY:1, ease:"power3.inOut"});
+			gsap.to([hero1, hero2, glow], {duration:.2, y:0, scaleY:1, ease:"power3.inOut", delay:.2});
+		}}, "-=.6");
+
+		tl.to(glow, {duration:.6, alpha:1, ease:"power3.inOut", onComplete:function(){
+			gsap.to(glow, {duration:2, alpha:0, ease:"power3.inOut"});
+		}}, '-=.6');
+
+		tl.add(() => createPuff(holder_puff, 200, 40, 200, 40, 40), '-=.5');
+		tl.add(() => createSparks(holder_sparks, 60, 3, 120, 40, 30), '-=.5');
+		tl.add(() => animateWifi(), '-=.6');
+		
+		tl.to(f2_span_elems, {duration:.6, alpha:1, stagger:"0.1", ease:"power3.inOut"}, "-=.4");
+
+		tl.to(logo_minion, {duration:.6, alpha:1, ease:"power3.inOut"}, '-=.4');
+
+
+		// end frame
+		// tl.to(holder_minion, {duration:.8, height:0, y:height/2, ease:"power3.inOut"}, "+=1.5");
+		// tl.to(f2_copy, {duration:.6, alpha:0, ease:"power3.inOut"}, "-=.8");
+		// tl.to(elems, {duration:.8, y:-(height/2), ease:"power3.inOut"}, "-=.8");
+
+		// tl.to(ef_span_elems, {duration:.6, alpha:1, stagger:"0.3", ease:"power3.inOut"}, "-=.6");
+		// tl.to(ctaBox, {duration:.6, alpha:1, ease:"power3.inOut"}, "-=.4");
+		// tl.to(logo_ef, {duration:.6, alpha:1, ease:"power3.inOut"}, "-=.5");
+		// tl.to(legal, {duration:.6, alpha:1, ease:"power3.inOut"}, "-=.5");
+
+
+		tl.to([logo, holder_wifi, hero1, hero2, glow, book, logo_minion], {duration:.8, alpha:0, ease:"power3.inOut"}, "+=1.5");
+		tl.to(f2_copy, {duration:.6, alpha:0, ease:"power3.inOut"}, "-=.8");
+		tl.to(holder_fg, {duration:.8, width:728, height:90, x:-10, y:-8, borderRadius:0, ease:"power3.inOut"}, "-=.8");
+		
+		tl.to(ef_span_elems, {duration:.6, alpha:1, stagger:"0.3", ease:"power3.inOut"}, "-=.5");
+		tl.to(ctaBox, {duration:.6, alpha:1, ease:"power3.inOut"}, "-=.5");
+		tl.to(logo_ef, {duration:.6, alpha:1, ease:"power3.inOut"}, "-=.5");
+		tl.to(legal, {duration:.6, alpha:1, ease:"power3.inOut"}, "-=.5");
+
+	};
+
+
+	function setPos(_array){
+		for(let i = 0; i < _array.length; i ++){
+			gsap.set(_array[i], {alpha:0})
+		}
+	}
+
+	function moveTentacle(_img, _canvas, _waveAmp, _waveLen, _speed){
+    	const canvas = document.getElementById(_canvas);
+		const ctx = canvas.getContext("2d");
+
+		const img = new Image();
+		img.src = _img;
+
+		//img.crossOrigin = "anonymous";
+
+		img.onload = () => {
+		  canvas.width = img.width / 2;
+		  canvas.height = img.height / 2;
+		  animate();
+		};
+
+		let time = 0;
+		let animationId = null;
+
+		function animate() {
+
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			// const waveAmplitude = 8;
+			// const waveLength = 0.02;
+			// const speed = 0.04;
+
+			const waveAmplitude = _waveAmp;
+			const waveLength = _waveLen;
+			const speed = _speed;
+
+			for (let y = 0; y < canvas.height; y++) {
+				const offsetX = Math.sin((y * waveLength) + time) * waveAmplitude;
+
+				ctx.drawImage(
+					img,
+					0, y * 2, img.width, 2,
+					offsetX, y, canvas.width, 1
+					);
+			}
+
+			time += speed;
+			animationId = requestAnimationFrame(animate);
+		}
+
+		function stopTenta() {
+			if (animationId !== null) {
+		    	cancelAnimationFrame(animationId);
+		      	animationId = null;
+		    }
+		}
+
+		return {
+			stopTenta
+		};
+	};
+
+	function createPuff(_holder, _qty, _puffSize, _spanX, _spanY, _spreadY){
+
+		gsap.set(_holder, {x:297, y:10, alpha:0});
+		gsap.to(_holder, {duration:.4, alpha:1, ease:"power3.inOut"});
+
+		for(let i = 0; i < _qty; i ++){
+			const _p = document.createElement('div');
+			_p.style.width = _puffSize + 'px';
+			_p.style.height = _puffSize + 'px';
+			_p.style.backgroundImage = "radial-gradient(circle at center, rgba(181, 152, 255, 50) 0%, rgba(118, 100, 255, 0) 90%)";
+			_p.style.borderRadius = _puffSize + 'px'
+			_p.style.position = 'absolute';
+
+			gsap.set(_p, {x:-_spanX + Math.random()*(_spanX * 2) - (_puffSize/2), y:Math.random()*_spanY});
+			gsap.to(_p, {duration:1 + Math.random()*.5, x:"+=" + (-60 + Math.random()*120), y:"+=" + (-_spreadY + Math.random()*(_spreadY * 2)), alpha:0, scale:.3 + Math.random()*.5});
+
+			_holder.append(_p);
+		}
+	};
+
+	function createSparks(_holder, _qty, _sparkSize, _spanX, _spanY, _spreadY){
+
+		gsap.set(_holder, {x:297, y:10, alpha:0});
+		gsap.to(_holder, {duration:.3, alpha:1, ease:"power3.inOut"});
+
+		for(let i = 0; i < _qty; i ++){
+			const _p = document.createElement('div');
+			_p.style.width = _sparkSize + 'px';
+			_p.style.height = _sparkSize + 'px';
+			_p.style.backgroundColor = "#fff";
+			_p.style.borderRadius = _sparkSize + 'px'
+			_p.style.position = 'absolute';
+
+			gsap.set(_p, {x:(-_spanY + Math.random()*(_spanX * 2)) - (_sparkSize/2), y:Math.random()*_spanY});
+			gsap.to(_p, {duration:1 + (Math.random()*2), x:"+=" + (-120 + Math.random()*240), y:"+=" + (-(_spreadY * .2) + Math.random()*_spreadY), alpha:0, scale:.3 + Math.random()*.3});
+
+			_holder.append(_p);
+		}
+	}
+
+	function animateWifi(){
+		gsap.set(holder_wifi, {alpha:1});
+		let h_wifi = document.getElementById('svg_holder_wifi');
+		let svg_wifi = h_wifi.getSVGDocument();
+		let wifi_bars = svg_wifi.getElementsByTagName('image');
+
+		gsap.set(wifi_bars, {alpha:0, y:"+=50"});
+		gsap.to(wifi_bars, {duration:.8, alpha:1, y:"-=50", stagger:"0.1", ease:"power3.inOut"})
+
+	}
+
+	function pan(){
+		gsap.to(fg, {duration:6.2, y:"-=" + (360 - height), ease:"Linear.none"});
+	}
+
+
+	function IDsToVars(){
+		let allElements = document.getElementsByTagName("*");
+
+		for (let q = 0; q<allElements.length; q++){
+			let el = allElements[q];
+			if (el.id){
+				window[el.id]=document.getElementById(el.id);
+				el.style.position = "absolute";
+				
+			}
+		}
+	};
+
+	function initClickTag () {
+
+		myFT.applyClickTag(wrapper, 1);
+
+		// wrapper.onmouseover = function(){
+		// 	if(endFrameReached === true){
+		// 		TweenMax.to(ctaOver, .1, {alpha:1});
+		// 	}
+		// };
+
+		// wrapper.onmouseout = function(){
+		// 	TweenMax.to(ctaOver, .1, {alpha:0});
+		// }
+
+	};
+
+	function insertCopy(_target, _copy, _style){
+
+		let _breakStr = _style.split(',');
+		let _len = _breakStr.length;
+
+		_target.innerHTML = _copy;
+
+		let _styleValue;
+
+		for(let i = 0; i < _len; i ++){
+
+			let _a;
+
+			if(_target === ctaCopy){
+
+				if(_breakStr[i].search('posX:') > -1){
+
+					_a = _breakStr[i].indexOf(':');
+					_styleValue = _breakStr[i].slice(_a + 1);
+					//_target.style.left = _styleValue + 'px';
+					TweenMax.set(_target, {x:parseInt(_styleValue)});
+					// TweenMax.set(gleamHolder, {x:parseInt(_styleValue)});
+
+				}else if(_breakStr[i].search('posY:') > -1){
+					
+					_a = _breakStr[i].indexOf(':');
+					_styleValue = _breakStr[i].slice(_a + 1);
+					//_target.style.top = _styleValue + 'px';
+					TweenMax.set(_target, {y:parseInt(_styleValue)});
+					// TweenMax.set(gleamHolder, {y:parseInt(_styleValue)});
+					
+				
+				}
+
+			}else{
+
+				if(_breakStr[i].search('posX:') > -1){
+
+					_a = _breakStr[i].indexOf(':');
+					_styleValue = _breakStr[i].slice(_a + 1);
+					//_target.style.left = _styleValue + 'px';
+					TweenMax.set([_target], {x:parseInt(_styleValue)});
+					
+
+				}else if(_breakStr[i].search('posY:') > -1){
+					
+					_a = _breakStr[i].indexOf(':');
+					_styleValue = _breakStr[i].slice(_a + 1);
+					//_target.style.top = _styleValue + 'px';
+					TweenMax.set(_target, {y:parseInt(_styleValue)})
+				
+				}
+
+			}
+
+			if(_breakStr[i].search('fontSize:') > -1){
+				
+				_a = _breakStr[i].indexOf(':');
+				_styleValue = _breakStr[i].slice(_a + 1);
+				_target.style.fontSize = _styleValue + "px";
+			
+			}else if(_breakStr[i].search('lineHeight:') > -1){
+				
+				_a = _breakStr[i].indexOf(':');
+				_styleValue = _breakStr[i].slice(_a + 1);
+				_target.style.lineHeight = _styleValue + "px";
+			
+			}else if(_breakStr[i].search('width:') > -1){
+				
+				_a = _breakStr[i].indexOf(':');
+				_styleValue = _breakStr[i].slice(_a + 1);
+				_target.style.width = _styleValue + 'px';
+			
+			}else if(_breakStr[i].search('height:') > -1){
+				
+				_a = _breakStr[i].indexOf(':');
+				_styleValue = _breakStr[i].slice(_a + 1);
+				_target.style.height = _styleValue + 'px';
+			
+			}else if(_breakStr[i].search('fontColor:') > -1){
+				
+				_a = _breakStr[i].indexOf(':');
+				_styleValue = _breakStr[i].slice(_a + 1);
+				_target.style.color = _styleValue;
+			
+			}else if(_breakStr[i].search('shadow:') > -1){
+				
+				_a = _breakStr[i].indexOf(':');
+				_styleValue = _breakStr[i].slice(_a + 1);
+				_target.style.textShadow = _styleValue;
+			
+			}else if(_breakStr[i].search('bgColor:') > -1){
+				
+				_a = _breakStr[i].indexOf(':');
+				_styleValue = _breakStr[i].slice(_a + 1);
+				_target.style.backgroundColor = _styleValue;
+			
+			}else if(_breakStr[i].search('letterSpacing') > -1){
+
+				_a = _breakStr[i].indexOf(':');
+				_styleValue = _breakStr[i].slice(_a + 1);
+				_target.style.letterSpacing = _styleValue + 'px';
+
+			}else if(_breakStr[i].search('textAlign') > -1){
+
+				_a = _breakStr[i].indexOf(':');
+				_styleValue = _breakStr[i].slice(_a + 1);
+				_target.style.textAlign = _styleValue;
+
+			}else if(_breakStr[i].search('fontFamily') > -1){
+				_a = _breakStr[i].indexOf(':');
+				_styleValue = _breakStr[i].slice(_a + 1);
+				_target.style.fontFamily = _styleValue;
+			
+			}else if(_breakStr[i].search('borderRadius') > -1){
+				_a = _breakStr[i].indexOf(':');
+				_styleValue = _breakStr[i].slice(_a + 1);
+				_target.style.borderRadius = _styleValue + 'px';
+			}
+
+		}
+
+	}
+
+	function insertImage(_target, _img, _imgStyle, _isBackground){
+		if(_isBackground === true){
+			// _target.style.width = width + 'px';
+			// _target.style.height = height + 'px';
+			_target.style.backgroundSize = 'contain';
+			_target.style.backgroundImage = "url('" + _img + "')";
+		}else{
+			_target.innerHTML = '<img src="' + _img + '" />';
+		}
+
+		let _img_breakStr = _imgStyle.split(',');
+		let _img_len = _img_breakStr.length;
+
+		let _img_styleValue;
+
+		for(let i = 0; i < _img_len; i ++){
+
+			let _a;
+
+			if(_img_breakStr[i].search('scale:') > -1){
+				
+				_a = _img_breakStr[i].indexOf(':');
+				_img_styleValue = _img_breakStr[i].slice(_a + 1);
+				TweenMax.set(_target, {scale:_img_styleValue});
+			
+			}else if(_img_breakStr[i].search('posX:') > -1){
+				
+				_a = _img_breakStr[i].indexOf(':');
+				_img_styleValue = _img_breakStr[i].slice(_a + 1);
+				TweenMax.set(_target, {x:_img_styleValue});
+				
+			}else if(_img_breakStr[i].search('posY:') > -1){
+				
+				_a = _img_breakStr[i].indexOf(':');
+				_img_styleValue = _img_breakStr[i].slice(_a + 1);
+				TweenMax.set(_target, {y:_img_styleValue});
+
+			}else if(_img_breakStr[i].search('width:') > -1){
+				
+				_a = _img_breakStr[i].indexOf(':');
+				_img_styleValue = _img_breakStr[i].slice(_a + 1);
+				TweenMax.set(_target, {width:_img_styleValue});
+
+			}else if(_img_breakStr[i].search('height:') > -1){
+				
+				_a = _img_breakStr[i].indexOf(':');
+				_img_styleValue = _img_breakStr[i].slice(_a + 1);
+				TweenMax.set(_target, {height:_img_styleValue});
+
+			}
+
+		}
+			
+	}
+
+	function insertSVG(_target, _img){
+		_target.innerHTML = '<object id="svg_' + _target.id +'" data="' + _img +  '" type="image/svg+xml"></object>';
+	}
+
+	function startAnimation(){
+		// Code for animation		
+		tl.play();
+	};
+
+	function onAnimationComplete(){
+		// Log duration of timeline
+		console.log( 'Animation Duration: ' + tl.time() + 's' );
+		endFrameReached = true;
+	};
+
+
+	// in case new variable columns is needed but feed data is already set 
+	// uses the 'extra_vars' object in manifest.js
+	function parseExtraVars(_objHolder, _extraVars) {
+		if (typeof _extraVars !== 'string') {
+			throw new Error('Invalid input: _extraVars must be a string');
+		}
+
+		let properties = _extraVars.split(';');
+		properties.forEach(property => {
+			let [key, ...valueParts] = property.split(':');
+			if (key && valueParts.length > 0) {
+				key = key.trim();
+				let value = valueParts.join(':').trim();
+				if (key && value) {
+					_objHolder[key] = value;
+				};
+				//console.log(key + " : " + value);
+			}
+		});
+	};	
+
+	function fireReportingEvent() {
+        let reportingDimensions = [
+            myFT.instantAds.offerPrice_reporting,
+            myFT.instantAds.cta_reporting,
+            myFT.instantAds.offer_reporting,
+        ];
+        let trimmedReportingDimensions = reportingDimensions.map((s) => s.trim());
+        let validReportingDimension = trimmedReportingDimensions.every(
+            (s) => s.length > 0
+        );
+        let reportingLabel = trimmedReportingDimensions.join("_");
+        if (validReportingDimension) {
+            Tracker.impressionTrackEvent(reportingLabel);
+        }
+        // For QA and Dev
+        if (inPreviewENV()) {
+            logToConsole(validReportingDimension, reportingLabel, reportingDimensions)
+        }
+
+
+    }
+
+    function logToConsole(valid, label, dimensions) {
+        if (valid) {
+            console.log("Fired FT Product and Valid Reporting Label: "+ label);
+            console.table({"FT_product": {"Offer Price": dimensions[0], "CTA": dimensions[1], "Offer Type": dimensions[2]}})
+        } else {
+            console.warn("Did not fire FT Product and Invalid Reporting Lable: " + label)
+            console.table({"FT_product": {"Offer Price": dimensions[0], "CTA": dimensions[1], "Offer Type": dimensions[2]}})
+        }
+    }
+
+    function inPreviewENV() {
+        if (window.document.referrer.includes("creativepreview.flashtalking.net") 
+            || window.parent.document.referrer.includes("creativepreview.flashtalking.net") 
+            || document.location.hostname == ''
+            || document.location.hostname == 'localhost'
+            || document.location.hostname == '127.0.0.1') {
+            return true
+        } else {
+            return false
+        }
+    }
+
+}

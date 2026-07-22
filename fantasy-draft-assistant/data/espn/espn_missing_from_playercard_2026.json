@@ -1,0 +1,3221 @@
+{
+  "totalPlayers": 1089,
+  "requestedEspnIds": 944,
+  "returnedPlayercards": 734,
+  "projections": 518,
+  "adp": 734,
+  "playersWithoutEspnId": [
+    {
+      "espn_id": null,
+      "name": "Aaron Burbridge",
+      "team": "SF",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2016,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Amara Darboh",
+      "team": "SEA",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2017,
+      "draft_round": 3,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Amari Rodgers",
+      "team": "GB",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2021,
+      "draft_round": 3,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Andy Isabella",
+      "team": "ARI",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2019,
+      "draft_round": 2,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Anthony Miller",
+      "team": "CHI",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2018,
+      "draft_round": 2,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Anthony Schwartz",
+      "team": "CLE",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2021,
+      "draft_round": 3,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Antoine Green",
+      "team": "DET",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2023,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Antonio Callaway",
+      "team": "CLE",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2018,
+      "draft_round": 4,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Antonio Gandy-Golden",
+      "team": "WAS",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2020,
+      "draft_round": 4,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Antonio Gibson",
+      "team": "WAS",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2020,
+      "draft_round": 3,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "ArDarius Stewart",
+      "team": "NYJ",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2017,
+      "draft_round": 3,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Auden Tate",
+      "team": "CIN",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2018,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Austin Proehl",
+      "team": "BUF",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2018,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Bo Melton",
+      "team": "SEA",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2022,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Braxton Miller",
+      "team": "HOU",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2016,
+      "draft_round": 3,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Bryan Edwards",
+      "team": "LV",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2020,
+      "draft_round": 3,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Carlos Henderson",
+      "team": "DEN",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2017,
+      "draft_round": 3,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Casey Washington",
+      "team": "ATL",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2024,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Chad Hansen",
+      "team": "NYJ",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2017,
+      "draft_round": 4,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Chad Williams",
+      "team": "ARI",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2017,
+      "draft_round": 3,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Charone Peake",
+      "team": "NYJ",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2016,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Chase Claypool",
+      "team": "PIT",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2020,
+      "draft_round": 2,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Chris Moore",
+      "team": "BAL",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2016,
+      "draft_round": 4,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Cody Core",
+      "team": "CIN",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2016,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Collin Johnson",
+      "team": "JAX",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2020,
+      "draft_round": 5,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Cornell Powell",
+      "team": "KC",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2021,
+      "draft_round": 5,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Curtis Samuel",
+      "team": "CAR",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2017,
+      "draft_round": 2,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "D'Wayne Eskridge",
+      "team": "SEA",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2021,
+      "draft_round": 2,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "DJ Chark Jr.",
+      "team": "JAX",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2018,
+      "draft_round": 2,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "DaeSean Hamilton",
+      "team": "DEN",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2018,
+      "draft_round": 4,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Damion Ratley",
+      "team": "CLE",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2018,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Daniel Braverman",
+      "team": "CHI",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2016,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Dante Pettis",
+      "team": "SF",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2018,
+      "draft_round": 2,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Daurice Fountain",
+      "team": "IND",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2018,
+      "draft_round": 5,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "David Bell",
+      "team": "CLE",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2022,
+      "draft_round": 3,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Dax Milne",
+      "team": "WAS",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2021,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Dazz Newsome",
+      "team": "CHI",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2021,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "DeAngelo Yancey",
+      "team": "GB",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2017,
+      "draft_round": 5,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "DeMarcus Ayers",
+      "team": "PIT",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2016,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Dede Westbrook",
+      "team": "JAX",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2017,
+      "draft_round": 4,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Deebo Samuel",
+      "team": "SF",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2019,
+      "draft_round": 2,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Deon Cain",
+      "team": "IND",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2018,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Devin Fuller",
+      "team": "ATL",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2016,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Devin Lucien",
+      "team": "NE",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2016,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Dez Fitzpatrick",
+      "team": "TEN",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2021,
+      "draft_round": 4,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Dezmon Patmon",
+      "team": "IND",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2020,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Dillon Mitchell",
+      "team": "MIN",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2019,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Diontae Johnson",
+      "team": "PIT",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2019,
+      "draft_round": 3,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Donovan Peoples-Jones",
+      "team": "CLE",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2020,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Dylan Cantrell",
+      "team": "LAC",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2018,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Equanimeous St. Brown",
+      "team": "GB",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2018,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Frank Darby",
+      "team": "ATL",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2021,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Freddie Swain",
+      "team": "SEA",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2020,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Gabriel Davis",
+      "team": "BUF",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2020,
+      "draft_round": 4,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Gary Jennings Jr.",
+      "team": "SEA",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2019,
+      "draft_round": 4,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Grant DuBose",
+      "team": "GB",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2023,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Hunter Renfrow",
+      "team": "LV",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2019,
+      "draft_round": 5,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Isaiah Coulter",
+      "team": "HOU",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2020,
+      "draft_round": 5,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Isaiah Ford",
+      "team": "MIA",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2017,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Isaiah McKenzie",
+      "team": "DEN",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2017,
+      "draft_round": 5,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "J'Mon Moore",
+      "team": "GB",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2018,
+      "draft_round": 4,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "JJ Arcega-Whiteside",
+      "team": "PHI",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2019,
+      "draft_round": 2,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Jaelon Darden",
+      "team": "TB",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2021,
+      "draft_round": 4,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Jakeem Grant",
+      "team": "MIA",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2016,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Jaleel Scott",
+      "team": "BAL",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2018,
+      "draft_round": 4,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Jalen Camp",
+      "team": "JAX",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2021,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "James Proche II",
+      "team": "BAL",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2020,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "James Washington",
+      "team": "PIT",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2018,
+      "draft_round": 2,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Javon Baker",
+      "team": "NE",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2024,
+      "draft_round": 4,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Javon Wims",
+      "team": "CHI",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2018,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Jehu Chesson",
+      "team": "KC",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2017,
+      "draft_round": 4,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Jermaine Burton",
+      "team": "CIN",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2024,
+      "draft_round": 3,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Joe Reed",
+      "team": "LAC",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2020,
+      "draft_round": 5,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "John Hightower",
+      "team": "PHI",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2020,
+      "draft_round": 5,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "John Ursua",
+      "team": "SEA",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2019,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Jordan Lasley",
+      "team": "BAL",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2018,
+      "draft_round": 5,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Jordan Payton",
+      "team": "CLE",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2016,
+      "draft_round": 5,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Josh Malone",
+      "team": "CIN",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2017,
+      "draft_round": 4,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Josh Palmer",
+      "team": "LAC",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2021,
+      "draft_round": 3,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Josh Reynolds",
+      "team": "LAR",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2017,
+      "draft_round": 4,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Juwann Winfree",
+      "team": "DEN",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2019,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "K.J. Hill",
+      "team": "LAC",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2020,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "KJ Hamler",
+      "team": "DEN",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2020,
+      "draft_round": 2,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Kadarius Toney",
+      "team": "NYG",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2021,
+      "draft_round": 1,
+      "college": "Florida",
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Kaden Prather",
+      "team": "BUF",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2025,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Kawaan Baker",
+      "team": "NO",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2021,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "KeeSean Johnson",
+      "team": "ARI",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2019,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Keke Coutee",
+      "team": "HOU",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2018,
+      "draft_round": 4,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Kelvin Harmon",
+      "team": "WAS",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2019,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Kenny Golladay",
+      "team": "DET",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2017,
+      "draft_round": 3,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Kenny Lawler",
+      "team": "SEA",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2016,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Kolby Listenbee",
+      "team": "BUF",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2016,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Kyle Philips",
+      "team": "TEN",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2022,
+      "draft_round": 5,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Laviska Shenault Jr.",
+      "team": "JAX",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2020,
+      "draft_round": 2,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Leonte Carroo",
+      "team": "MIA",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2016,
+      "draft_round": 3,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Lynn Bowden Jr.",
+      "team": "LV",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2020,
+      "draft_round": 3,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Malachi Dupre",
+      "team": "GB",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2017,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Malcolm Mitchell",
+      "team": "NE",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2016,
+      "draft_round": 4,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Malcolm Perry",
+      "team": "MIA",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2020,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Marcell Ateman",
+      "team": "LV",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2018,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Marcus Green",
+      "team": "ATL",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2019,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Marquez Stevenson",
+      "team": "BUF",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2021,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Michael Gallup",
+      "team": "DAL",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2018,
+      "draft_round": 3,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Michael Thomas",
+      "team": "NO",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2016,
+      "draft_round": 2,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Michael Woods II",
+      "team": "CLE",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2022,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Mike Strachan",
+      "team": "IND",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2021,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Mike Thomas",
+      "team": "LAR",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2016,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Miles Boykin",
+      "team": "BAL",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2019,
+      "draft_round": 3,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Montrell Washington",
+      "team": "DEN",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2022,
+      "draft_round": 5,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Moritz Boehringer",
+      "team": "MIN",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2016,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Noah Brown",
+      "team": "DAL",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2017,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Olabisi Johnson",
+      "team": "MIN",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2019,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Parris Campbell",
+      "team": "IND",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2019,
+      "draft_round": 2,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Pharoh Cooper",
+      "team": "LAR",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2016,
+      "draft_round": 4,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Quintez Cephus",
+      "team": "DET",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2020,
+      "draft_round": 5,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Racey McMath",
+      "team": "TEN",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2021,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Rashard Higgins",
+      "team": "CLE",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2016,
+      "draft_round": 5,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Ray-Ray McCloud",
+      "team": "BUF",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2018,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Ricardo Louis",
+      "team": "CLE",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2016,
+      "draft_round": 4,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Richie James",
+      "team": "SF",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2018,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Riley Ridley",
+      "team": "CHI",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2019,
+      "draft_round": 4,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Robert Davis",
+      "team": "WAS",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2017,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Rodney Adams",
+      "team": "MIN",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2017,
+      "draft_round": 5,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Rondale Moore",
+      "team": "ARI",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2021,
+      "draft_round": 2,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Russell Gage",
+      "team": "ATL",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2018,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Ryan Switzer",
+      "team": "DAL",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2017,
+      "draft_round": 4,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Seth Williams",
+      "team": "DEN",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2021,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Shelton Gibson",
+      "team": "PHI",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2017,
+      "draft_round": 5,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Shi Smith",
+      "team": "CAR",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2021,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Stacy Coley",
+      "team": "MIN",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2017,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Sterling Shepard",
+      "team": "NYG",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2016,
+      "draft_round": 2,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Tajae Sharpe",
+      "team": "TEN",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2016,
+      "draft_round": 5,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Taywan Taylor",
+      "team": "TEN",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2017,
+      "draft_round": 3,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Terry Godwin",
+      "team": "CAR",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2019,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Tommy Mellott",
+      "team": "LV",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2025,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Travis Fulgham",
+      "team": "DET",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2019,
+      "draft_round": 6,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Tre Nixon",
+      "team": "NE",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2021,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Tre'Quan Smith",
+      "team": "NO",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2018,
+      "draft_round": 3,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Trent Taylor",
+      "team": "SF",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2017,
+      "draft_round": 5,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Trevor Davis",
+      "team": "GB",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2016,
+      "draft_round": 5,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Trey Quinn",
+      "team": "WAS",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2018,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Tyler Boyd",
+      "team": "CIN",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2016,
+      "draft_round": 2,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Tyreek Hill",
+      "team": "KC",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2016,
+      "draft_round": 5,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Tyrie Cleveland",
+      "team": "DEN",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2020,
+      "draft_round": 7,
+      "college": null,
+      "active": true
+    },
+    {
+      "espn_id": null,
+      "name": "Zay Jones",
+      "team": "BUF",
+      "team_name": "",
+      "position": "WR",
+      "jersey": null,
+      "draft_year": 2017,
+      "draft_round": 2,
+      "college": null,
+      "active": true
+    }
+  ],
+  "requestedButNotReturned": [
+    {
+      "espnId": 4429053,
+      "name": "AJ Henning",
+      "team": "MIA",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4691138,
+      "name": "Aaron Anderson",
+      "team": "CLE",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4432374,
+      "name": "Ahmani Marshall",
+      "team": "CLE",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4612558,
+      "name": "Anderson Castle",
+      "team": "IND",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5093923,
+      "name": "Andrew Armstrong",
+      "team": "KC",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4685385,
+      "name": "Anthony Hankerson",
+      "team": "MIA",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4709392,
+      "name": "Anthony Tyus III",
+      "team": "CAR",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4360317,
+      "name": "B.T. Potter",
+      "team": "TB",
+      "position": "PK",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5346736,
+      "name": "Ben Patterson",
+      "team": "JAX",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4594319,
+      "name": "Brady Boyd",
+      "team": "JAX",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4877738,
+      "name": "Brock Rechsteiner",
+      "team": "NO",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4432705,
+      "name": "Bryson Green",
+      "team": "ARI",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4602969,
+      "name": "Bryson Nesbit",
+      "team": "MIN",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5081999,
+      "name": "CJ Donaldson",
+      "team": "NO",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4569001,
+      "name": "Cam Ross",
+      "team": "DEN",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4808759,
+      "name": "Camden Brown",
+      "team": "DAL",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5295981,
+      "name": "Cameron Dorner",
+      "team": "NE",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4702120,
+      "name": "Carson Towt",
+      "team": "IND",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4362260,
+      "name": "Carter Bradley",
+      "team": "JAX",
+      "position": "QB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4881826,
+      "name": "Cash Jones",
+      "team": "ATL",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4430185,
+      "name": "Caullin Lacy",
+      "team": "NYJ",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4695223,
+      "name": "Chase Curtis",
+      "team": "NYJ",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4714388,
+      "name": "Chase Roberts",
+      "team": "LV",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4430893,
+      "name": "Chip Trayanum",
+      "team": "NYJ",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4431334,
+      "name": "Chris Hilton Jr.",
+      "team": "WSH",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5086529,
+      "name": "Cody Hardy",
+      "team": "NO",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5192448,
+      "name": "Cole Burgess",
+      "team": "PIT",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4694074,
+      "name": "Coleman Bennett",
+      "team": "CHI",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4426444,
+      "name": "Connor Bazelak",
+      "team": "TB",
+      "position": "QB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4433901,
+      "name": "Corey Rucker",
+      "team": "LV",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5081997,
+      "name": "Cortez Braham Jr.",
+      "team": "BAL",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4565172,
+      "name": "Courtney Jackson",
+      "team": "TEN",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4710711,
+      "name": "DJ Rogers",
+      "team": "DAL",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4429020,
+      "name": "DJ Uiagalelei",
+      "team": "LAC",
+      "position": "QB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5153056,
+      "name": "DT Sheffield",
+      "team": "NYJ",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4838696,
+      "name": "Dae'Quan Wright",
+      "team": "PHI",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4876378,
+      "name": "Damon Bankston",
+      "team": "NYG",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4608858,
+      "name": "Dan Villari",
+      "team": "LAR",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4685424,
+      "name": "Dane Key",
+      "team": "DEN",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4878293,
+      "name": "Daniel Sobkowicz",
+      "team": "HOU",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5153650,
+      "name": "Davon Booth",
+      "team": "CLE",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4428763,
+      "name": "Dayton Wade",
+      "team": "BAL",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5082269,
+      "name": "Dean Connors",
+      "team": "LAR",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4875613,
+      "name": "Dean Patterson",
+      "team": "TB",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4035403,
+      "name": "Denzel Mims",
+      "team": "DAL",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4709678,
+      "name": "Devonte Ross",
+      "team": "LAC",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5084180,
+      "name": "Diego Pavia",
+      "team": "BAL",
+      "position": "QB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4712579,
+      "name": "Dillon Bell",
+      "team": "MIN",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4384852,
+      "name": "Dohnte Meyers",
+      "team": "CIN",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4430689,
+      "name": "Dominic Richardson",
+      "team": "DAL",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5082424,
+      "name": "Dominic Zvada",
+      "team": "NYG",
+      "position": "PK",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4596347,
+      "name": "Donaven McCulley",
+      "team": "MIA",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4565297,
+      "name": "Dontae Fleming",
+      "team": "MIN",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4427971,
+      "name": "Dontae McMillan",
+      "team": "BAL",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5081335,
+      "name": "Drew Stevens",
+      "team": "WSH",
+      "position": "PK",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4686093,
+      "name": "E.J. Williams Jr.",
+      "team": "LV",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4608533,
+      "name": "EJ Horton Jr.",
+      "team": "IND",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4430825,
+      "name": "EJ Smith",
+      "team": "KC",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4430288,
+      "name": "Eli Pancol",
+      "team": "IND",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4876311,
+      "name": "Elijah Tau-Tolliver",
+      "team": "BAL",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4713277,
+      "name": "Eric Rivers Jr.",
+      "team": "TB",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5151528,
+      "name": "Ethan Conner",
+      "team": "JAX",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5082633,
+      "name": "Evan Svoboda",
+      "team": "LAC",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4429847,
+      "name": "Garrett Greene",
+      "team": "TB",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4429115,
+      "name": "Gee Scott Jr.",
+      "team": "NYJ",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4691889,
+      "name": "Greg Desrosiers Jr.",
+      "team": "LAC",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 3917940,
+      "name": "Hakeem Butler",
+      "team": "DEN",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4814930,
+      "name": "Hank Beatty",
+      "team": "TEN",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4699354,
+      "name": "Harrison Wallace III",
+      "team": "ARI",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5150662,
+      "name": "Hayden Large",
+      "team": "CHI",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4428993,
+      "name": "Haynes King",
+      "team": "CAR",
+      "position": "QB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4565358,
+      "name": "Hunter Dekkers",
+      "team": "NO",
+      "position": "QB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4579554,
+      "name": "Ian Wheeler",
+      "team": "BUF",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4713118,
+      "name": "J'Mari Taylor",
+      "team": "JAX",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4635009,
+      "name": "J. Michael Sturdivant",
+      "team": "GB",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4695800,
+      "name": "JJ Galbreath",
+      "team": "PIT",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4685183,
+      "name": "JP Richardson",
+      "team": "CHI",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4430270,
+      "name": "Ja'Mori Maclin",
+      "team": "BUF",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4876995,
+      "name": "Ja'seem Reed",
+      "team": "CAR",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5160748,
+      "name": "JaQuae Jackson",
+      "team": "LAC",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4432545,
+      "name": "Jabari Small",
+      "team": "DET",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5344782,
+      "name": "Jack Strand",
+      "team": "ATL",
+      "position": "QB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4832827,
+      "name": "Jack Velling",
+      "team": "ATL",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4569535,
+      "name": "Jacob Clark",
+      "team": "LV",
+      "position": "QB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5155179,
+      "name": "Jacob De Jesus",
+      "team": "KC",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4683111,
+      "name": "Jaden Bradley",
+      "team": "WSH",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4683165,
+      "name": "Jaden Nixon",
+      "team": "GB",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4581750,
+      "name": "Jaden Smith",
+      "team": "DAL",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4431196,
+      "name": "Jake Briningstool",
+      "team": "KC",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 3115328,
+      "name": "Jalen Hurd",
+      "team": "NE",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4875788,
+      "name": "Jalen Walthall",
+      "team": "NYJ",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4596472,
+      "name": "Jalon Daniels",
+      "team": "TB",
+      "position": "QB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4892576,
+      "name": "Jamaal Pritchett",
+      "team": "NYJ",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4611995,
+      "name": "Jamal Haynes",
+      "team": "CIN",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4588298,
+      "name": "Jameson Geers",
+      "team": "ARI",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4685489,
+      "name": "Jaydn Ott",
+      "team": "KC",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4885466,
+      "name": "Jeff Caldwell",
+      "team": "KC",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4565184,
+      "name": "Jerand Bradley",
+      "team": "LAC",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4572655,
+      "name": "Jeremiah Webb",
+      "team": "NE",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4832914,
+      "name": "Jimmy Kibble",
+      "team": "NE",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4696907,
+      "name": "Joaquin Davis",
+      "team": "PIT",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4429582,
+      "name": "Joe Fagnano",
+      "team": "BAL",
+      "position": "QB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4362570,
+      "name": "Joel Wilson",
+      "team": "TEN",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5151948,
+      "name": "Joey Aguilar",
+      "team": "JAX",
+      "position": "QB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4708490,
+      "name": "John Michael Gyllenborg",
+      "team": "KC",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4873485,
+      "name": "Johnny Pascuzzi",
+      "team": "LAC",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4832806,
+      "name": "Jonathan Brady",
+      "team": "LV",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4685409,
+      "name": "Jordan Hudson",
+      "team": "DAL",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4594444,
+      "name": "Jordan Moore",
+      "team": "CIN",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4428803,
+      "name": "Jordan Waters",
+      "team": "LAR",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4683227,
+      "name": "Joseph Manjack IV",
+      "team": "DEN",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4819215,
+      "name": "Josh Kattus",
+      "team": "CIN",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4575558,
+      "name": "Josh Kelly",
+      "team": "HOU",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5094042,
+      "name": "Josh Pitsenberger",
+      "team": "HOU",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4430482,
+      "name": "Joshua Simon",
+      "team": "ATL",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4696062,
+      "name": "Juice Wells Jr.",
+      "team": "ATL",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 3116136,
+      "name": "Justin Jackson",
+      "team": "DET",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5151965,
+      "name": "Kadarius Calloway",
+      "team": "TB",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5158921,
+      "name": "Kansei Matsuzawa",
+      "team": "LV",
+      "position": "PK",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4604004,
+      "name": "Keelan Marion",
+      "team": "ATL",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4431304,
+      "name": "Kejon Owens",
+      "team": "MIN",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4746099,
+      "name": "Kenny Fletcher Jr.",
+      "team": "TB",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4430992,
+      "name": "Kentrel Bullock",
+      "team": "CIN",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4699678,
+      "name": "Khalil Dinkins",
+      "team": "SF",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4869965,
+      "name": "Kobe Prentice",
+      "team": "CAR",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5225419,
+      "name": "Kolbe Katsis",
+      "team": "DEN",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5096863,
+      "name": "Kole Wilson",
+      "team": "CLE",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4880638,
+      "name": "Kye Robichaux",
+      "team": "DET",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5011554,
+      "name": "Kyle Dixon",
+      "team": "NE",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4678010,
+      "name": "Kyron Drones",
+      "team": "GB",
+      "position": "QB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4432784,
+      "name": "Kyron Hudson",
+      "team": "CHI",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4710727,
+      "name": "Laith Marjan",
+      "team": "PIT",
+      "position": "PK",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4566198,
+      "name": "Lake McRee",
+      "team": "PIT",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5097854,
+      "name": "Lance Mason",
+      "team": "SEA",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4247812,
+      "name": "Lance McCutcheon",
+      "team": "TEN",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4372769,
+      "name": "Lawrence Keys III",
+      "team": "DET",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4878842,
+      "name": "Layne Pryor",
+      "team": "HOU",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4596010,
+      "name": "Le'Meke Brockington",
+      "team": "ATL",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4613132,
+      "name": "Levi Wentz",
+      "team": "PIT",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4608607,
+      "name": "Lincoln Pare",
+      "team": "IND",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4569727,
+      "name": "Louis Hansen",
+      "team": "HOU",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 3915802,
+      "name": "Lucky Jackson",
+      "team": "DET",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4597679,
+      "name": "Luke Altmyer",
+      "team": "DET",
+      "position": "QB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4566157,
+      "name": "Luke Floriea",
+      "team": "CLE",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4433830,
+      "name": "Luke Grimm",
+      "team": "LAC",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4682761,
+      "name": "Luke Wysong",
+      "team": "MIN",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4431053,
+      "name": "Mac Dalena",
+      "team": "BUF",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4570636,
+      "name": "Malick Meiga",
+      "team": "CAR",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4682509,
+      "name": "Malik McClain",
+      "team": "NYJ",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5222064,
+      "name": "Mante Morrow",
+      "team": "LAC",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4907543,
+      "name": "Marcus Sanders Jr.",
+      "team": "MIN",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4431618,
+      "name": "Mario Williams",
+      "team": "LAR",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4695400,
+      "name": "Mark Gronowski",
+      "team": "MIA",
+      "position": "QB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4431346,
+      "name": "Mark Redman",
+      "team": "LAR",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4566195,
+      "name": "Marshall Lang",
+      "team": "MIN",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4911517,
+      "name": "Mason Pline",
+      "team": "KC",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4877717,
+      "name": "Matthew Caldwell",
+      "team": "LAR",
+      "position": "QB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4694237,
+      "name": "Max Hurleman",
+      "team": "PIT",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4878956,
+      "name": "Max Tomczak",
+      "team": "BUF",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4362770,
+      "name": "Messiah Swinson",
+      "team": "GB",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4688418,
+      "name": "Michael Briscoe",
+      "team": "MIN",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5152117,
+      "name": "Michael Wortham",
+      "team": "JAX",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4613105,
+      "name": "Miles Davis",
+      "team": "CAR",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5089453,
+      "name": "Miles Kitselman",
+      "team": "DET",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4431580,
+      "name": "Miller Moss",
+      "team": "CHI",
+      "position": "QB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4600597,
+      "name": "Montorie Foster Jr.",
+      "team": "SEA",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4676889,
+      "name": "Myles Montgomery",
+      "team": "NE",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4692796,
+      "name": "Nick DeGennaro",
+      "team": "NE",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4718457,
+      "name": "Noah Thomas",
+      "team": "CIN",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4432631,
+      "name": "Noah Whittington",
+      "team": "HOU",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4869520,
+      "name": "Octavian Smith Jr.",
+      "team": "BAL",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4702908,
+      "name": "Omari Evans",
+      "team": "KC",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4701951,
+      "name": "Omari Kelly",
+      "team": "CHI",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4693208,
+      "name": "Patrick Gurd",
+      "team": "LV",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4429811,
+      "name": "Patrick Herbert",
+      "team": "JAX",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4379769,
+      "name": "Qadir Ismail",
+      "team": "CHI",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4875350,
+      "name": "Quentin Moore",
+      "team": "WSH",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4702913,
+      "name": "RJ Maryland",
+      "team": "GB",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4700149,
+      "name": "Rashad Rochelle",
+      "team": "SEA",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4872957,
+      "name": "Raylen Sharpe",
+      "team": "IND",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4605858,
+      "name": "Rivaldo Fairweather",
+      "team": "ARI",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5151317,
+      "name": "Robert Henry Jr.",
+      "team": "WSH",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5083509,
+      "name": "Rohan Jones",
+      "team": "LAR",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4688835,
+      "name": "Roman Hemby",
+      "team": "LV",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4612246,
+      "name": "Sahmir Hagans",
+      "team": "IND",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4361994,
+      "name": "Sam Hartman",
+      "team": "WSH",
+      "position": "QB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4700138,
+      "name": "Sam Scott",
+      "team": "NYJ",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4568687,
+      "name": "Sincere Brown",
+      "team": "LAC",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4432215,
+      "name": "Stephen Gosnell",
+      "team": "BUF",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5086027,
+      "name": "T.J. Harden",
+      "team": "CLE",
+      "position": "RB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4683308,
+      "name": "Tanner Arkin",
+      "team": "NE",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4258170,
+      "name": "Tarik Black",
+      "team": "DET",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5279633,
+      "name": "Terrill Davis",
+      "team": "MIN",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4569615,
+      "name": "Thomas Gordon",
+      "team": "DET",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4429172,
+      "name": "Traeshon Holden",
+      "team": "DAL",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4433906,
+      "name": "Trayvon Rudolph",
+      "team": "MIN",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4685784,
+      "name": "Tre Watson",
+      "team": "KC",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4575862,
+      "name": "Trebor Pena",
+      "team": "JAX",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5085942,
+      "name": "Treyvohn Saunders",
+      "team": "HOU",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4875786,
+      "name": "Tru Edwards",
+      "team": "LAR",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5084402,
+      "name": "Ty Pezza",
+      "team": "BAL",
+      "position": "TE",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 5103197,
+      "name": "Tyren Montgomery",
+      "team": "TEN",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4869816,
+      "name": "Vinny Anthony II",
+      "team": "ATL",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4888723,
+      "name": "Wesley Grimes",
+      "team": "SF",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 3115252,
+      "name": "Will Grier",
+      "team": "CAR",
+      "position": "QB",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4683114,
+      "name": "Will Pauling",
+      "team": "SF",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4608679,
+      "name": "Will Sheppard",
+      "team": "GB",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4695910,
+      "name": "Xavier Guillory",
+      "team": "BAL",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4385430,
+      "name": "Xavier Johnson",
+      "team": "CIN",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    },
+    {
+      "espnId": 4874510,
+      "name": "Xavier Loyd",
+      "team": "KC",
+      "position": "WR",
+      "reason": "ESPN did not return playercard data for this ID"
+    }
+  ]
+}

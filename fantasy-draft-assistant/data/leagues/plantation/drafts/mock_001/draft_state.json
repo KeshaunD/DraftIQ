@@ -1,0 +1,38 @@
+{
+  "draft_name": "mock_001",
+  "current_pick": 3,
+  "drafted_players": [
+    {
+      "pick": 1,
+      "id": "3117251",
+      "name": "Christian McCaffrey",
+      "team": "SF",
+      "position": "RB",
+      "projection": 416.6
+    },
+    {
+      "pick": 2,
+      "id": "4426515",
+      "name": "Puka Nacua",
+      "team": "LAR",
+      "position": "WR",
+      "projection": 398.44
+    },
+    {
+      "id": "4430807",
+      "name": "Bijan Robinson",
+      "position": "RB",
+      "team": "ATL"
+    }
+  ],
+  "my_team": [
+    {
+      "pick": 2,
+      "id": "4426515",
+      "name": "Puka Nacua",
+      "team": "LAR",
+      "position": "WR",
+      "projection": 398.44
+    }
+  ]
+}

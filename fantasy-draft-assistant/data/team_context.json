@@ -1,0 +1,322 @@
+[
+  {
+    "team": "ARI",
+    "team_name": "Arizona Cardinals",
+    "espn_team_id": "22",
+    "coach": {
+      "id": "4872749",
+      "name": "Mike LaFleur",
+      "experience": 0
+    }
+  },
+  {
+    "team": "ATL",
+    "team_name": "Atlanta Falcons",
+    "espn_team_id": "1",
+    "coach": {
+      "id": "4408695",
+      "name": "Kevin Stefanski",
+      "experience": 6
+    }
+  },
+  {
+    "team": "BAL",
+    "team_name": "Baltimore Ravens",
+    "espn_team_id": "33",
+    "coach": {
+      "id": "5173599",
+      "name": "Jesse Minter",
+      "experience": 0
+    }
+  },
+  {
+    "team": "BUF",
+    "team_name": "Buffalo Bills",
+    "espn_team_id": "2",
+    "coach": {
+      "id": "2471205",
+      "name": "Joe Brady",
+      "experience": 0
+    }
+  },
+  {
+    "team": "CAR",
+    "team_name": "Carolina Panthers",
+    "espn_team_id": "29",
+    "coach": {
+      "id": "17762",
+      "name": "Dave Canales",
+      "experience": 2
+    }
+  },
+  {
+    "team": "CHI",
+    "team_name": "Chicago Bears",
+    "espn_team_id": "3",
+    "coach": {
+      "id": "2180177",
+      "name": "Ben Johnson",
+      "experience": 1
+    }
+  },
+  {
+    "team": "CIN",
+    "team_name": "Cincinnati Bengals",
+    "espn_team_id": "4",
+    "coach": {
+      "id": "2184471",
+      "name": "Zac Taylor",
+      "experience": 7
+    }
+  },
+  {
+    "team": "CLE",
+    "team_name": "Cleveland Browns",
+    "espn_team_id": "5",
+    "coach": {
+      "id": "3017859",
+      "name": "Todd Monken",
+      "experience": 0
+    }
+  },
+  {
+    "team": "DAL",
+    "team_name": "Dallas Cowboys",
+    "espn_team_id": "6",
+    "coach": {
+      "id": "17530",
+      "name": "Brian Schottenheimer",
+      "experience": 1
+    }
+  },
+  {
+    "team": "DEN",
+    "team_name": "Denver Broncos",
+    "espn_team_id": "7",
+    "coach": {
+      "id": "17567",
+      "name": "Sean Payton",
+      "experience": 18
+    }
+  },
+  {
+    "team": "DET",
+    "team_name": "Detroit Lions",
+    "espn_team_id": "8",
+    "coach": {
+      "id": "1832",
+      "name": "Dan Campbell",
+      "experience": 6
+    }
+  },
+  {
+    "team": "GB",
+    "team_name": "Green Bay Packers",
+    "espn_team_id": "9",
+    "coach": {
+      "id": "4082797",
+      "name": "Matt LaFleur",
+      "experience": 7
+    }
+  },
+  {
+    "team": "HOU",
+    "team_name": "Houston Texans",
+    "espn_team_id": "34",
+    "coach": {
+      "id": "9619",
+      "name": "DeMeco Ryans",
+      "experience": 3
+    }
+  },
+  {
+    "team": "IND",
+    "team_name": "Indianapolis Colts",
+    "espn_team_id": "11",
+    "coach": {
+      "id": "2126648",
+      "name": "Shane Steichen",
+      "experience": 3
+    }
+  },
+  {
+    "team": "JAX",
+    "team_name": "Jacksonville Jaguars",
+    "espn_team_id": "30",
+    "coach": {
+      "id": "2161829",
+      "name": "Liam Coen",
+      "experience": 1
+    }
+  },
+  {
+    "team": "KC",
+    "team_name": "Kansas City Chiefs",
+    "espn_team_id": "12",
+    "coach": {
+      "id": "17553",
+      "name": "Andy Reid",
+      "experience": 27
+    }
+  },
+  {
+    "team": "LAC",
+    "team_name": "Los Angeles Chargers",
+    "espn_team_id": "24",
+    "coach": {
+      "id": "27",
+      "name": "Jim Harbaugh",
+      "experience": 6
+    }
+  },
+  {
+    "team": "LAR",
+    "team_name": "Los Angeles Rams",
+    "espn_team_id": "14",
+    "coach": {
+      "id": "2499338",
+      "name": "Sean McVay",
+      "experience": 9
+    }
+  },
+  {
+    "team": "LV",
+    "team_name": "Las Vegas Raiders",
+    "espn_team_id": "13",
+    "coach": {
+      "id": "2181979",
+      "name": "Klint Kubiak",
+      "experience": 0
+    }
+  },
+  {
+    "team": "MIA",
+    "team_name": "Miami Dolphins",
+    "espn_team_id": "15",
+    "coach": {
+      "id": "4607510",
+      "name": "Jeff Hafley",
+      "experience": 0
+    }
+  },
+  {
+    "team": "MIN",
+    "team_name": "Minnesota Vikings",
+    "espn_team_id": "16",
+    "coach": {
+      "id": "2146711",
+      "name": "Kevin O'Connell",
+      "experience": 4
+    }
+  },
+  {
+    "team": "NE",
+    "team_name": "New England Patriots",
+    "espn_team_id": "17",
+    "coach": {
+      "id": "1257",
+      "name": "Mike Vrabel",
+      "experience": 7
+    }
+  },
+  {
+    "team": "NO",
+    "team_name": "New Orleans Saints",
+    "espn_team_id": "18",
+    "coach": {
+      "id": "14882",
+      "name": "Kellen Moore",
+      "experience": 1
+    }
+  },
+  {
+    "team": "NYG",
+    "team_name": "New York Giants",
+    "espn_team_id": "19",
+    "coach": {
+      "id": "17587",
+      "name": "John Harbaugh",
+      "experience": 18
+    }
+  },
+  {
+    "team": "NYJ",
+    "team_name": "New York Jets",
+    "espn_team_id": "20",
+    "coach": {
+      "id": "558",
+      "name": "Aaron Glenn",
+      "experience": 1
+    }
+  },
+  {
+    "team": "PHI",
+    "team_name": "Philadelphia Eagles",
+    "espn_team_id": "21",
+    "coach": {
+      "id": "4372439",
+      "name": "Nick Sirianni",
+      "experience": 5
+    }
+  },
+  {
+    "team": "PIT",
+    "team_name": "Pittsburgh Steelers",
+    "espn_team_id": "23",
+    "coach": {
+      "id": "17578",
+      "name": "Mike McCarthy",
+      "experience": 18
+    }
+  },
+  {
+    "team": "SEA",
+    "team_name": "Seattle Seahawks",
+    "espn_team_id": "26",
+    "coach": {
+      "id": "5044374",
+      "name": "Mike Macdonald",
+      "experience": 2
+    }
+  },
+  {
+    "team": "SF",
+    "team_name": "San Francisco 49ers",
+    "espn_team_id": "25",
+    "coach": {
+      "id": "17533",
+      "name": "Kyle Shanahan",
+      "experience": 9
+    }
+  },
+  {
+    "team": "TB",
+    "team_name": "Tampa Bay Buccaneers",
+    "espn_team_id": "27",
+    "coach": {
+      "id": "7157",
+      "name": "Todd Bowles",
+      "experience": 9
+    }
+  },
+  {
+    "team": "TEN",
+    "team_name": "Tennessee Titans",
+    "espn_team_id": "10",
+    "coach": {
+      "id": "4085970",
+      "name": "Robert Saleh",
+      "experience": 4
+    }
+  },
+  {
+    "team": "WSH",
+    "team_name": "Washington Commanders",
+    "espn_team_id": "28",
+    "coach": {
+      "id": "2485644",
+      "name": "Dan Quinn",
+      "experience": 8
+    }
+  }
+]

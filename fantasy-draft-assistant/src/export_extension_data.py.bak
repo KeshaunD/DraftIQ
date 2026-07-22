@@ -1,0 +1,1478 @@
+import json
+import re
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+
+
+DATA_DIR = Path("data")
+EXTENSION_DIR = Path("browser-extension")
+HOSTED_DIR = Path("hosted")
+
+
+POSITION_COLORS = {
+    "QB": "#4FD1C5",
+    "RB": "#E8B94E",
+    "WR": "#7AA7FF",
+    "TE": "#C084FC",
+}
+
+
+SKILL_POSITIONS = {"QB", "RB", "WR", "TE"}
+
+
+NAME_ALIASES = {
+    "Cameron Skattebo": "Cam Skattebo",
+    "Kenneth Gainwell": "Kenny Gainwell",
+    "Chigoziem Okonkwo": "Chig Okonkwo",
+    "Cameron Ward": "Cam Ward",
+    "Nathaniel Dell": "Tank Dell",
+}
+
+
+TEAM_ALIASES = {
+    "ARZ": "ARI",
+    "ARI": "ARI",
+    "ATL": "ATL",
+    "BAL": "BAL",
+    "BUF": "BUF",
+    "CAR": "CAR",
+    "CHI": "CHI",
+    "CIN": "CIN",
+    "CLE": "CLE",
+    "DAL": "DAL",
+    "DEN": "DEN",
+    "DET": "DET",
+    "GB": "GB",
+    "GNB": "GB",
+    "HOU": "HOU",
+    "IND": "IND",
+    "JAC": "JAX",
+    "JAX": "JAX",
+    "KC": "KC",
+    "KAN": "KC",
+    "LAC": "LAC",
+    "SD": "LAC",
+    "LAR": "LAR",
+    "LA": "LAR",
+    "STL": "LAR",
+    "LV": "LV",
+    "LVR": "LV",
+    "OAK": "LV",
+    "MIA": "MIA",
+    "MIN": "MIN",
+    "NE": "NE",
+    "NWE": "NE",
+    "NO": "NO",
+    "NOR": "NO",
+    "NYG": "NYG",
+    "NYJ": "NYJ",
+    "PHI": "PHI",
+    "PIT": "PIT",
+    "SEA": "SEA",
+    "SF": "SF",
+    "SFO": "SF",
+    "TB": "TB",
+    "TAM": "TB",
+    "TEN": "TEN",
+    "WAS": "WSH",
+    "WSH": "WSH",
+    "WSN": "WSH",
+}
+
+
+def load_json(path, default=None):
+    if not path.exists():
+        return default
+
+    with open(path, "r", encoding="utf-8") as file:
+        return json.load(file)
+
+
+def safe_number(value, default=None):
+    if value in [None, "", "-"]:
+        return default
+
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return default
+
+
+def safe_round(value, digits=1, default=0):
+    number = safe_number(value, default=None)
+
+    if number is None:
+        return default
+
+    return round(number, digits)
+
+
+def clean_name(name):
+    name = str(name or "")
+    name = re.sub(r"\s+", " ", name).strip()
+
+    name = re.sub(
+        r"\s+(ARI|ATL|BAL|BUF|CAR|CHI|CIN|CLE|DAL|DEN|DET|GB|GNB|HOU|IND|JAX|JAC|KC|KAN|LV|LVR|LAC|LAR|LA|MIA|MIN|NE|NWE|NO|NOR|NYG|NYJ|PHI|PIT|SEA|SF|SFO|TB|TAM|TEN|WAS|WSH)\s+(QB|RB|WR|TE|K|PK|DST|DEF)$",
+        "",
+        name,
+    )
+
+    name = re.sub(r"\s+\((QB|RB|WR|TE|K|PK|DST|DEF)\)$", "", name)
+
+    return name.strip()
+
+
+def canonical_player_name(name):
+    cleaned = clean_name(name)
+    return NAME_ALIASES.get(cleaned, cleaned)
+
+
+def normalize_name(name):
+    name = canonical_player_name(name).lower()
+    name = name.replace(".", "")
+    name = name.replace("'", "")
+    name = name.replace("’", "")
+    name = name.replace("-", " ")
+    name = re.sub(r"\b(jr|sr|ii|iii|iv|v)\b", "", name)
+    name = re.sub(r"[^a-z0-9\s]", " ", name)
+    name = re.sub(r"\s+", " ", name).strip()
+    return name
+
+
+def lookup_name_variants(name):
+    cleaned = clean_name(name)
+    canonical = canonical_player_name(cleaned)
+
+    variants = {cleaned, canonical}
+
+    for alias_name, preferred_name in NAME_ALIASES.items():
+        if canonical_player_name(alias_name) == canonical:
+            variants.add(alias_name)
+            variants.add(preferred_name)
+
+        if canonical_player_name(preferred_name) == canonical:
+            variants.add(alias_name)
+            variants.add(preferred_name)
+
+    return [variant for variant in variants if variant]
+
+
+def normalize_team(team):
+    if not team:
+        return None
+
+    team = str(team).upper().strip()
+    return TEAM_ALIASES.get(team, team)
+
+
+def normalize_position(position):
+    if not position:
+        return None
+
+    position = str(position).upper().strip()
+
+    if position == "K":
+        return "PK"
+
+    if position in ["DST", "DEF"]:
+        return "D/ST"
+
+    return position
+
+
+def is_skill_position(position):
+    return normalize_position(position) in SKILL_POSITIONS
+
+
+def first_value(data, keys, default=None):
+    if not isinstance(data, dict):
+        return default
+
+    for key in keys:
+        value = data.get(key)
+        if value not in [None, "", "-"]:
+            return value
+
+    return default
+
+
+def average_values(source_values, digits=1):
+    usable_values = []
+    usable_sources = []
+
+    for source, value in source_values.items():
+        number = safe_number(value, default=None)
+
+        if number is None:
+            continue
+
+        usable_values.append(number)
+        usable_sources.append(source)
+
+    if not usable_values:
+        return None, []
+
+    return round(sum(usable_values) / len(usable_values), digits), usable_sources
+
+
+def rounded_source_map(source_values, digits=1):
+    rounded = {}
+
+    for source, value in source_values.items():
+        number = safe_number(value, default=None)
+
+        if number is None:
+            rounded[source] = None
+        else:
+            rounded[source] = round(number, digits)
+
+    return rounded
+
+
+def source_label(sources, fallback="ranking"):
+    if not sources:
+        return fallback
+
+    if len(sources) == 1:
+        return sources[0]
+
+    return "average"
+
+
+def get_export_rank(player, index):
+    rank = first_value(
+        player,
+        [
+            "rank",
+            "overall_rank",
+            "overallRank",
+            "draftiq_rank",
+            "draftRank",
+        ],
+        default=None,
+    )
+
+    rank_number = safe_number(rank, default=None)
+
+    if rank_number is None or rank_number >= 999:
+        return index
+
+    return int(rank_number)
+
+
+def get_tier(rank):
+    if rank <= 12:
+        return 1
+    if rank <= 24:
+        return 2
+    if rank <= 36:
+        return 3
+    if rank <= 60:
+        return 4
+    if rank <= 90:
+        return 5
+    return 6
+
+
+def build_headshot_url(player_id):
+    if not player_id:
+        return None
+
+    return f"https://a.espncdn.com/i/headshots/nfl/players/full/{player_id}.png"
+
+
+def build_draft_badge(rank, adp):
+    rank_number = safe_number(rank, default=None)
+    adp_number = safe_number(adp, default=None)
+
+    if rank_number is None or adp_number is None:
+        return {
+            "label": "FAIR",
+            "type": "fair",
+            "value": 0,
+        }
+
+    value = round(adp_number - rank_number, 1)
+
+    if value >= 10:
+        return {
+            "label": "STEAL",
+            "type": "steal",
+            "value": value,
+        }
+
+    if value <= -10:
+        return {
+            "label": "REACH",
+            "type": "reach",
+            "value": value,
+        }
+
+    return {
+        "label": "FAIR",
+        "type": "fair",
+        "value": value,
+    }
+
+
+def get_bye_week(player, bye_weeks):
+    team = normalize_team(player.get("team"))
+
+    if team and team in bye_weeks:
+        return bye_weeks[team]
+
+    return player.get("bye", "-")
+
+
+def build_external_source_lookup(records):
+    lookup = {
+        "by_id": {},
+        "by_name": {},
+    }
+
+    if not isinstance(records, list):
+        return lookup
+
+    for item in records:
+        if not isinstance(item, dict):
+            continue
+
+        ids = [
+            item.get("id"),
+            item.get("espnId"),
+            item.get("espn_id"),
+            item.get("playerId"),
+            item.get("athleteId"),
+            item.get("sleeperId"),
+            item.get("sleeper_id"),
+        ]
+
+        for player_id in ids:
+            if player_id in [None, "", "-"]:
+                continue
+
+            lookup["by_id"][str(player_id)] = item
+
+        name = first_value(
+            item,
+            ["name", "player", "playerName", "fullName", "displayName", "sleeperName"],
+            default=None,
+        )
+
+        if not name:
+            continue
+
+        for variant in lookup_name_variants(name):
+            key = normalize_name(variant)
+
+            if not key:
+                continue
+
+            lookup["by_name"].setdefault(key, []).append(item)
+
+    return lookup
+
+
+def find_external_source_match(player, player_id, source_lookup):
+    if not isinstance(source_lookup, dict):
+        return None
+
+    id_candidates = [
+        player_id,
+        player.get("id"),
+        player.get("espnId"),
+        player.get("espn_id"),
+        player.get("playerId"),
+        player.get("athleteId"),
+        player.get("sleeperId"),
+        player.get("sleeper_id"),
+    ]
+
+    for candidate in id_candidates:
+        if candidate in [None, "", "-"]:
+            continue
+
+        match = source_lookup.get("by_id", {}).get(str(candidate))
+
+        if match:
+            return match
+
+    player_name = player.get("name")
+
+    if not player_name:
+        return None
+
+    player_team = normalize_team(first_value(player, ["team", "tm"], default=None))
+    player_position = normalize_position(first_value(player, ["position", "pos"], default=None))
+
+    for variant in lookup_name_variants(player_name):
+        matches = source_lookup.get("by_name", {}).get(normalize_name(variant), [])
+
+        if not matches:
+            continue
+
+        if len(matches) == 1:
+            return matches[0]
+
+        for match in matches:
+            match_team = normalize_team(first_value(match, ["team", "tm"], default=None))
+            match_position = normalize_position(first_value(match, ["pos", "position"], default=None))
+
+            if player_team and match_team and player_team == match_team:
+                return match
+
+            if player_position and match_position and player_position == match_position:
+                return match
+
+        return matches[0]
+
+    return None
+
+
+def build_projection_lookup(projections):
+    lookup = {}
+
+    if isinstance(projections, dict):
+        iterable = projections.items()
+    elif isinstance(projections, list):
+        iterable = []
+
+        for item in projections:
+            if not isinstance(item, dict):
+                continue
+
+            name = first_value(
+                item,
+                ["name", "player", "playerName", "fullName", "displayName"],
+                default=None,
+            )
+
+            if name:
+                iterable.append((name, item))
+    else:
+        return lookup
+
+    for name, projection_data in iterable:
+        if not name:
+            continue
+
+        if not isinstance(projection_data, dict):
+            projection_data = {
+                "projection": projection_data,
+                "source": "yahoo",
+            }
+
+        for variant in lookup_name_variants(name):
+            key = normalize_name(variant)
+
+            if key:
+                lookup[key] = projection_data
+
+    return lookup
+
+
+def find_projection_profile(player, projection_lookup):
+    name = player.get("name")
+
+    if not name:
+        return None
+
+    for variant in lookup_name_variants(name):
+        match = projection_lookup.get(normalize_name(variant))
+
+        if match:
+            return match
+
+    return None
+
+
+def get_legacy_projection_value(player, projection_profile=None):
+    if projection_profile:
+        projected_value = first_value(
+            projection_profile,
+            [
+                "projection",
+                "projected_points",
+                "projectedPoints",
+                "fantasy_points",
+                "fantasyPoints",
+                "ppr",
+                "points",
+            ],
+            default=None,
+        )
+
+        if projected_value not in [None, "", "-"]:
+            return projected_value
+
+    return first_value(
+        player,
+        [
+            "projection",
+            "projected_points",
+            "projectedPoints",
+            "proj",
+        ],
+        default=None,
+    )
+
+
+def get_legacy_projected_ppg(player, projection_profile=None):
+    if projection_profile:
+        ppg = first_value(
+            projection_profile,
+            [
+                "projectedPpg",
+                "projected_ppg",
+                "ppg",
+                "pointsPerGame",
+            ],
+            default=None,
+        )
+
+        if ppg not in [None, "", "-"]:
+            return ppg
+
+    projection = get_legacy_projection_value(player, projection_profile)
+    projection_number = safe_number(projection, default=None)
+
+    if projection_number is None:
+        return None
+
+    return projection_number / 17
+
+
+def get_espn_projection_value(espn_projection=None):
+    if not espn_projection:
+        return None
+
+    return first_value(
+        espn_projection,
+        [
+            "projectedFantasyPoints",
+            "projected_fantasy_points",
+            "projection",
+            "projected_points",
+            "projectedPoints",
+            "fantasy_points",
+            "fantasyPoints",
+            "ppr",
+            "points",
+        ],
+        default=None,
+    )
+
+
+def get_espn_projected_ppg(espn_projection=None):
+    if not espn_projection:
+        return None
+
+    return first_value(
+        espn_projection,
+        [
+            "projectedFantasyPointsPerGame",
+            "projectedPpg",
+            "projected_ppg",
+            "ppg",
+            "pointsPerGame",
+        ],
+        default=None,
+    )
+
+
+def get_sleeper_projection_value(sleeper_projection=None):
+    if not sleeper_projection:
+        return None
+
+    return first_value(
+        sleeper_projection,
+        [
+            "projectedFantasyPoints",
+            "projected_fantasy_points",
+            "projection",
+            "projected_points",
+            "projectedPoints",
+            "fantasy_points",
+            "fantasyPoints",
+            "ppr",
+            "points",
+        ],
+        default=None,
+    )
+
+
+def get_sleeper_projected_ppg(sleeper_projection=None):
+    if not sleeper_projection:
+        return None
+
+    return first_value(
+        sleeper_projection,
+        [
+            "projectedFantasyPointsPerGame",
+            "projectedPpg",
+            "projected_ppg",
+            "ppg",
+            "pointsPerGame",
+        ],
+        default=None,
+    )
+
+
+def build_source_projections(player, projection_profile=None, espn_projection=None, sleeper_projection=None):
+    return rounded_source_map(
+        {
+            "yahoo": get_legacy_projection_value(player, projection_profile),
+            "espn": get_espn_projection_value(espn_projection),
+            "sleeper": get_sleeper_projection_value(sleeper_projection),
+        },
+        digits=1,
+    )
+
+
+def build_source_projected_ppg(player, projection_profile=None, espn_projection=None, sleeper_projection=None):
+    return rounded_source_map(
+        {
+            "yahoo": get_legacy_projected_ppg(player, projection_profile),
+            "espn": get_espn_projected_ppg(espn_projection),
+            "sleeper": get_sleeper_projected_ppg(sleeper_projection),
+        },
+        digits=2,
+    )
+
+
+def get_yahoo_adp(player, projection_profile=None):
+    if projection_profile:
+        yahoo_adp = first_value(
+            projection_profile,
+            [
+                "yahoo_adp",
+                "yahooAdp",
+                "adp",
+                "ADP",
+                "yahooRank",
+                "yahoo_rank",
+                "rank",
+            ],
+            default=None,
+        )
+
+        if yahoo_adp not in [None, "", "-"]:
+            return yahoo_adp
+
+    return first_value(
+        player,
+        [
+            "yahoo_adp",
+            "yahooAdp",
+            "adp",
+            "ADP",
+            "yahooRank",
+            "yahoo_rank",
+            "rank",
+        ],
+        default=None,
+    )
+
+
+def get_espn_adp(espn_adp=None):
+    if not espn_adp:
+        return None
+
+    return first_value(
+        espn_adp,
+        [
+            "adp",
+            "averageDraftPosition",
+            "average_draft_position",
+        ],
+        default=None,
+    )
+
+
+def get_sleeper_adp(sleeper_adp=None):
+    if not sleeper_adp:
+        return None
+
+    return first_value(
+        sleeper_adp,
+        [
+            "adp",
+            "averageDraftPosition",
+            "average_draft_position",
+            "draftPosition",
+            "draft_position",
+            "rank",
+        ],
+        default=None,
+    )
+
+
+def build_source_adp(player, projection_profile=None, espn_adp=None, sleeper_adp=None):
+    return rounded_source_map(
+        {
+            "yahoo": get_yahoo_adp(player, projection_profile),
+            "espn": get_espn_adp(espn_adp),
+            "sleeper": get_sleeper_adp(sleeper_adp),
+        },
+        digits=1,
+    )
+
+
+def get_adp_fallback(player):
+    return first_value(
+        player,
+        [
+            "primary_rank",
+            "consensus_rank",
+            "draftiq_score",
+        ],
+        default="-",
+    )
+
+
+def get_season_outlook(espn_projection=None, projection_profile=None):
+    if espn_projection:
+        outlook = first_value(
+            espn_projection,
+            ["seasonOutlook", "outlook", "playerOutlook"],
+            default=None,
+        )
+
+        if outlook:
+            return outlook
+
+    if projection_profile:
+        outlook = first_value(
+            projection_profile,
+            ["seasonOutlook", "outlook", "playerOutlook"],
+            default=None,
+        )
+
+        if outlook:
+            return outlook
+
+    return ""
+
+
+def get_player_team(player, profile=None, espn_projection=None, espn_adp=None, sleeper_projection=None):
+    for source in [espn_projection, espn_adp, sleeper_projection]:
+        if source:
+            team = first_value(source, ["team", "tm"], default=None)
+
+            if team:
+                return normalize_team(team)
+
+    team = first_value(player, ["team", "tm"], default=None)
+
+    if team:
+        return normalize_team(team)
+
+    if profile:
+        team = first_value(
+            profile,
+            ["team", "proTeam", "teamAbbreviation", "team_abbreviation"],
+            default=None,
+        )
+
+        if team:
+            return normalize_team(team)
+
+    return "-"
+
+
+def get_player_position(player, profile=None, espn_projection=None, espn_adp=None, sleeper_projection=None):
+    for source in [espn_projection, espn_adp, sleeper_projection]:
+        if source:
+            position = first_value(source, ["pos", "position"], default=None)
+
+            if position:
+                return normalize_position(position)
+
+    position = first_value(player, ["position", "pos"], default=None)
+
+    if position:
+        return normalize_position(position)
+
+    if profile:
+        position = first_value(
+            profile,
+            ["position", "pos", "defaultPosition"],
+            default=None,
+        )
+
+        if position:
+            return normalize_position(position)
+
+    return "-"
+
+
+def get_schedule_label(rank, score):
+    rank_number = safe_number(rank, default=None)
+    score_number = safe_number(score, default=None)
+
+    if score_number is not None:
+        if score_number >= 67:
+            return "Easy"
+        if score_number >= 34:
+            return "Neutral"
+        return "Hard"
+
+    if rank_number is not None:
+        if rank_number <= 10:
+            return "Easy"
+        if rank_number <= 22:
+            return "Neutral"
+        return "Hard"
+
+    return "Unknown"
+
+
+def get_schedule_strength(team, schedule_strength):
+    normalized_team = normalize_team(team)
+
+    default_schedule = {
+        "rank": None,
+        "label": "Unknown",
+        "score": None,
+    }
+
+    if not normalized_team or not isinstance(schedule_strength, dict):
+        return default_schedule
+
+    schedule = schedule_strength.get(normalized_team)
+
+    if not isinstance(schedule, dict):
+        return default_schedule
+
+    rank = schedule.get("rank")
+    score = schedule.get("score")
+    label = schedule.get("label") or get_schedule_label(rank, score)
+
+    return {
+        "rank": int(rank) if safe_number(rank, default=None) is not None else None,
+        "label": label,
+        "score": safe_round(score, 1, default=None),
+    }
+
+
+def build_player_database_lookup(player_database):
+    lookup = {}
+
+    for player_id, profile in player_database.items():
+        if not isinstance(profile, dict):
+            continue
+
+        possible_names = [
+            profile.get("name"),
+            profile.get("fullName"),
+            profile.get("displayName"),
+            profile.get("playerName"),
+        ]
+
+        for name in possible_names:
+            if not name:
+                continue
+
+            for variant in lookup_name_variants(name):
+                key = normalize_name(variant)
+
+                if key:
+                    lookup[key] = {
+                        "id": player_id,
+                        "profile": profile,
+                    }
+
+    return lookup
+
+
+def find_player_profile(player, player_database, player_lookup):
+    player_id = player.get("id") or player.get("espnId") or player.get("espn_id")
+
+    if player_id and str(player_id) in player_database:
+        return str(player_id), player_database[str(player_id)]
+
+    name = player.get("name")
+
+    if name:
+        for variant in lookup_name_variants(name):
+            match = player_lookup.get(normalize_name(variant))
+
+            if match:
+                return match["id"], match["profile"]
+
+    return player_id, None
+
+
+def calculate_ppr_points(stats):
+    passing_yards = safe_round(stats.get("passingYards"), 2)
+    passing_tds = safe_round(stats.get("passingTouchdowns"), 2)
+    interceptions = safe_round(stats.get("interceptions"), 2)
+
+    rushing_yards = safe_round(stats.get("rushingYards"), 2)
+    rushing_tds = safe_round(stats.get("rushingTouchdowns"), 2)
+
+    receptions = safe_round(stats.get("receptions"), 2)
+    receiving_yards = safe_round(stats.get("receivingYards"), 2)
+    receiving_tds = safe_round(stats.get("receivingTouchdowns"), 2)
+
+    fumbles_lost = safe_round(stats.get("fumblesLost"), 2)
+
+    points = 0
+    points += passing_yards * 0.04
+    points += passing_tds * 4
+    points -= interceptions * 2
+    points += rushing_yards * 0.1
+    points += rushing_tds * 6
+    points += receptions * 1
+    points += receiving_yards * 0.1
+    points += receiving_tds * 6
+    points -= fumbles_lost * 2
+
+    return round(points, 2)
+
+
+def extract_points(game):
+    stats = game.get("stats", {})
+    calculated = calculate_ppr_points(stats)
+
+    if calculated > 0:
+        return calculated
+
+    for key in ["fantasyPoints", "points", "fantasy_points"]:
+        value = game.get(key)
+        if safe_number(value, default=0) > 0:
+            return value
+
+    return 0
+
+
+def calculate_boom_bust(game_log):
+    fantasy_points = [safe_round(extract_points(game), 2) for game in game_log]
+    fantasy_points = [points for points in fantasy_points if points is not None]
+
+    if not fantasy_points:
+        return {
+            "boomRate": 0,
+            "bustRate": 0,
+            "consistency": 0,
+        }
+
+    games = len(fantasy_points)
+    boom_games = sum(points >= 25 for points in fantasy_points)
+    bust_games = sum(points < 10 for points in fantasy_points)
+
+    return {
+        "boomRate": round(boom_games / games, 3),
+        "bustRate": round(bust_games / games, 3),
+        "consistency": round(1 - (bust_games / games), 3),
+    }
+
+
+def normalize_game_log(game_log):
+    normalized = []
+
+    for game in game_log:
+        stats = game.get("stats", {})
+        points = extract_points(game)
+
+        normalized.append({
+            "week": game.get("week") or game.get("espn_week"),
+            "opponent": game.get("opponent", "-"),
+            "fantasyPoints": safe_round(points, 2),
+            "passingYards": safe_round(stats.get("passingYards"), 1),
+            "passingTouchdowns": safe_round(stats.get("passingTouchdowns"), 1),
+            "interceptions": safe_round(stats.get("interceptions"), 1),
+            "rushingYards": safe_round(stats.get("rushingYards"), 1),
+            "rushingTouchdowns": safe_round(stats.get("rushingTouchdowns"), 1),
+            "receptions": safe_round(stats.get("receptions"), 1),
+            "receivingYards": safe_round(stats.get("receivingYards"), 1),
+            "receivingTouchdowns": safe_round(stats.get("receivingTouchdowns"), 1),
+        })
+
+    normalized.sort(key=lambda game: int(game["week"]) if game.get("week") else 0)
+
+    return normalized
+
+
+def build_empty_stats(player, master_projection=None, master_projected_ppg=None):
+    return {
+        "season": {
+            "games": 0,
+            "ppg": 0,
+            "floor": 0,
+            "ceiling": 0,
+            "boomRate": 0,
+            "bustRate": 0,
+            "consistency": 0,
+            "rushYardsPerGame": 0,
+            "receivingYardsPerGame": 0,
+            "targetsPerGame": 0,
+            "touchdownsPerGame": 0,
+        },
+        "gameLog": [],
+        "projection": safe_round(master_projection, 1, default="-"),
+        "projectedPpg": safe_round(master_projected_ppg, 2, default=0),
+        "valueScore": safe_round(player.get("value_score"), 1, default=None),
+    }
+
+
+def build_player_stats(player, profile, master_projection=None, master_projected_ppg=None):
+    if not profile:
+        return build_empty_stats(player, master_projection, master_projected_ppg)
+
+    season_totals = profile.get("season_totals", {})
+    raw_game_log = profile.get("gameLog", [])
+    game_log = normalize_game_log(raw_game_log)
+
+    games = season_totals.get("games", 0)
+    boom_bust = calculate_boom_bust(raw_game_log)
+
+    fantasy_points = [game["fantasyPoints"] for game in game_log]
+    ppg = sum(fantasy_points) / len(fantasy_points) if fantasy_points else 0
+
+    total_tds = (
+        season_totals.get("passingTouchdowns", 0)
+        + season_totals.get("rushingTouchdowns", 0)
+        + season_totals.get("receivingTouchdowns", 0)
+    )
+
+    return {
+        "season": {
+            "games": games,
+            "ppg": safe_round(ppg, 2),
+            "floor": safe_round(min(fantasy_points), 2) if fantasy_points else 0,
+            "ceiling": safe_round(max(fantasy_points), 2) if fantasy_points else 0,
+            "boomRate": boom_bust["boomRate"],
+            "bustRate": boom_bust["bustRate"],
+            "consistency": boom_bust["consistency"],
+            "rushYardsPerGame": safe_round(
+                season_totals.get("rushingYards", 0) / games if games else 0,
+                2,
+            ),
+            "receivingYardsPerGame": safe_round(
+                season_totals.get("receivingYards", 0) / games if games else 0,
+                2,
+            ),
+            "targetsPerGame": safe_round(
+                season_totals.get("receivingTargets", 0) / games if games else 0,
+                2,
+            ),
+            "touchdownsPerGame": safe_round(total_tds / games if games else 0, 2),
+        },
+        "gameLog": game_log,
+        "projection": safe_round(master_projection, 1, default="-"),
+        "projectedPpg": safe_round(master_projected_ppg, 2, default=0),
+        "valueScore": safe_round(player.get("value_score"), 1, default=None),
+    }
+
+
+def build_recommendation(extension_players):
+    if not extension_players:
+        return {
+            "title": "Best Pick",
+            "player": "No players loaded",
+            "pos": "-",
+            "team": "-",
+            "projection": "-",
+            "projectedPpg": "-",
+            "scheduleStrength": {"rank": None, "label": "Unknown", "score": None},
+            "rank": "-",
+            "adp": "-",
+            "confidence": 0,
+            "reasons": [],
+        }
+
+    best = extension_players[0]
+
+    return {
+        "title": "Best Pick",
+        "player": best["name"],
+        "pos": best["pos"],
+        "team": best["team"],
+        "projection": best["proj"],
+        "projectedPpg": best["projectedPpg"],
+        "scheduleStrength": best["scheduleStrength"],
+        "rank": best["rank"],
+        "adp": best["adp"],
+        "confidence": 90,
+        "reasons": [
+            "Highest ranked skill player available",
+            "Combined projection averages available source projections",
+            "Combined ADP averages available source ADPs",
+        ],
+    }
+
+
+def sort_rankings(rankings):
+    return sorted(
+        rankings,
+        key=lambda player: (
+            safe_number(
+                first_value(
+                    player,
+                    ["rank", "overall_rank", "draftiq_score", "consensus_rank", "primary_rank", "adp"],
+                    default=9999,
+                ),
+                default=9999,
+            ),
+            str(player.get("name", "")),
+        ),
+    )
+
+
+def canonicalize_and_dedupe_rankings(rankings):
+    cleaned_rankings = []
+    seen_names = set()
+    duplicates_removed = 0
+    aliases_applied = 0
+
+    for player in rankings:
+        if not isinstance(player, dict):
+            continue
+
+        player = dict(player)
+
+        original_name = clean_name(player.get("name", ""))
+        canonical_name = canonical_player_name(original_name)
+
+        if not canonical_name:
+            continue
+
+        if original_name != canonical_name:
+            aliases_applied += 1
+
+        player["name"] = canonical_name
+
+        dedupe_key = normalize_name(canonical_name)
+
+        if dedupe_key in seen_names:
+            duplicates_removed += 1
+            continue
+
+        seen_names.add(dedupe_key)
+        cleaned_rankings.append(player)
+
+    return cleaned_rankings, aliases_applied, duplicates_removed
+
+
+def main():
+    league_name = sys.argv[1] if len(sys.argv) > 1 else "plantation"
+    season = int(sys.argv[2]) if len(sys.argv) > 2 else 2026
+
+    consensus_path = DATA_DIR / "rankings" / "consensus_rankings.json"
+    legacy_rankings_path = DATA_DIR / "leagues" / league_name / "rankings.json"
+    database_path = DATA_DIR / "player_database.json"
+    bye_weeks_path = DATA_DIR / f"bye_weeks_{season}.json"
+    schedule_strength_path = DATA_DIR / "projections" / f"schedule_strength_{season}.json"
+    projections_path = DATA_DIR / "projections" / f"fantasy_projections_{season}.json"
+
+    espn_adp_path = DATA_DIR / "espn" / f"espn_adp_{season}.json"
+    espn_projections_path = DATA_DIR / "espn" / f"espn_projections_{season}.json"
+
+    sleeper_projections_path = DATA_DIR / "sleeper" / f"sleeper_projections_{season}.json"
+    sleeper_adp_path = DATA_DIR / "sleeper" / f"sleeper_adp_{season}.json"
+
+    output_path = EXTENSION_DIR / "data.js"
+    hosted_output_path = HOSTED_DIR / f"draftiq-data-{season}.json"
+
+    rankings = load_json(consensus_path, default=None)
+
+    if rankings is None:
+        print(f"Could not find {consensus_path}. Falling back to {legacy_rankings_path}.")
+        rankings = load_json(legacy_rankings_path, default=[])
+
+    rankings = sort_rankings(rankings)
+    rankings, aliases_applied, duplicates_removed = canonicalize_and_dedupe_rankings(rankings)
+
+    player_database = load_json(database_path, default={})
+    player_lookup = build_player_database_lookup(player_database)
+
+    bye_weeks = load_json(bye_weeks_path, default={})
+    schedule_strength = load_json(schedule_strength_path, default={})
+
+    yahoo_projections = load_json(projections_path, default={})
+    projection_lookup = build_projection_lookup(yahoo_projections)
+
+    espn_adp = load_json(espn_adp_path, default=[])
+    espn_projections = load_json(espn_projections_path, default=[])
+    espn_adp_lookup = build_external_source_lookup(espn_adp)
+    espn_projection_lookup = build_external_source_lookup(espn_projections)
+
+    sleeper_projections = load_json(sleeper_projections_path, default=[])
+    sleeper_adp = load_json(sleeper_adp_path, default=[])
+
+    sleeper_projection_lookup = build_external_source_lookup(sleeper_projections)
+    sleeper_adp_lookup = build_external_source_lookup(sleeper_adp)
+
+    extension_players = []
+
+    matched_profiles = 0
+    matched_yahoo_projections = 0
+    matched_espn_projections = 0
+    matched_espn_adp = 0
+    matched_sleeper_projections = 0
+    matched_sleeper_adp = 0
+    matched_schedules = 0
+    skipped_non_skill_positions = 0
+
+    master_projection_source_counts = {
+        "yahoo": 0,
+        "espn": 0,
+        "sleeper": 0,
+    }
+
+    master_adp_source_counts = {
+        "yahoo": 0,
+        "espn": 0,
+        "sleeper": 0,
+    }
+
+    for index, player in enumerate(rankings, start=1):
+        if len(extension_players) >= 250:
+            break
+
+        original_rank = get_export_rank(player, index)
+
+        player_id, profile = find_player_profile(player, player_database, player_lookup)
+
+        yahoo_projection_profile = find_projection_profile(player, projection_lookup)
+        espn_projection = find_external_source_match(player, player_id, espn_projection_lookup)
+        espn_adp_profile = find_external_source_match(player, player_id, espn_adp_lookup)
+        sleeper_projection = find_external_source_match(player, player_id, sleeper_projection_lookup)
+        sleeper_adp_profile = find_external_source_match(player, player_id, sleeper_adp_lookup)
+
+        name = canonical_player_name(player.get("name"))
+        team = get_player_team(player, profile, espn_projection, espn_adp_profile, sleeper_projection)
+        position = get_player_position(player, profile, espn_projection, espn_adp_profile, sleeper_projection)
+
+        if not is_skill_position(position):
+            skipped_non_skill_positions += 1
+            continue
+
+        rank = len(extension_players) + 1
+
+        if profile:
+            matched_profiles += 1
+
+        if yahoo_projection_profile:
+            matched_yahoo_projections += 1
+
+        if espn_projection:
+            matched_espn_projections += 1
+
+        if espn_adp_profile:
+            matched_espn_adp += 1
+
+        if sleeper_projection:
+            matched_sleeper_projections += 1
+
+        if sleeper_adp_profile:
+            matched_sleeper_adp += 1
+
+        source_projections = build_source_projections(
+            player,
+            yahoo_projection_profile,
+            espn_projection,
+            sleeper_projection,
+        )
+
+        source_projected_ppg = build_source_projected_ppg(
+            player,
+            yahoo_projection_profile,
+            espn_projection,
+            sleeper_projection,
+        )
+
+        source_adp = build_source_adp(
+            player,
+            yahoo_projection_profile,
+            espn_adp_profile,
+            sleeper_adp_profile,
+        )
+
+        master_projection, projection_sources = average_values(source_projections, digits=1)
+        master_projected_ppg, projected_ppg_sources = average_values(source_projected_ppg, digits=2)
+        master_adp, adp_sources = average_values(source_adp, digits=1)
+
+        for source in projection_sources:
+            master_projection_source_counts[source] += 1
+
+        for source in adp_sources:
+            master_adp_source_counts[source] += 1
+
+        if master_projected_ppg is None and master_projection is not None:
+            master_projected_ppg = round(master_projection / 17, 2)
+
+        if master_adp is None:
+            master_adp = get_adp_fallback(player)
+
+        bye = get_bye_week({"team": team, "bye": player.get("bye", "-")}, bye_weeks)
+        season_outlook = get_season_outlook(espn_projection, yahoo_projection_profile)
+        player_schedule_strength = get_schedule_strength(team, schedule_strength)
+
+        if player_schedule_strength["label"] != "Unknown":
+            matched_schedules += 1
+
+        final_player_id = player_id
+
+        if not final_player_id and espn_projection:
+            final_player_id = first_value(espn_projection, ["espnId", "id"], default=None)
+
+        if not final_player_id and espn_adp_profile:
+            final_player_id = first_value(espn_adp_profile, ["espnId", "id"], default=None)
+
+        if not final_player_id and sleeper_projection:
+            final_player_id = first_value(sleeper_projection, ["espnId", "id"], default=None)
+
+        projection_source_label = source_label(projection_sources, fallback="ranking")
+        adp_source_label = source_label(adp_sources, fallback="ranking")
+
+        source_breakdown = {
+            "yahoo": {
+                "projection": source_projections.get("yahoo"),
+                "projectedPpg": source_projected_ppg.get("yahoo"),
+                "adp": source_adp.get("yahoo"),
+            },
+            "espn": {
+                "projection": source_projections.get("espn"),
+                "projectedPpg": source_projected_ppg.get("espn"),
+                "adp": source_adp.get("espn"),
+            },
+            "sleeper": {
+                "projection": source_projections.get("sleeper"),
+                "projectedPpg": source_projected_ppg.get("sleeper"),
+                "adp": source_adp.get("sleeper"),
+            },
+            "master": {
+                "projection": safe_round(master_projection, 1, default="-"),
+                "projectedPpg": safe_round(master_projected_ppg, 2, default=0),
+                "adp": safe_round(master_adp, 1, default=master_adp),
+            },
+        }
+
+        extension_players.append({
+            "id": final_player_id,
+            "rank": rank,
+            "originalRank": original_rank,
+            "tier": get_tier(rank),
+            "name": name,
+            "pos": position,
+            "team": team,
+            "bye": bye,
+
+            "proj": safe_round(master_projection, 1, default="-"),
+            "projectedPpg": safe_round(master_projected_ppg, 2, default=0),
+            "projectionSource": projection_source_label,
+            "projectionSources": projection_sources,
+            "seasonOutlook": season_outlook,
+
+            "adp": safe_round(master_adp, 1, default=master_adp),
+            "adpSource": adp_source_label,
+            "adpSources": adp_sources,
+
+            "sourceProjections": source_projections,
+            "sourceProjectedPpg": source_projected_ppg,
+            "sourceAdp": source_adp,
+            "sourceBreakdown": source_breakdown,
+
+            "espnAdp": source_adp.get("espn"),
+            "espnProjection": source_projections.get("espn"),
+            "espnProjectedPpg": source_projected_ppg.get("espn"),
+
+            "sleeperAdp": source_adp.get("sleeper"),
+            "sleeperProjection": source_projections.get("sleeper"),
+            "sleeperProjectedPpg": source_projected_ppg.get("sleeper"),
+
+            "yahooAdp": source_adp.get("yahoo"),
+            "yahooProjection": source_projections.get("yahoo"),
+            "yahooProjectedPpg": source_projected_ppg.get("yahoo"),
+
+            "weekOneProjection": safe_round(
+                first_value(espn_projection or {}, ["weekOneProjection"], default=None),
+                1,
+                default=None,
+            ),
+
+            "scheduleStrength": player_schedule_strength,
+
+            "draftiqScore": player.get("draftiq_score"),
+            "primaryRank": player.get("primary_rank"),
+            "supportingAverage": player.get("supporting_average"),
+            "sourceDisagreement": player.get("source_disagreement", False),
+            "rankSpread": player.get("rank_spread", 0),
+            "sourceRanks": player.get("source_ranks", {}),
+
+            "draftBadge": build_draft_badge(rank, master_adp),
+            "image": build_headshot_url(final_player_id),
+            "stats": build_player_stats(player, profile, master_projection, master_projected_ppg),
+            "valueAlert": (
+                player.get("value_score") is not None
+                and player.get("value_score") >= 10
+            ),
+        })
+
+    recommendation = build_recommendation(extension_players)
+    updated_at = datetime.now(timezone.utc).isoformat()
+
+    js = (
+        "const DRAFT_COPILOT_POSITION_COLORS = "
+        + json.dumps(POSITION_COLORS, indent=2)
+        + ";\n\n"
+        + "const DRAFT_COPILOT_RECOMMENDATION = "
+        + json.dumps(recommendation, indent=2)
+        + ";\n\n"
+        + "const DRAFT_COPILOT_PLAYERS = "
+        + json.dumps(extension_players, indent=2)
+        + ";\n"
+    )
+
+    hosted_data = {
+        "version": f"{season}-{updated_at}",
+        "updatedAt": updated_at,
+        "league": league_name,
+        "season": season,
+        "positionColors": POSITION_COLORS,
+        "recommendation": recommendation,
+        "players": extension_players,
+    }
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    with open(output_path, "w", encoding="utf-8") as file:
+        file.write(js)
+
+    hosted_output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    with open(hosted_output_path, "w", encoding="utf-8") as file:
+        json.dump(hosted_data, file, indent=2)
+
+    print(f"Exported {len(extension_players)} players.")
+    print(f"Loaded {len(player_database)} player database records.")
+    print(f"Matched {matched_profiles} players to ESPN profile data.")
+    print(f"Matched {matched_yahoo_projections} players to Yahoo/legacy projections.")
+    print(f"Matched {matched_espn_projections} players to ESPN projections.")
+    print(f"Matched {matched_espn_adp} players to ESPN ADP.")
+    print(f"Matched {matched_sleeper_projections} players to Sleeper projections.")
+    print(f"Matched {matched_sleeper_adp} players to Sleeper ADP.")
+    print(f"Matched {matched_schedules} players to schedule strength data.")
+    print(f"Skipped {skipped_non_skill_positions} non-skill players/dst/kickers.")
+    print(f"Applied {aliases_applied} player name aliases.")
+    print(f"Removed {duplicates_removed} duplicate aliased players.")
+    print(f"Loaded {len(bye_weeks)} bye week records from {bye_weeks_path}.")
+    print(f"Loaded {len(schedule_strength)} schedule strength records from {schedule_strength_path}.")
+    print(f"Loaded {len(yahoo_projections)} Yahoo/legacy projection records from {projections_path}.")
+    print(f"Loaded {len(espn_projections)} ESPN projection records from {espn_projections_path}.")
+    print(f"Loaded {len(espn_adp)} ESPN ADP records from {espn_adp_path}.")
+    print(f"Loaded {len(sleeper_projections)} Sleeper projection records from {sleeper_projections_path}.")
+    print(f"Loaded {len(sleeper_adp)} Sleeper ADP records from {sleeper_adp_path}.")
+    print("Master projection source counts:")
+    print(json.dumps(master_projection_source_counts, indent=2))
+    print("Master ADP source counts:")
+    print(json.dumps(master_adp_source_counts, indent=2))
+    print(f"Extension output -> {output_path}")
+    print(f"Hosted JSON output -> {hosted_output_path}")
+
+
+if __name__ == "__main__":
+    main()

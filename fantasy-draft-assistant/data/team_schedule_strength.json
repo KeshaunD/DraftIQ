@@ -1,0 +1,14 @@
+{
+    "DET": {
+        "rank": 32,
+        "modifier": 1.06
+    },
+    "CHI": {
+        "rank": 1,
+        "modifier": 0.94
+    },
+    "SF": {
+        "rank": 16,
+        "modifier": 1.00
+    }
+}

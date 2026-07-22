@@ -1,0 +1,11 @@
+2026/07/09-19:30:24.145 8ac4 Creating DB C:\Users\17012\documents\projects\fantasy-draft-assistant\.chrome-espn-manual\Default\Local Storage\leveldb since it was missing.
+2026/07/09-19:30:24.161 8ac4 Reusing MANIFEST C:\Users\17012\documents\projects\fantasy-draft-assistant\.chrome-espn-manual\Default\Local Storage\leveldb/MANIFEST-000001
+2026/07/09-19:30:35.861 4f60 Level-0 table #5: started
+2026/07/09-19:30:35.866 4f60 Level-0 table #5: 121137 bytes OK
+2026/07/09-19:30:35.867 4f60 Delete type=0 #3
+2026/07/09-19:32:11.862 4f60 Level-0 table #7: started
+2026/07/09-19:32:11.879 4f60 Level-0 table #7: 198012 bytes OK
+2026/07/09-19:32:11.881 4f60 Delete type=0 #4
+2026/07/09-19:32:55.588 4f60 Level-0 table #9: started
+2026/07/09-19:32:55.593 4f60 Level-0 table #9: 157179 bytes OK
+2026/07/09-19:32:55.595 4f60 Delete type=0 #6

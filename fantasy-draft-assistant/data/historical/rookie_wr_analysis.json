@@ -1,0 +1,422 @@
+{
+  "round_1": {
+    "sample_size": 26,
+    "games": {
+      "average": 14.73,
+      "median": 16.5,
+      "min": 6,
+      "max": 17,
+      "p25": 13,
+      "p75": 17,
+      "p90": 17,
+      "std_dev": 3.28
+    },
+    "targets": {
+      "average": 94.85,
+      "median": 102.5,
+      "min": 9,
+      "max": 170,
+      "p25": 61,
+      "p75": 122,
+      "p90": 133,
+      "std_dev": 38.69
+    },
+    "receptions": {
+      "average": 58.42,
+      "median": 62.5,
+      "min": 1,
+      "max": 109,
+      "p25": 38,
+      "p75": 72,
+      "p90": 83,
+      "std_dev": 25.08
+    },
+    "receiving_yards": {
+      "average": 746.88,
+      "median": 796.0,
+      "min": 41,
+      "max": 1455,
+      "p25": 444,
+      "p75": 1014,
+      "p90": 1103,
+      "std_dev": 343.59
+    },
+    "receiving_touchdowns": {
+      "average": 4.69,
+      "median": 4.0,
+      "min": 0,
+      "max": 13,
+      "p25": 2,
+      "p75": 7,
+      "p90": 8,
+      "std_dev": 3.3
+    },
+    "success_rates": {
+      "elite_1000": 0.269,
+      "great_800": 0.5,
+      "starter_600": 0.615,
+      "contributor_300": 0.923,
+      "bust_under_300": 0.077
+    }
+  },
+  "round_2": {
+    "sample_size": 31,
+    "games": {
+      "average": 14.16,
+      "median": 16,
+      "min": 1,
+      "max": 17,
+      "p25": 13,
+      "p75": 16,
+      "p90": 17,
+      "std_dev": 3.5
+    },
+    "targets": {
+      "average": 61.77,
+      "median": 61,
+      "min": 0,
+      "max": 112,
+      "p25": 41,
+      "p75": 84,
+      "p90": 100,
+      "std_dev": 27.94
+    },
+    "receptions": {
+      "average": 38.1,
+      "median": 41,
+      "min": 0,
+      "max": 82,
+      "p25": 23,
+      "p75": 47,
+      "p90": 64,
+      "std_dev": 19.58
+    },
+    "receiving_yards": {
+      "average": 530.58,
+      "median": 538,
+      "min": 0,
+      "max": 1149,
+      "p25": 312,
+      "p75": 704,
+      "p90": 917,
+      "std_dev": 298.93
+    },
+    "receiving_touchdowns": {
+      "average": 3.29,
+      "median": 2,
+      "min": 0,
+      "max": 8,
+      "p25": 1,
+      "p75": 6,
+      "p90": 7,
+      "std_dev": 2.88
+    },
+    "success_rates": {
+      "elite_1000": 0.065,
+      "great_800": 0.226,
+      "starter_600": 0.355,
+      "contributor_300": 0.742,
+      "bust_under_300": 0.258
+    }
+  },
+  "round_3": {
+    "sample_size": 25,
+    "games": {
+      "average": 13.64,
+      "median": 14,
+      "min": 1,
+      "max": 17,
+      "p25": 12,
+      "p75": 17,
+      "p90": 17,
+      "std_dev": 3.71
+    },
+    "targets": {
+      "average": 38.36,
+      "median": 34,
+      "min": 0,
+      "max": 98,
+      "p25": 14,
+      "p75": 58,
+      "p90": 93,
+      "std_dev": 29.61
+    },
+    "receptions": {
+      "average": 23.96,
+      "median": 20,
+      "min": 0,
+      "max": 68,
+      "p25": 10,
+      "p75": 34,
+      "p90": 58,
+      "std_dev": 19.48
+    },
+    "receiving_yards": {
+      "average": 323.72,
+      "median": 239,
+      "min": 0,
+      "max": 919,
+      "p25": 107,
+      "p75": 461,
+      "p90": 771,
+      "std_dev": 275.8
+    },
+    "receiving_touchdowns": {
+      "average": 2,
+      "median": 1,
+      "min": 0,
+      "max": 8,
+      "p25": 0,
+      "p75": 3,
+      "p90": 7,
+      "std_dev": 2.57
+    },
+    "success_rates": {
+      "elite_1000": 0.0,
+      "great_800": 0.08,
+      "starter_600": 0.16,
+      "contributor_300": 0.44,
+      "bust_under_300": 0.56
+    }
+  },
+  "round_4": {
+    "sample_size": 19,
+    "games": {
+      "average": 13,
+      "median": 15,
+      "min": 1,
+      "max": 17,
+      "p25": 11,
+      "p75": 16,
+      "p90": 17,
+      "std_dev": 4.68
+    },
+    "targets": {
+      "average": 30.63,
+      "median": 17,
+      "min": 0,
+      "max": 119,
+      "p25": 3,
+      "p75": 53,
+      "p90": 74,
+      "std_dev": 34.31
+    },
+    "receptions": {
+      "average": 18.37,
+      "median": 10,
+      "min": 0,
+      "max": 90,
+      "p25": 2,
+      "p75": 28,
+      "p90": 42,
+      "std_dev": 22.94
+    },
+    "receiving_yards": {
+      "average": 191.11,
+      "median": 80,
+      "min": 0,
+      "max": 912,
+      "p25": 23,
+      "p75": 263,
+      "p90": 425,
+      "std_dev": 235.6
+    },
+    "receiving_touchdowns": {
+      "average": 1.05,
+      "median": 0,
+      "min": 0,
+      "max": 5,
+      "p25": 0,
+      "p75": 2,
+      "p90": 4,
+      "std_dev": 1.68
+    },
+    "success_rates": {
+      "elite_1000": 0.0,
+      "great_800": 0.053,
+      "starter_600": 0.053,
+      "contributor_300": 0.211,
+      "bust_under_300": 0.789
+    }
+  },
+  "round_5": {
+    "sample_size": 16,
+    "games": {
+      "average": 11.25,
+      "median": 11.0,
+      "min": 4,
+      "max": 17,
+      "p25": 8,
+      "p75": 14,
+      "p90": 16,
+      "std_dev": 3.91
+    },
+    "targets": {
+      "average": 36.62,
+      "median": 16.5,
+      "min": 0,
+      "max": 160,
+      "p25": 7,
+      "p75": 58,
+      "p90": 98,
+      "std_dev": 45.64
+    },
+    "receptions": {
+      "average": 22.31,
+      "median": 9.5,
+      "min": 0,
+      "max": 105,
+      "p25": 5,
+      "p75": 38,
+      "p90": 61,
+      "std_dev": 29.04
+    },
+    "receiving_yards": {
+      "average": 305.38,
+      "median": 139.5,
+      "min": 0,
+      "max": 1486,
+      "p25": 41,
+      "p75": 581,
+      "p90": 740,
+      "std_dev": 404.16
+    },
+    "receiving_touchdowns": {
+      "average": 2.31,
+      "median": 1.5,
+      "min": 0,
+      "max": 8,
+      "p25": 1,
+      "p75": 4,
+      "p90": 6,
+      "std_dev": 2.41
+    },
+    "success_rates": {
+      "elite_1000": 0.062,
+      "great_800": 0.062,
+      "starter_600": 0.188,
+      "contributor_300": 0.312,
+      "bust_under_300": 0.688
+    }
+  },
+  "round_6": {
+    "sample_size": 17,
+    "games": {
+      "average": 12.71,
+      "median": 14,
+      "min": 5,
+      "max": 17,
+      "p25": 10,
+      "p75": 16,
+      "p90": 16,
+      "std_dev": 3.7
+    },
+    "targets": {
+      "average": 23.53,
+      "median": 18,
+      "min": 0,
+      "max": 79,
+      "p25": 13,
+      "p75": 26,
+      "p90": 36,
+      "std_dev": 20.92
+    },
+    "receptions": {
+      "average": 14.41,
+      "median": 11,
+      "min": 0,
+      "max": 49,
+      "p25": 7,
+      "p75": 16,
+      "p90": 26,
+      "std_dev": 13.21
+    },
+    "receiving_yards": {
+      "average": 165.06,
+      "median": 116,
+      "min": 0,
+      "max": 561,
+      "p25": 90,
+      "p75": 223,
+      "p90": 293,
+      "std_dev": 146.22
+    },
+    "receiving_touchdowns": {
+      "average": 1,
+      "median": 0,
+      "min": 0,
+      "max": 4,
+      "p25": 0,
+      "p75": 1,
+      "p90": 3,
+      "std_dev": 1.41
+    },
+    "success_rates": {
+      "elite_1000": 0.0,
+      "great_800": 0.0,
+      "starter_600": 0.0,
+      "contributor_300": 0.118,
+      "bust_under_300": 0.882
+    }
+  },
+  "round_7": {
+    "sample_size": 13,
+    "games": {
+      "average": 10.31,
+      "median": 12,
+      "min": 1,
+      "max": 17,
+      "p25": 7,
+      "p75": 13,
+      "p90": 17,
+      "std_dev": 5.5
+    },
+    "targets": {
+      "average": 13.46,
+      "median": 6,
+      "min": 0,
+      "max": 55,
+      "p25": 0,
+      "p75": 20,
+      "p90": 44,
+      "std_dev": 17.91
+    },
+    "receptions": {
+      "average": 8.46,
+      "median": 5,
+      "min": 0,
+      "max": 41,
+      "p25": 0,
+      "p75": 10,
+      "p90": 28,
+      "std_dev": 12.44
+    },
+    "receiving_yards": {
+      "average": 97.15,
+      "median": 64,
+      "min": 0,
+      "max": 475,
+      "p25": 0,
+      "p75": 92,
+      "p90": 322,
+      "std_dev": 143.99
+    },
+    "receiving_touchdowns": {
+      "average": 1,
+      "median": 0,
+      "min": 0,
+      "max": 5,
+      "p25": 0,
+      "p75": 1,
+      "p90": 3,
+      "std_dev": 1.63
+    },
+    "success_rates": {
+      "elite_1000": 0.0,
+      "great_800": 0.0,
+      "starter_600": 0.0,
+      "contributor_300": 0.154,
+      "bust_under_300": 0.846
+    }
+  }
+}

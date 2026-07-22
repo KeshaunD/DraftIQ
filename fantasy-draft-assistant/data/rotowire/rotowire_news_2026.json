@@ -1,0 +1,48 @@
+{
+  "source": "RotoWire NFL RSS",
+  "feedUrl": "https://www.rotowire.com/rss/news.php?sport=NFL",
+  "updatedAt": "2026-07-17T12:32:03.165146Z",
+  "status": "live",
+  "players": {
+    "christian mccaffrey": [
+      {
+        "headline": "Wins Best Comeback Athlete",
+        "summary": "McCaffrey was named the Best Comeback Athlete at the 2026 ESPYS, Briana Jeannel of the 49ers' official site reports. Visit RotoWire.com for more analysis on this update.",
+        "publishedAt": "2026-07-16T10:19:00Z",
+        "url": null
+      }
+    ],
+    "zay flowers": [
+      {
+        "headline": "Ravens keen on extension",
+        "summary": "Ravens general manager Eric DeCosta said Thursday on 105.7 The Fan that Baltimore \"definitely\" wants to ink Flowers to a contract extension before the start of the 2026 regular season, Cordell Woodland of 105.7 The Fan Baltimore reports. Visit RotoWire.com for more analysis on this update.",
+        "publishedAt": "2026-07-16T09:14:00Z",
+        "url": null
+      }
+    ],
+    "trevor lawrence": [
+      {
+        "headline": "Draws praise for offseason work",
+        "summary": "Lawrence has thrived in the early stages of his second offseason in head coach Liam Coen's system, John Shipley of SI.com reports. Visit RotoWire.com for more analysis on this update.",
+        "publishedAt": "2026-07-16T10:40:00Z",
+        "url": null
+      }
+    ],
+    "hunter henry": [
+      {
+        "headline": "Remains top tight end",
+        "summary": "While Henry returns as the Patriots' top tight end, slotting behind him on the team's depth chart has yet to be solidified following Julian Hill's season-ending knee injury, Evan Lazar of the team's official site reports. Visit RotoWire.com for more analysis on this update.",
+        "publishedAt": "2026-07-16T12:54:00Z",
+        "url": null
+      }
+    ],
+    "alvin kamara": [
+      {
+        "headline": "Agrees to new contract with Saints",
+        "summary": "Kamara and New Orleans agreed to terms Thursday on a restructured contract that gives him a $6 million base salary for the 2026 season, Ian Rapoport of NFL Network reports. Visit RotoWire.com for more analysis on this update.",
+        "publishedAt": "2026-07-16T07:48:00Z",
+        "url": null
+      }
+    ]
+  }
+}

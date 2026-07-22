@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500&display=swap');
+
+    body {
+      margin: 0;
+      width: 240px;
+      background: #10151A;
+      color: #EAF1F0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .wrap {
+      padding: 16px;
+    }
+
+    .wordmark {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .wordmark span {
+      color: #E8B94E;
+    }
+
+    .sub {
+      font-size: 11px;
+      color: #8CA0A6;
+      margin-bottom: 14px;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-top: 1px solid #2B363C;
+    }
+
+    .row-label {
+      font-size: 13px;
+    }
+
+    .switch {
+      position: relative;
+      width: 36px;
+      height: 20px;
+      background: #2B363C;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 120ms ease;
+    }
+
+    .switch.on {
+      background: #4FD1C5;
+    }
+
+    .switch-knob {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
+      background: #10151A;
+      border-radius: 50%;
+      transition: transform 120ms ease;
+    }
+
+    .switch.on .switch-knob {
+      transform: translateX(16px);
+    }
+
+    .hint {
+      font-size: 10.5px;
+      color: #5E6E73;
+      margin-top: 10px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="wordmark">
+      Draft<span>IQ</span>
+    </div>
+
+    <div class="sub">
+      Fantasy Football Draft Assistant
+    </div>
+
+    <div class="row">
+      <div class="row-label">Show HUD</div>
+
+      <div class="switch" id="toggle">
+        <div class="switch-knob"></div>
+      </div>
+    </div>
+
+    <div class="hint">
+      Open an ESPN, Yahoo, Sleeper, or NFL.com draft room and DraftIQ will automatically detect your draft, league size, and draft position.
+    </div>
+
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

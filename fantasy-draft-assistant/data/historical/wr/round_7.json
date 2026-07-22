@@ -1,0 +1,477 @@
+[
+  {
+    "name": "Tez Johnson",
+    "draft_year": 2025,
+    "pick": null,
+    "team": "TB",
+    "college": null,
+    "rookie_stats": {
+      "games": 16,
+      "targets": 44,
+      "receptions": 28,
+      "receiving_yards": 322,
+      "receiving_touchdowns": 5
+    },
+    "espn_id": "4608810"
+  },
+  {
+    "name": "Ricky White III",
+    "draft_year": 2025,
+    "pick": null,
+    "team": "SEA",
+    "college": null,
+    "rookie_stats": {
+      "games": 2,
+      "targets": 0,
+      "receptions": 0,
+      "receiving_yards": 0,
+      "receiving_touchdowns": 0
+    },
+    "espn_id": "4431479"
+  },
+  {
+    "name": "Kaden Prather",
+    "draft_year": 2025,
+    "pick": null,
+    "team": "BUF",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Konata Mumpfield",
+    "draft_year": 2025,
+    "pick": null,
+    "team": "LAR",
+    "college": null,
+    "rookie_stats": {
+      "games": 17,
+      "targets": 23,
+      "receptions": 10,
+      "receiving_yards": 92,
+      "receiving_touchdowns": 1
+    },
+    "espn_id": "4710855"
+  },
+  {
+    "name": "Dominic Lovett",
+    "draft_year": 2025,
+    "pick": null,
+    "team": "DET",
+    "college": null,
+    "rookie_stats": {
+      "games": 12,
+      "targets": 0,
+      "receptions": 0,
+      "receiving_yards": 0,
+      "receiving_touchdowns": 0
+    },
+    "espn_id": "4596439"
+  },
+  {
+    "name": "Junior Bergen",
+    "draft_year": 2025,
+    "pick": null,
+    "team": "SF",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Brenden Rice",
+    "draft_year": 2024,
+    "pick": null,
+    "team": "LAC",
+    "college": null,
+    "rookie_stats": {
+      "games": 3,
+      "targets": 0,
+      "receptions": 0,
+      "receiving_yards": 0,
+      "receiving_touchdowns": 0
+    },
+    "espn_id": "4686781"
+  },
+  {
+    "name": "Devaughn Vele",
+    "draft_year": 2024,
+    "pick": null,
+    "team": "DEN",
+    "college": null,
+    "rookie_stats": {
+      "games": 13,
+      "targets": 55,
+      "receptions": 41,
+      "receiving_yards": 475,
+      "receiving_touchdowns": 3
+    },
+    "espn_id": "4569559"
+  },
+  {
+    "name": "Tahj Washington",
+    "draft_year": 2024,
+    "pick": null,
+    "team": "MIA",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Cornelius Johnson",
+    "draft_year": 2024,
+    "pick": null,
+    "team": "LAC",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Antoine Green",
+    "draft_year": 2023,
+    "pick": null,
+    "team": "DET",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Colton Dowell",
+    "draft_year": 2023,
+    "pick": null,
+    "team": "TEN",
+    "college": null,
+    "rookie_stats": {
+      "games": 10,
+      "targets": 2,
+      "receptions": 1,
+      "receiving_yards": 3,
+      "receiving_touchdowns": 0
+    },
+    "espn_id": "4250945"
+  },
+  {
+    "name": "Jalen Brooks",
+    "draft_year": 2023,
+    "pick": null,
+    "team": "DAL",
+    "college": null,
+    "rookie_stats": {
+      "games": 7,
+      "targets": 6,
+      "receptions": 6,
+      "receiving_yards": 64,
+      "receiving_touchdowns": 0
+    },
+    "espn_id": "4692835"
+  },
+  {
+    "name": "Ronnie Bell",
+    "draft_year": 2023,
+    "pick": null,
+    "team": "SF",
+    "college": null,
+    "rookie_stats": {
+      "games": 17,
+      "targets": 13,
+      "receptions": 6,
+      "receiving_yards": 68,
+      "receiving_touchdowns": 3
+    },
+    "espn_id": "4372063"
+  },
+  {
+    "name": "Grant DuBose",
+    "draft_year": 2023,
+    "pick": null,
+    "team": "GB",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Bo Melton",
+    "draft_year": 2022,
+    "pick": null,
+    "team": "SEA",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Dareke Young",
+    "draft_year": 2022,
+    "pick": null,
+    "team": "SEA",
+    "college": null,
+    "rookie_stats": {
+      "games": 13,
+      "targets": 2,
+      "receptions": 2,
+      "receiving_yards": 24,
+      "receiving_touchdowns": 0
+    },
+    "espn_id": "4401805"
+  },
+  {
+    "name": "Samori Toure",
+    "draft_year": 2022,
+    "pick": null,
+    "team": "GB",
+    "college": null,
+    "rookie_stats": {
+      "games": 11,
+      "targets": 10,
+      "receptions": 5,
+      "receiving_yards": 82,
+      "receiving_touchdowns": 1
+    },
+    "espn_id": "4027873"
+  },
+  {
+    "name": "Mike Strachan",
+    "draft_year": 2021,
+    "pick": null,
+    "team": "IND",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Tre Nixon",
+    "draft_year": 2021,
+    "pick": null,
+    "team": "NE",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Ben Skowronek",
+    "draft_year": 2021,
+    "pick": null,
+    "team": "LAR",
+    "college": null,
+    "rookie_stats": {
+      "games": 12,
+      "targets": 20,
+      "receptions": 11,
+      "receiving_yards": 133,
+      "receiving_touchdowns": 0
+    },
+    "espn_id": "4035656"
+  },
+  {
+    "name": "Kawaan Baker",
+    "draft_year": 2021,
+    "pick": null,
+    "team": "NO",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Dax Milne",
+    "draft_year": 2021,
+    "pick": null,
+    "team": "WAS",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Jauan Jennings",
+    "draft_year": 2020,
+    "pick": null,
+    "team": "SF",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "K.J. Hill",
+    "draft_year": 2020,
+    "pick": null,
+    "team": "LAC",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Malcolm Perry",
+    "draft_year": 2020,
+    "pick": null,
+    "team": "MIA",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Tyrie Cleveland",
+    "draft_year": 2020,
+    "pick": null,
+    "team": "DEN",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "John Ursua",
+    "draft_year": 2019,
+    "pick": null,
+    "team": "SEA",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Terry Godwin",
+    "draft_year": 2019,
+    "pick": null,
+    "team": "CAR",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Dillon Mitchell",
+    "draft_year": 2019,
+    "pick": null,
+    "team": "MIN",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Olabisi Johnson",
+    "draft_year": 2019,
+    "pick": null,
+    "team": "MIN",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Javon Wims",
+    "draft_year": 2018,
+    "pick": null,
+    "team": "CHI",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Marcell Ateman",
+    "draft_year": 2018,
+    "pick": null,
+    "team": "LV",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Richie James",
+    "draft_year": 2018,
+    "pick": null,
+    "team": "SF",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Auden Tate",
+    "draft_year": 2018,
+    "pick": null,
+    "team": "CIN",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Austin Proehl",
+    "draft_year": 2018,
+    "pick": null,
+    "team": "BUF",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Trey Quinn",
+    "draft_year": 2018,
+    "pick": null,
+    "team": "WAS",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Stacy Coley",
+    "draft_year": 2017,
+    "pick": null,
+    "team": "MIN",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "David Moore",
+    "draft_year": 2017,
+    "pick": null,
+    "team": "SEA",
+    "college": null,
+    "rookie_stats": {
+      "games": 1,
+      "targets": 0,
+      "receptions": 0,
+      "receiving_yards": 0,
+      "receiving_touchdowns": 0
+    },
+    "espn_id": "4212909"
+  },
+  {
+    "name": "Isaiah Ford",
+    "draft_year": 2017,
+    "pick": null,
+    "team": "MIA",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Noah Brown",
+    "draft_year": 2017,
+    "pick": null,
+    "team": "DAL",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Malachi Dupre",
+    "draft_year": 2017,
+    "pick": null,
+    "team": "GB",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Devin Lucien",
+    "draft_year": 2016,
+    "pick": null,
+    "team": "NE",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "DeMarcus Ayers",
+    "draft_year": 2016,
+    "pick": null,
+    "team": "PIT",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Daniel Braverman",
+    "draft_year": 2016,
+    "pick": null,
+    "team": "CHI",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Devin Fuller",
+    "draft_year": 2016,
+    "pick": null,
+    "team": "ATL",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Charone Peake",
+    "draft_year": 2016,
+    "pick": null,
+    "team": "NYJ",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Kenny Lawler",
+    "draft_year": 2016,
+    "pick": null,
+    "team": "SEA",
+    "college": null,
+    "rookie_stats": {}
+  }
+]

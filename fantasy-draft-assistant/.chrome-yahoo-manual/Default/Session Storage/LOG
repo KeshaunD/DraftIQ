@@ -1,0 +1,24 @@
+2026/07/07-14:27:20.393 a9fc Reusing MANIFEST C:\Users\17012\documents\projects\fantasy-draft-assistant\.chrome-yahoo-manual\Default\Session Storage/MANIFEST-000001
+2026/07/07-14:27:20.394 a9fc Recovering log #9
+2026/07/07-14:27:20.397 a9fc Reusing old log C:\Users\17012\documents\projects\fantasy-draft-assistant\.chrome-yahoo-manual\Default\Session Storage/000009.log 
+2026/07/07-14:39:14.220 c294 Level-0 table #13: started
+2026/07/07-14:39:14.223 c294 Level-0 table #13: 30300 bytes OK
+2026/07/07-14:39:14.224 c294 Delete type=0 #9
+2026/07/07-15:12:06.916 c294 Level-0 table #15: started
+2026/07/07-15:12:06.920 c294 Level-0 table #15: 27439 bytes OK
+2026/07/07-15:12:06.922 c294 Delete type=0 #12
+2026/07/07-15:31:39.319 c294 Level-0 table #17: started
+2026/07/07-15:31:39.323 c294 Level-0 table #17: 109493 bytes OK
+2026/07/07-15:31:39.324 c294 Delete type=0 #14
+2026/07/07-15:31:39.324 c294 Compacting 4@0 + 1@1 files
+2026/07/07-15:31:39.329 c294 Generated table #18@0: 389 keys, 138339 bytes
+2026/07/07-15:31:39.329 c294 Compacted 4@0 + 1@1 files => 138339 bytes
+2026/07/07-15:31:39.330 c294 compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/07/07-15:31:39.330 c294 Delete type=2 #7
+2026/07/07-15:31:39.331 c294 Delete type=2 #10
+2026/07/07-15:31:39.331 c294 Delete type=2 #13
+2026/07/07-15:31:39.331 c294 Delete type=2 #15
+2026/07/07-15:31:39.331 c294 Delete type=2 #17
+2026/07/07-15:35:05.711 c294 Level-0 table #20: started
+2026/07/07-15:35:05.716 c294 Level-0 table #20: 134903 bytes OK
+2026/07/07-15:35:05.717 c294 Delete type=0 #16

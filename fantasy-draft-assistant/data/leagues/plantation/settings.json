@@ -1,0 +1,26 @@
+{
+    "league_name": "plantation",
+    "scoring_format": "PPR",
+    "teams": 10,
+    "roster_settings": {
+        "QB": 1,
+        "RB": 2,
+        "WR": 2,
+        "TE": 1,
+        "FLEX": 1,
+        "K": 1,
+        "DST": 1,
+        "BENCH": 6
+    },
+    "scoring": {
+    "passing_yards": 0.04,
+    "passing_touchdowns": 4,
+    "interceptions": -2,
+    "rushing_yards": 0.1,
+    "rushing_touchdowns": 6,
+    "receptions": 1,
+    "receiving_yards": 0.1,
+    "receiving_touchdowns": 6,
+    "fumbles_lost": -2
+}
+}

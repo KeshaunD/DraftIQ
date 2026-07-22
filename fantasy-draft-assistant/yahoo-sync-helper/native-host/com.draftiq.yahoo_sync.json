@@ -1,0 +1,9 @@
+{
+    "name":  "com.draftiq.yahoo_sync",
+    "description":  "DraftIQ Yahoo sync helper launcher",
+    "path":  "C:\\Users\\17012\\Documents\\Projects\\fantasy-draft-assistant\\yahoo-sync-helper\\native-host\\DraftIQYahooHost.exe",
+    "type":  "stdio",
+    "allowed_origins":  [
+                            "chrome-extension://ogpmogkdeajnbphkgkmciijjhnmjadpp/"
+                        ]
+}

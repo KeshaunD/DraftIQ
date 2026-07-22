@@ -1,0 +1,46 @@
+[
+  {
+    "id": "3918298",
+    "name": "Josh Allen",
+    "team": "BUF",
+    "position": "QB",
+    "projection_model": "veteran_nfl_history",
+    "projected_games": 17,
+    "projected_stats": {
+      "passing_yards": 0.0,
+      "passing_touchdowns": 0.0,
+      "interceptions": 0,
+      "rushing_yards": 0.0,
+      "rushing_touchdowns": 0.0,
+      "receptions": 0,
+      "receiving_yards": 0.0,
+      "receiving_touchdowns": 0.0,
+      "fumbles_lost": 0
+    },
+    "projected_fantasy_points": 0.0,
+    "sources": []
+  },
+  {
+    "id": "rookie_example",
+    "name": "Rookie Example",
+    "team": "UNK",
+    "position": "WR",
+    "projection_model": "rookie_college_translation",
+    "projected_games": 17,
+    "projected_stats": {
+      "passing_yards": 0.0,
+      "passing_touchdowns": 0.0,
+      "interceptions": 0.0,
+      "rushing_yards": 0.0,
+      "rushing_touchdowns": 0.0,
+      "receptions": 62.47,
+      "receiving_yards": 892.5,
+      "receiving_touchdowns": 7.14,
+      "fumbles_lost": 0
+    },
+    "projected_fantasy_points": 194.56,
+    "sources": [
+      "manual_college_translation"
+    ]
+  }
+]

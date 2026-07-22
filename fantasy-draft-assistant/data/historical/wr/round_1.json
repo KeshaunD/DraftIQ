@@ -1,0 +1,387 @@
+[
+  {
+    "name": "Travis Hunter",
+    "draft_year": 2025,
+    "pick": 2,
+    "team": "JAX",
+    "college": "Colorado",
+    "rookie_stats": {
+      "games": 7,
+      "targets": 45,
+      "receptions": 28,
+      "receiving_yards": 298,
+      "receiving_touchdowns": 1
+    },
+    "espn_id": "4685415"
+  },
+  {
+    "name": "Tetairoa McMillan",
+    "draft_year": 2025,
+    "pick": 8,
+    "team": "CAR",
+    "college": "Arizona",
+    "rookie_stats": {
+      "games": 17,
+      "targets": 122,
+      "receptions": 70,
+      "receiving_yards": 1014,
+      "receiving_touchdowns": 7
+    },
+    "espn_id": "4685472"
+  },
+  {
+    "name": "Emeka Egbuka",
+    "draft_year": 2025,
+    "pick": 19,
+    "team": "TB",
+    "college": "Ohio State",
+    "rookie_stats": {
+      "games": 17,
+      "targets": 127,
+      "receptions": 63,
+      "receiving_yards": 938,
+      "receiving_touchdowns": 6
+    },
+    "espn_id": "4567750"
+  },
+  {
+    "name": "Matthew Golden",
+    "draft_year": 2025,
+    "pick": 23,
+    "team": "GB",
+    "college": "Texas",
+    "rookie_stats": {
+      "games": 14,
+      "targets": 44,
+      "receptions": 29,
+      "receiving_yards": 361,
+      "receiving_touchdowns": 0
+    },
+    "espn_id": "4701936"
+  },
+  {
+    "name": "Marvin Harrison Jr.",
+    "draft_year": 2024,
+    "pick": 4,
+    "team": "ARI",
+    "college": "Ohio State",
+    "rookie_stats": {
+      "games": 17,
+      "targets": 116,
+      "receptions": 62,
+      "receiving_yards": 885,
+      "receiving_touchdowns": 8
+    },
+    "espn_id": "4432708"
+  },
+  {
+    "name": "Malik Nabers",
+    "draft_year": 2024,
+    "pick": 6,
+    "team": "NYG",
+    "college": "LSU",
+    "rookie_stats": {
+      "games": 15,
+      "targets": 170,
+      "receptions": 109,
+      "receiving_yards": 1204,
+      "receiving_touchdowns": 7
+    },
+    "espn_id": "4595348"
+  },
+  {
+    "name": "Rome Odunze",
+    "draft_year": 2024,
+    "pick": 9,
+    "team": "CHI",
+    "college": "Washington",
+    "rookie_stats": {
+      "games": 17,
+      "targets": 101,
+      "receptions": 54,
+      "receiving_yards": 734,
+      "receiving_touchdowns": 3
+    },
+    "espn_id": "4431299"
+  },
+  {
+    "name": "Brian Thomas Jr.",
+    "draft_year": 2024,
+    "pick": 23,
+    "team": "JAX",
+    "college": "LSU",
+    "rookie_stats": {
+      "games": 17,
+      "targets": 133,
+      "receptions": 87,
+      "receiving_yards": 1282,
+      "receiving_touchdowns": 10
+    },
+    "espn_id": "4432773"
+  },
+  {
+    "name": "Xavier Worthy",
+    "draft_year": 2024,
+    "pick": 28,
+    "team": "KC",
+    "college": "Texas",
+    "rookie_stats": {
+      "games": 17,
+      "targets": 98,
+      "receptions": 59,
+      "receiving_yards": 638,
+      "receiving_touchdowns": 6
+    },
+    "espn_id": "4683062"
+  },
+  {
+    "name": "Ricky Pearsall",
+    "draft_year": 2024,
+    "pick": 31,
+    "team": "SF",
+    "college": "Florida",
+    "rookie_stats": {
+      "games": 11,
+      "targets": 46,
+      "receptions": 31,
+      "receiving_yards": 400,
+      "receiving_touchdowns": 3
+    },
+    "espn_id": "4428209"
+  },
+  {
+    "name": "Xavier Legette",
+    "draft_year": 2024,
+    "pick": 32,
+    "team": "CAR",
+    "college": "South Carolina",
+    "rookie_stats": {
+      "games": 16,
+      "targets": 84,
+      "receptions": 49,
+      "receiving_yards": 497,
+      "receiving_touchdowns": 4
+    },
+    "espn_id": "4430034"
+  },
+  {
+    "name": "Jaxon Smith-Njigba",
+    "draft_year": 2023,
+    "pick": 20,
+    "team": "SEA",
+    "college": "Ohio State",
+    "rookie_stats": {
+      "games": 17,
+      "targets": 93,
+      "receptions": 63,
+      "receiving_yards": 628,
+      "receiving_touchdowns": 4
+    },
+    "espn_id": "4430878"
+  },
+  {
+    "name": "Quentin Johnston",
+    "draft_year": 2023,
+    "pick": 21,
+    "team": "LAC",
+    "college": "TCU",
+    "rookie_stats": {
+      "games": 17,
+      "targets": 67,
+      "receptions": 38,
+      "receiving_yards": 431,
+      "receiving_touchdowns": 2
+    },
+    "espn_id": "4429025"
+  },
+  {
+    "name": "Zay Flowers",
+    "draft_year": 2023,
+    "pick": 22,
+    "team": "BAL",
+    "college": "Boston College",
+    "rookie_stats": {
+      "games": 16,
+      "targets": 108,
+      "receptions": 77,
+      "receiving_yards": 858,
+      "receiving_touchdowns": 5
+    },
+    "espn_id": "4429615"
+  },
+  {
+    "name": "Jordan Addison",
+    "draft_year": 2023,
+    "pick": 23,
+    "team": "MIN",
+    "college": "USC",
+    "rookie_stats": {
+      "games": 17,
+      "targets": 108,
+      "receptions": 70,
+      "receiving_yards": 911,
+      "receiving_touchdowns": 10
+    },
+    "espn_id": "4429205"
+  },
+  {
+    "name": "Drake London",
+    "draft_year": 2022,
+    "pick": 8,
+    "team": "ATL",
+    "college": "USC",
+    "rookie_stats": {
+      "games": 17,
+      "targets": 117,
+      "receptions": 72,
+      "receiving_yards": 866,
+      "receiving_touchdowns": 4
+    },
+    "espn_id": "4426502"
+  },
+  {
+    "name": "Garrett Wilson",
+    "draft_year": 2022,
+    "pick": 10,
+    "team": "NYJ",
+    "college": "Ohio State",
+    "rookie_stats": {
+      "games": 17,
+      "targets": 147,
+      "receptions": 83,
+      "receiving_yards": 1103,
+      "receiving_touchdowns": 4
+    },
+    "espn_id": "4569618"
+  },
+  {
+    "name": "Chris Olave",
+    "draft_year": 2022,
+    "pick": 11,
+    "team": "NO",
+    "college": "Ohio State",
+    "rookie_stats": {
+      "games": 15,
+      "targets": 119,
+      "receptions": 72,
+      "receiving_yards": 1042,
+      "receiving_touchdowns": 4
+    },
+    "espn_id": "4361370"
+  },
+  {
+    "name": "Jameson Williams",
+    "draft_year": 2022,
+    "pick": 12,
+    "team": "DET",
+    "college": "Alabama",
+    "rookie_stats": {
+      "games": 6,
+      "targets": 9,
+      "receptions": 1,
+      "receiving_yards": 41,
+      "receiving_touchdowns": 1
+    },
+    "espn_id": "4426388"
+  },
+  {
+    "name": "Jahan Dotson",
+    "draft_year": 2022,
+    "pick": 16,
+    "team": "WAS",
+    "college": "Penn State",
+    "rookie_stats": {
+      "games": 13,
+      "targets": 61,
+      "receptions": 35,
+      "receiving_yards": 523,
+      "receiving_touchdowns": 7
+    },
+    "espn_id": "4361409"
+  },
+  {
+    "name": "Treylon Burks",
+    "draft_year": 2022,
+    "pick": 18,
+    "team": "TEN",
+    "college": "Arkansas",
+    "rookie_stats": {
+      "games": 11,
+      "targets": 54,
+      "receptions": 33,
+      "receiving_yards": 444,
+      "receiving_touchdowns": 1
+    },
+    "espn_id": "4567156"
+  },
+  {
+    "name": "Ja'Marr Chase",
+    "draft_year": 2021,
+    "pick": 5,
+    "team": "CIN",
+    "college": "LSU",
+    "rookie_stats": {
+      "games": 17,
+      "targets": 128,
+      "receptions": 81,
+      "receiving_yards": 1455,
+      "receiving_touchdowns": 13
+    }
+  },
+  {
+    "name": "Jaylen Waddle",
+    "draft_year": 2021,
+    "pick": 6,
+    "team": "MIA",
+    "college": "Alabama",
+    "rookie_stats": {
+      "games": 16,
+      "targets": 140,
+      "receptions": 104,
+      "receiving_yards": 1015,
+      "receiving_touchdowns": 6
+    }
+  },
+  {
+    "name": "DeVonta Smith",
+    "draft_year": 2021,
+    "pick": 10,
+    "team": "PHI",
+    "college": "Alabama",
+    "rookie_stats": {
+      "games": 17,
+      "targets": 104,
+      "receptions": 64,
+      "receiving_yards": 916,
+      "receiving_touchdowns": 5
+    }
+  },
+  {
+    "name": "Kadarius Toney",
+    "draft_year": 2021,
+    "pick": 20,
+    "team": "NYG",
+    "college": "Florida",
+    "rookie_stats": {
+      "games": 10,
+      "targets": 57,
+      "receptions": 39,
+      "receiving_yards": 420,
+      "receiving_touchdowns": 0
+    }
+  },
+  {
+    "name": "Rashod Bateman",
+    "draft_year": 2021,
+    "pick": 27,
+    "team": "BAL",
+    "college": "Minnesota",
+    "rookie_stats": {
+      "games": 12,
+      "targets": 68,
+      "receptions": 46,
+      "receiving_yards": 515,
+      "receiving_touchdowns": 1
+    }
+  }
+]

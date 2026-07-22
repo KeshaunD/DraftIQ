@@ -1,0 +1,479 @@
+[
+  {
+    "name": "Chimere Dike",
+    "draft_year": 2025,
+    "pick": null,
+    "team": "TEN",
+    "college": null,
+    "rookie_stats": {
+      "games": 17,
+      "targets": 74,
+      "receptions": 48,
+      "receiving_yards": 423,
+      "receiving_touchdowns": 4
+    },
+    "espn_id": "4431268"
+  },
+  {
+    "name": "Dont'e Thornton Jr.",
+    "draft_year": 2025,
+    "pick": null,
+    "team": "LV",
+    "college": null,
+    "rookie_stats": {
+      "games": 15,
+      "targets": 30,
+      "receptions": 10,
+      "receiving_yards": 135,
+      "receiving_touchdowns": 0
+    },
+    "espn_id": "4432775"
+  },
+  {
+    "name": "Arian Smith",
+    "draft_year": 2025,
+    "pick": null,
+    "team": "NYJ",
+    "college": null,
+    "rookie_stats": {
+      "games": 16,
+      "targets": 16,
+      "receptions": 7,
+      "receiving_yards": 52,
+      "receiving_touchdowns": 0
+    },
+    "espn_id": "4429105"
+  },
+  {
+    "name": "Jaylin Lane",
+    "draft_year": 2025,
+    "pick": null,
+    "team": "WAS",
+    "college": null,
+    "rookie_stats": {
+      "games": 15,
+      "targets": 32,
+      "receptions": 16,
+      "receiving_yards": 225,
+      "receiving_touchdowns": 0
+    },
+    "espn_id": "4602667"
+  },
+  {
+    "name": "Jalen Royals",
+    "draft_year": 2025,
+    "pick": null,
+    "team": "KC",
+    "college": null,
+    "rookie_stats": {
+      "games": 7,
+      "targets": 3,
+      "receptions": 2,
+      "receiving_yards": 4,
+      "receiving_touchdowns": 0
+    },
+    "espn_id": "5082630"
+  },
+  {
+    "name": "Elic Ayomanor",
+    "draft_year": 2025,
+    "pick": null,
+    "team": "TEN",
+    "college": null,
+    "rookie_stats": {
+      "games": 16,
+      "targets": 89,
+      "receptions": 41,
+      "receiving_yards": 515,
+      "receiving_touchdowns": 4
+    },
+    "espn_id": "4883647"
+  },
+  {
+    "name": "Jordan Watkins",
+    "draft_year": 2025,
+    "pick": null,
+    "team": "SF",
+    "college": null,
+    "rookie_stats": {
+      "games": 4,
+      "targets": 3,
+      "receptions": 2,
+      "receiving_yards": 26,
+      "receiving_touchdowns": 0
+    },
+    "espn_id": "4431466"
+  },
+  {
+    "name": "Troy Franklin",
+    "draft_year": 2024,
+    "pick": null,
+    "team": "DEN",
+    "college": null,
+    "rookie_stats": {
+      "games": 16,
+      "targets": 53,
+      "receptions": 28,
+      "receiving_yards": 263,
+      "receiving_touchdowns": 2
+    },
+    "espn_id": "4431280"
+  },
+  {
+    "name": "Javon Baker",
+    "draft_year": 2024,
+    "pick": null,
+    "team": "NE",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Devontez Walker",
+    "draft_year": 2024,
+    "pick": null,
+    "team": "BAL",
+    "college": null,
+    "rookie_stats": {
+      "games": 9,
+      "targets": 3,
+      "receptions": 1,
+      "receiving_yards": 21,
+      "receiving_touchdowns": 1
+    },
+    "espn_id": "4696882"
+  },
+  {
+    "name": "Jacob Cowing",
+    "draft_year": 2024,
+    "pick": null,
+    "team": "SF",
+    "college": null,
+    "rookie_stats": {
+      "games": 15,
+      "targets": 6,
+      "receptions": 4,
+      "receiving_yards": 80,
+      "receiving_touchdowns": 0
+    },
+    "espn_id": "4575665"
+  },
+  {
+    "name": "Derius Davis",
+    "draft_year": 2023,
+    "pick": null,
+    "team": "LAC",
+    "college": null,
+    "rookie_stats": {
+      "games": 17,
+      "targets": 17,
+      "receptions": 15,
+      "receiving_yards": 66,
+      "receiving_touchdowns": 0
+    },
+    "espn_id": "4362477"
+  },
+  {
+    "name": "Charlie Jones",
+    "draft_year": 2023,
+    "pick": null,
+    "team": "CIN",
+    "college": null,
+    "rookie_stats": {
+      "games": 11,
+      "targets": 9,
+      "receptions": 7,
+      "receiving_yards": 64,
+      "receiving_touchdowns": 0
+    },
+    "espn_id": "4257188"
+  },
+  {
+    "name": "Tyler Scott",
+    "draft_year": 2023,
+    "pick": null,
+    "team": "CHI",
+    "college": null,
+    "rookie_stats": {
+      "games": 17,
+      "targets": 32,
+      "receptions": 17,
+      "receiving_yards": 168,
+      "receiving_touchdowns": 0
+    },
+    "espn_id": "4565908"
+  },
+  {
+    "name": "Erik Ezukanma",
+    "draft_year": 2022,
+    "pick": null,
+    "team": "MIA",
+    "college": null,
+    "rookie_stats": {
+      "games": 1,
+      "targets": 1,
+      "receptions": 1,
+      "receiving_yards": 3,
+      "receiving_touchdowns": 0
+    },
+    "espn_id": "4362186"
+  },
+  {
+    "name": "Romeo Doubs",
+    "draft_year": 2022,
+    "pick": null,
+    "team": "GB",
+    "college": null,
+    "rookie_stats": {
+      "games": 13,
+      "targets": 67,
+      "receptions": 42,
+      "receiving_yards": 425,
+      "receiving_touchdowns": 3
+    },
+    "espn_id": "4361432"
+  },
+  {
+    "name": "Calvin Austin III",
+    "draft_year": 2022,
+    "pick": null,
+    "team": "PIT",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Dez Fitzpatrick",
+    "draft_year": 2021,
+    "pick": null,
+    "team": "TEN",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Amon-Ra St. Brown",
+    "draft_year": 2021,
+    "pick": null,
+    "team": "DET",
+    "college": null,
+    "rookie_stats": {
+      "games": 16,
+      "targets": 119,
+      "receptions": 90,
+      "receiving_yards": 912,
+      "receiving_touchdowns": 5
+    },
+    "espn_id": "4374302"
+  },
+  {
+    "name": "Jaelon Darden",
+    "draft_year": 2021,
+    "pick": null,
+    "team": "TB",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Tylan Wallace",
+    "draft_year": 2021,
+    "pick": null,
+    "team": "BAL",
+    "college": null,
+    "rookie_stats": {
+      "games": 11,
+      "targets": 6,
+      "receptions": 2,
+      "receiving_yards": 23,
+      "receiving_touchdowns": 0
+    },
+    "espn_id": "4241424"
+  },
+  {
+    "name": "Gabriel Davis",
+    "draft_year": 2020,
+    "pick": null,
+    "team": "BUF",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Antonio Gandy-Golden",
+    "draft_year": 2020,
+    "pick": null,
+    "team": "WAS",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Hakeem Butler",
+    "draft_year": 2019,
+    "pick": null,
+    "team": "ARI",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Gary Jennings Jr.",
+    "draft_year": 2019,
+    "pick": null,
+    "team": "SEA",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Riley Ridley",
+    "draft_year": 2019,
+    "pick": null,
+    "team": "CHI",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Keke Coutee",
+    "draft_year": 2018,
+    "pick": null,
+    "team": "HOU",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Antonio Callaway",
+    "draft_year": 2018,
+    "pick": null,
+    "team": "CLE",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "DaeSean Hamilton",
+    "draft_year": 2018,
+    "pick": null,
+    "team": "DEN",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Jaleel Scott",
+    "draft_year": 2018,
+    "pick": null,
+    "team": "BAL",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "J'Mon Moore",
+    "draft_year": 2018,
+    "pick": null,
+    "team": "GB",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Dede Westbrook",
+    "draft_year": 2017,
+    "pick": null,
+    "team": "JAX",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Josh Reynolds",
+    "draft_year": 2017,
+    "pick": null,
+    "team": "LAR",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Mack Hollins",
+    "draft_year": 2017,
+    "pick": null,
+    "team": "PHI",
+    "college": null,
+    "rookie_stats": {
+      "games": 15,
+      "targets": 22,
+      "receptions": 16,
+      "receiving_yards": 226,
+      "receiving_touchdowns": 1
+    },
+    "espn_id": "2991662"
+  },
+  {
+    "name": "Josh Malone",
+    "draft_year": 2017,
+    "pick": null,
+    "team": "CIN",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Ryan Switzer",
+    "draft_year": 2017,
+    "pick": null,
+    "team": "DAL",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Jehu Chesson",
+    "draft_year": 2017,
+    "pick": null,
+    "team": "KC",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Chad Hansen",
+    "draft_year": 2017,
+    "pick": null,
+    "team": "NYJ",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Chris Moore",
+    "draft_year": 2016,
+    "pick": null,
+    "team": "BAL",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Malcolm Mitchell",
+    "draft_year": 2016,
+    "pick": null,
+    "team": "NE",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Ricardo Louis",
+    "draft_year": 2016,
+    "pick": null,
+    "team": "CLE",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Pharoh Cooper",
+    "draft_year": 2016,
+    "pick": null,
+    "team": "LAR",
+    "college": null,
+    "rookie_stats": {}
+  },
+  {
+    "name": "Demarcus Robinson",
+    "draft_year": 2016,
+    "pick": null,
+    "team": "KC",
+    "college": null,
+    "rookie_stats": {
+      "games": 16,
+      "targets": 0,
+      "receptions": 0,
+      "receiving_yards": 0,
+      "receiving_touchdowns": 0
+    },
+    "espn_id": "3043116"
+  }
+]

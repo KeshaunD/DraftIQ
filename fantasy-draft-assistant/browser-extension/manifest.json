@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "DraftIQ — Fantasy Draft Assistant",
+  "version": "0.2.1",
+  "description": "Live fantasy draft rankings, recommendations, player profiles, and draft-room intelligence.",
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "alarms",
+    "nativeMessaging"
+  ],
+  "host_permissions": [
+    "https://raw.githubusercontent.com/*",
+    "https://api.sleeper.app/*",
+    "http://127.0.0.1:3210/*",
+    "*://*.fantasysports.yahoo.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "DraftIQ"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.espn.com/*",
+        "*://*.fantasysports.yahoo.com/*",
+        "*://sleeper.com/*",
+        "*://sleeper.app/*",
+        "*://*.nfl.com/*"
+      ],
+      "js": [
+        "data.js",
+        "historical-points.js",
+        "styles.js",
+        "draftiq-core.js",
+        "draft-sync-core.js",
+        "mock-history.js",
+        "yahoo-importer.js",
+        "draft-sync.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

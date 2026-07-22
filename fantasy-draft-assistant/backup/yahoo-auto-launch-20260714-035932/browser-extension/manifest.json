@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "Draft Copilot — Fantasy Draft HUD",
+  "version": "0.2.0",
+  "description": "A tiered value-rail HUD that overlays your fantasy draft room so you never miss a steal.",
+  "permissions": [
+    "storage",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://raw.githubusercontent.com/*",
+    "https://api.sleeper.app/*",
+    "http://127.0.0.1:3210/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Draft Copilot"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.espn.com/*",
+        "*://*.fantasysports.yahoo.com/*",
+        "*://sleeper.com/*",
+        "*://sleeper.app/*",
+        "*://*.nfl.com/*"
+      ],
+      "js": [
+        "data.js",
+        "styles.js",
+        "draftiq-core.js",
+        "draft-sync-core.js",
+        "mock-history.js",
+        "draft-sync.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
