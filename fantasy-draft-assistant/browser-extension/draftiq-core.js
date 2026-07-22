@@ -379,6 +379,265 @@
     };
   }
 
+  function normalizePlayerIdentity(value) {
+    return String(value || "")
+      .toLowerCase()
+      .replace(/\./g, "")
+      .replace(/'/g, "")
+      .replace(/’/g, "")
+      .replace(/-/g, " ")
+      .replace(/\b(jr|sr|ii|iii|iv|v)\b/g, "")
+      .replace(/[^a-z0-9\s]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function getPlayerIdentityKeys(player) {
+    const keys = [];
+    const id = player?.playerId ?? player?.id;
+    const normalizedName =
+      player?.normalizedName || normalizePlayerIdentity(player?.name);
+
+    if (id !== null && id !== undefined && String(id).trim()) {
+      keys.push(`id:${String(id).trim().toLowerCase()}`);
+    }
+
+    if (normalizedName) {
+      keys.push(`name:${normalizedName}`);
+    }
+
+    return Array.from(new Set(keys));
+  }
+
+  function getDraftSlotPlayerTendencies(drafts = [], options = {}) {
+    const teamCount = wholeNumber(options.teamCount, 12, 2, 32);
+    const source = String(options.source || "").toLowerCase();
+    const slots = {};
+    let sampleDrafts = 0;
+
+    const ensureRound = (slot, round) => {
+      if (!slots[slot]) {
+        slots[slot] = {
+          sampleDrafts: 0,
+          rounds: {},
+        };
+      }
+
+      if (!slots[slot].rounds[round]) {
+        slots[slot].rounds[round] = {
+          sampleSize: 0,
+          playerCounts: {},
+        };
+      }
+
+      return slots[slot].rounds[round];
+    };
+
+    (Array.isArray(drafts) ? drafts : []).forEach((draft) => {
+      const draftTeamCount = numberOrNull(draft?.teamCount) ?? teamCount;
+      const draftSource = String(draft?.source || "").toLowerCase();
+      const picks = Array.isArray(draft?.picks) ? draft.picks : [];
+
+      if (
+        !draft?.completed ||
+        draftTeamCount !== teamCount ||
+        (source && draftSource && draftSource !== source) ||
+        !picks.length
+      ) {
+        return;
+      }
+
+      sampleDrafts += 1;
+      const slotsSeen = new Set();
+
+      [...picks]
+        .sort((a, b) => (numberOrNull(a?.overall) ?? 9999) - (numberOrNull(b?.overall) ?? 9999))
+        .forEach((pick) => {
+          const overall = numberOrNull(pick?.overall);
+          const playerKeys = getPlayerIdentityKeys(pick);
+
+          if (overall === null || !playerKeys.length) return;
+
+          const slot = getSnakeDraftSlot(overall, teamCount);
+          const round = Math.ceil(overall / teamCount);
+          const roundProfile = ensureRound(slot, round);
+          const primaryKey =
+            playerKeys.find((key) => key.startsWith("name:")) ||
+            playerKeys[0];
+          const record = roundProfile.playerCounts[primaryKey] || {
+            playerId: pick?.playerId || pick?.id || null,
+            name: pick?.name || "Unknown player",
+            normalizedName: normalizePlayerIdentity(pick?.name),
+            pos: pick?.pos || pick?.position || "-",
+            team: pick?.team || "-",
+            keys: playerKeys,
+            count: 0,
+          };
+
+          record.count += 1;
+          record.playerId = pick?.playerId || pick?.id || record.playerId;
+          record.name = pick?.name || record.name;
+          record.normalizedName =
+            normalizePlayerIdentity(pick?.name) || record.normalizedName;
+          record.pos = pick?.pos || pick?.position || record.pos;
+          record.team = pick?.team || record.team;
+          record.keys = Array.from(new Set([
+            ...record.keys,
+            ...playerKeys,
+          ]));
+          roundProfile.playerCounts[primaryKey] = record;
+          roundProfile.sampleSize += 1;
+          slotsSeen.add(slot);
+        });
+
+      slotsSeen.forEach((slot) => {
+        slots[slot].sampleDrafts += 1;
+      });
+    });
+
+    Object.values(slots).forEach((slotProfile) => {
+      Object.keys(slotProfile.rounds).forEach((round) => {
+        const roundProfile = slotProfile.rounds[round];
+        const sampleSize = roundProfile.sampleSize || 0;
+
+        roundProfile.players = Object.values(roundProfile.playerCounts)
+          .map((player) => ({
+            ...player,
+            probability: sampleSize
+              ? Number(((player.count / sampleSize) * 100).toFixed(1))
+              : 0,
+          }))
+          .sort(
+            (a, b) =>
+              b.count - a.count ||
+              a.name.localeCompare(b.name)
+          );
+        delete roundProfile.playerCounts;
+      });
+    });
+
+    return {
+      teamCount,
+      sampleDrafts,
+      slots,
+    };
+  }
+
+  function getPlayerDraftSlotSelectionRisk(
+    tendencies,
+    player,
+    pickSlots = []
+  ) {
+    const playerKeys = new Set(getPlayerIdentityKeys(player));
+    const matches = [];
+    let survivalProbability = 1;
+    let sampleSize = 0;
+    let evidenceCount = 0;
+
+    if (!tendencies || !playerKeys.size) {
+      return {
+        goneProbability: 0,
+        score: 0,
+        sampleSize: 0,
+        evidenceCount: 0,
+        matches: [],
+        strongestMatch: null,
+      };
+    }
+
+    (Array.isArray(pickSlots) ? pickSlots : []).forEach((pickSlot) => {
+      const overall = numberOrNull(pickSlot?.overall);
+      const slot =
+        numberOrNull(pickSlot?.slot) ||
+        (
+          overall === null
+            ? null
+            : getSnakeDraftSlot(overall, tendencies.teamCount)
+        );
+
+      if (overall === null || slot === null) return;
+
+      const round = Math.ceil(overall / tendencies.teamCount);
+      const roundProfile = tendencies?.slots?.[slot]?.rounds?.[round];
+
+      if (!roundProfile?.sampleSize) return;
+
+      const matchingPlayers = (roundProfile.players || []).filter((candidate) =>
+        (candidate.keys || []).some((key) => playerKeys.has(key))
+      );
+
+      sampleSize += roundProfile.sampleSize;
+
+      if (!matchingPlayers.length) return;
+
+      const match = matchingPlayers
+        .slice()
+        .sort((a, b) => b.count - a.count)[0];
+      const matchCount = matchingPlayers.reduce(
+        (sum, candidate) => sum + (numberOrNull(candidate.count) ?? 0),
+        0
+      );
+
+      const rawProbability = roundProfile.sampleSize
+        ? clamp((matchCount / roundProfile.sampleSize) * 100, 0, 100)
+        : numberOrNull(match.probability) ?? 0;
+      const bucketConfidence = clamp(
+        roundProfile.sampleSize / (roundProfile.sampleSize + 8),
+        0,
+        1
+      );
+      const historyConfidence = clamp(
+        (tendencies.sampleDrafts || 0) /
+          ((tendencies.sampleDrafts || 0) + 12),
+        0,
+        1
+      );
+      const adjustedProbability = clamp(
+        rawProbability * bucketConfidence * historyConfidence,
+        0,
+        85
+      );
+
+      survivalProbability *= (1 - adjustedProbability / 100);
+      evidenceCount += matchCount;
+      matches.push({
+        overall,
+        slot,
+        round,
+        player: {
+          playerId: match.playerId,
+          name: match.name,
+          pos: match.pos,
+          team: match.team,
+        },
+        count: matchCount,
+        sampleSize: roundProfile.sampleSize,
+        rawProbability: Number(rawProbability.toFixed(1)),
+        adjustedProbability: Number(adjustedProbability.toFixed(1)),
+      });
+    });
+
+    const goneProbability = Math.round(
+      clamp((1 - survivalProbability) * 100, 0, 85)
+    );
+    const strongestMatch = matches
+      .slice()
+      .sort(
+        (a, b) =>
+          b.adjustedProbability - a.adjustedProbability ||
+          b.count - a.count
+      )[0] || null;
+
+    return {
+      goneProbability,
+      score: Number(clamp(goneProbability * 0.22, 0, 14).toFixed(1)),
+      sampleSize,
+      evidenceCount,
+      matches,
+      strongestMatch,
+    };
+  }
+
   function getOpponentRosterBehavior(drafts = [], options = {}) {
     const teamCount = wholeNumber(options.teamCount, 12, 2, 32);
     const source = String(options.source || "").toLowerCase();
@@ -2241,6 +2500,8 @@
     getInterveningDraftSlots,
     getDraftSlotPositionTendencies,
     getDraftSlotNextPositionProbabilities,
+    getDraftSlotPlayerTendencies,
+    getPlayerDraftSlotSelectionRisk,
     getOpponentRosterBehavior,
     getOpponentPositionProbabilities,
     getOffenseExposurePenalty,

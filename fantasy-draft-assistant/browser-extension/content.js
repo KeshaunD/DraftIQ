@@ -1860,6 +1860,13 @@
         openingRounds: 3,
       }
     );
+    const draftSlotPlayerTendencies = Core.getDraftSlotPlayerTendencies(
+      mockAdpAnalytics.drafts,
+      {
+        teamCount: leagueSettings.teamCount,
+        source: diagnostics?.platformKey || "yahoo",
+      }
+    );
     const opponentBehavior = Core.getOpponentRosterBehavior(
       mockAdpAnalytics.drafts,
       {
@@ -1960,6 +1967,7 @@
       tendencyPressure,
       tendencyConfidence,
       draftSlotTendencies,
+      draftSlotPlayerTendencies,
       opponentBehavior,
       pickCount: schedule.pickSlots.length,
       historyCoverage: draftedCount
@@ -2492,8 +2500,14 @@
         scored.player,
         context.draftTiming.lookaheadPick
       );
+    const slotSelectionRisk = Core.getPlayerDraftSlotSelectionRisk(
+      context.betweenPicks?.draftSlotPlayerTendencies,
+      scored.player,
+      context.betweenPicks?.pickSlots || []
+    );
 
     scored.personalDraftMetrics = personalMetrics;
+    scored.slotSelectionRisk = slotSelectionRisk;
 
     if (context.betweenPicks?.pickCount === 0) {
       return 0;
@@ -2502,9 +2516,13 @@
     const adp = numberOrNull(scored.effectiveAdp);
 
     if (adp === null) {
+      const slotSelectionBoost = Math.min(
+        14,
+        (slotSelectionRisk?.goneProbability || 0) * 0.35
+      );
       const blendedAvailableProbability =
         Core.blendAvailabilityProbability(
-          50,
+          50 - slotSelectionBoost,
           personalMetrics,
           10
         );
@@ -2525,6 +2543,10 @@
       18,
       Math.max(0, scored.marketPressureScore || 0) * 0.6
     );
+    const slotSelectionBoost = Math.min(
+      18,
+      (slotSelectionRisk?.goneProbability || 0) * 0.45
+    );
 
     const priorGoneProbability = Math.round(
       clamp(
@@ -2532,7 +2554,8 @@
           gap * 3.2 +
           scored.scarcity * 0.45 +
           pressureBoost +
-          marketBoost,
+          marketBoost +
+          slotSelectionBoost,
         6,
         97
       )

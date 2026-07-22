@@ -147,6 +147,69 @@ test("learns positional opening tendencies independently by draft slot", () => {
   assert.ok(nextPick.probabilities.WR > nextPick.probabilities.TE);
 });
 
+test("learns player tendencies by snake draft slot and round", () => {
+  const makeDraft = (draftId, picks) => ({
+    draftId,
+    source: "yahoo",
+    teamCount: 4,
+    completed: true,
+    picks,
+  });
+  const tendencies = Core.getDraftSlotPlayerTendencies(
+    [
+      makeDraft("a", [
+        { overall: 2, name: "Alpha Runner", playerId: "alpha", pos: "RB" },
+        { overall: 7, name: "Beta Receiver", pos: "WR" },
+      ]),
+      makeDraft("b", [
+        { overall: 2, name: "Alpha Runner", pos: "RB" },
+        { overall: 7, name: "Gamma Tight End", pos: "TE" },
+      ]),
+      makeDraft("c", [
+        { overall: 2, name: "Delta Runner", pos: "RB" },
+        { overall: 7, name: "Alpha Runner", playerId: "alpha", pos: "RB" },
+      ]),
+      makeDraft("d", [
+        { overall: 2, name: "Alpha Runner", pos: "RB" },
+      ]),
+      {
+        draftId: "ignored-incomplete",
+        source: "yahoo",
+        teamCount: 4,
+        completed: false,
+        picks: [{ overall: 2, name: "Alpha Runner", pos: "RB" }],
+      },
+    ],
+    { teamCount: 4, source: "yahoo" }
+  );
+
+  assert.equal(tendencies.sampleDrafts, 4);
+  assert.equal(tendencies.slots[2].sampleDrafts, 4);
+  assert.equal(tendencies.slots[2].rounds[1].sampleSize, 4);
+
+  const alphaRoundOne = tendencies.slots[2].rounds[1].players.find(
+    (player) => player.name === "Alpha Runner"
+  );
+
+  assert.equal(alphaRoundOne.count, 3);
+  assert.equal(alphaRoundOne.probability, 75);
+
+  const risk = Core.getPlayerDraftSlotSelectionRisk(
+    tendencies,
+    { name: "Alpha Runner", id: "alpha" },
+    [
+      { overall: 2, slot: 2 },
+      { overall: 7, slot: 2 },
+    ]
+  );
+
+  assert.equal(risk.matches.length, 2);
+  assert.equal(risk.evidenceCount, 4);
+  assert.ok(risk.goneProbability > 0);
+  assert.ok(risk.score > 0);
+  assert.equal(risk.strongestMatch.round, 1);
+});
+
 test("calculates roster needs from custom league requirements", () => {
   const needs = Core.getRosterNeeds(
     { QB: 1, RB: 2, WR: 2, TE: 0 },
