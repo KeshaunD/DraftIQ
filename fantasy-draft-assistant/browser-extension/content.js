@@ -4213,6 +4213,15 @@
     `;
   }
 
+  function renderProfileMetric(label, value) {
+    return `
+      <div class="dc-profile-summary-pill">
+        <span>${escapeMarkup(label)}</span>
+        <strong>${escapeMarkup(value)}</strong>
+      </div>
+    `;
+  }
+
   function getPlayerDraftScore(player, effectiveAdp = null) {
     const rank = numberOrNull(player.rank) ?? 150;
     const adp = numberOrNull(effectiveAdp) ??
@@ -4308,6 +4317,10 @@
 
     const letterGrade =
       getLetterGrade(draftScore);
+    const newsMarkup =
+      renderRotoWireNews(player);
+    const sourceBreakdownMarkup =
+      renderSourceBreakdown(player);
 
     profileElement.innerHTML = `
       <div class="dc-profile-header">
@@ -4368,193 +4381,144 @@
         </button>
       </div>
 
-      <div class="dc-profile-top-grid">
-        <section
-          class="dc-profile-snapshot-column"
-          aria-label="Season snapshot"
-        >
-        <div class="dc-profile-section-title">
-          Season Snapshot
-        </div>
-
-        <div class="dc-profile-grid">
-          <div class="dc-profile-stat">
-            <div class="dc-profile-stat-value">
-              ${formatValue(season.ppg)}
-            </div>
-
-            <div class="dc-profile-stat-label">
-              Prev PPG
-            </div>
-          </div>
-
-          <div class="dc-profile-stat">
-            <div class="dc-profile-stat-value">
-              ${formatValue(season.games)}
-            </div>
-
-            <div class="dc-profile-stat-label">
-              Games
-            </div>
-          </div>
-
-          <div class="dc-profile-stat">
-            <div class="dc-profile-stat-value">
-              ${formatNumber(
-                projectedPpg,
-                2
-              )}
-            </div>
-
-            <div class="dc-profile-stat-label">
-              Proj PPG
-            </div>
-          </div>
-
-          <div class="dc-profile-stat">
-            <div class="dc-profile-stat-value">
-              ${formatValue(
-                season.rushYardsPerGame
-              )}
-            </div>
-
-            <div class="dc-profile-stat-label">
-              Rush Y/G
-            </div>
-          </div>
-
-          <div class="dc-profile-stat">
-            <div class="dc-profile-stat-value">
-              ${formatValue(
-                season.receivingYardsPerGame
-              )}
-            </div>
-
-            <div class="dc-profile-stat-label">
-              Rec Y/G
-            </div>
-          </div>
-
-          <div class="dc-profile-stat">
-            <div class="dc-profile-stat-value">
-              ${formatValue(
-                season.touchdownsPerGame
-              )}
-            </div>
-
-            <div class="dc-profile-stat-label">
-              TD/G
-            </div>
-          </div>
-        </div>
-        </section>
-
-        <aside
-          class="dc-profile-news-column"
-          aria-label="Latest player news"
-        >
-          ${renderRotoWireNews(player)}
-        </aside>
+      <div class="dc-profile-summary-strip" aria-label="Quick player profile stats">
+        ${renderProfileMetric("Prev PPG", formatValue(season.ppg))}
+        ${renderProfileMetric("Games", formatValue(season.games))}
+        ${renderProfileMetric("Proj PPG", formatNumber(projectedPpg, 2))}
+        ${renderProfileMetric("ADP", formatNumber(adpProfile.adp, 1))}
+        ${renderProfileMetric("SOS", formatValue(scheduleStrength.label))}
+        ${renderProfileMetric("Bye", `W${formatValue(player.bye)}`)}
       </div>
 
       ${renderMiniGraph(gameLog, season)}
 
-      <div class="dc-outlook">
-        <div class="dc-profile-section-title">
-          Draft Outlook
-        </div>
+      <div class="dc-profile-details" aria-label="More player profile details">
+        <details class="dc-profile-disclosure">
+          <summary>
+            <span>Draft Outlook</span>
+            <small>Projection, ADP, schedule</small>
+          </summary>
 
-        <div class="dc-outlook-grid">
-          <div>
-            <div class="dc-outlook-label">
-              Projection
-            </div>
+          <div class="dc-outlook dc-profile-disclosure-body">
+            <div class="dc-outlook-grid">
+              <div>
+                <div class="dc-outlook-label">
+                  Projection
+                </div>
 
-            <div class="dc-outlook-value">
-              ${formatNumber(
-                projection,
-                1
-              )}
+                <div class="dc-outlook-value">
+                  ${formatNumber(
+                    projection,
+                    1
+                  )}
+                </div>
+              </div>
+
+              <div>
+                <div class="dc-outlook-label">
+                  Proj PPG
+                </div>
+
+                <div class="dc-outlook-value">
+                  ${formatNumber(
+                    projectedPpg,
+                    2
+                  )}
+                </div>
+              </div>
+
+              <div>
+                <div class="dc-outlook-label">
+                  ADP
+                </div>
+
+                <div class="dc-outlook-value">
+                  ${formatNumber(
+                    adpProfile.adp,
+                    1
+                  )}
+                </div>
+              </div>
+
+              <div>
+                <div class="dc-outlook-label">
+                  Bye Week
+                </div>
+
+                <div class="dc-outlook-value">
+                  Week ${formatValue(
+                    player.bye
+                  )}
+                </div>
+              </div>
+
+              <div>
+                <div class="dc-outlook-label">
+                  SOS
+                </div>
+
+                <div class="dc-outlook-value">
+                  ${formatValue(
+                    scheduleStrength.label
+                  )}
+                </div>
+              </div>
+
+              <div>
+                <div class="dc-outlook-label">
+                  SOS Rank
+                </div>
+
+                <div class="dc-outlook-value">
+                  ${
+                    scheduleStrength.rank !== null &&
+                    scheduleStrength.rank !== undefined
+                      ? `#${scheduleStrength.rank}`
+                      : "-"
+                  }
+                </div>
+              </div>
+
+              <div>
+                <div class="dc-outlook-label">
+                  Schedule Score
+                </div>
+
+                <div class="dc-outlook-value">
+                  ${formatNumber(scheduleStrength.score, 0)}
+                </div>
+              </div>
             </div>
           </div>
+        </details>
 
-          <div>
-            <div class="dc-outlook-label">
-              Proj PPG
-            </div>
+        ${
+          newsMarkup
+            ? `
+              <details class="dc-profile-disclosure">
+                <summary>
+                  <span>Latest News</span>
+                  <small>RotoWire note</small>
+                </summary>
 
-            <div class="dc-outlook-value">
-              ${formatNumber(
-                projectedPpg,
-                2
-              )}
-            </div>
+                <div class="dc-profile-disclosure-body">
+                  ${newsMarkup}
+                </div>
+              </details>
+            `
+            : ""
+        }
+
+        <details class="dc-profile-disclosure">
+          <summary>
+            <span>Source Breakdown</span>
+            <small>Yahoo, ESPN, Sleeper</small>
+          </summary>
+
+          <div class="dc-profile-disclosure-body">
+            ${sourceBreakdownMarkup}
           </div>
-
-          <div>
-            <div class="dc-outlook-label">
-              ADP
-            </div>
-
-            <div class="dc-outlook-value">
-              ${formatNumber(
-                adpProfile.adp,
-                1
-              )}
-            </div>
-          </div>
-
-          <div>
-            <div class="dc-outlook-label">
-              Bye Week
-            </div>
-
-            <div class="dc-outlook-value">
-              Week ${formatValue(
-                player.bye
-              )}
-            </div>
-          </div>
-
-          <div>
-            <div class="dc-outlook-label">
-              SOS
-            </div>
-
-            <div class="dc-outlook-value">
-              ${formatValue(
-                scheduleStrength.label
-              )}
-            </div>
-          </div>
-
-          <div>
-            <div class="dc-outlook-label">
-              SOS Rank
-            </div>
-
-            <div class="dc-outlook-value">
-              ${
-                scheduleStrength.rank !== null &&
-                scheduleStrength.rank !== undefined
-                  ? `#${scheduleStrength.rank}`
-                  : "-"
-              }
-            </div>
-          </div>
-
-          <div>
-            <div class="dc-outlook-label">
-              Schedule Score
-            </div>
-
-            <div class="dc-outlook-value">
-              ${formatNumber(scheduleStrength.score, 0)}
-            </div>
-          </div>
-        </div>
-
-        ${renderSourceBreakdown(player)}
+        </details>
       </div>
     `;
 
