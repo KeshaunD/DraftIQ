@@ -1,7 +1,7 @@
 {
   "source": "RotoWire NFL RSS",
   "feedUrl": "https://www.rotowire.com/rss/news.php?sport=NFL",
-  "updatedAt": "2026-07-17T12:32:03.165146Z",
+  "updatedAt": "2026-07-26T15:56:47.157617Z",
   "status": "live",
   "players": {
     "christian mccaffrey": [
@@ -9,6 +9,14 @@
         "headline": "Wins Best Comeback Athlete",
         "summary": "McCaffrey was named the Best Comeback Athlete at the 2026 ESPYS, Briana Jeannel of the 49ers' official site reports. Visit RotoWire.com for more analysis on this update.",
         "publishedAt": "2026-07-16T10:19:00Z",
+        "url": null
+      }
+    ],
+    "rashee rice": [
+      {
+        "headline": "Poised to practice",
+        "summary": "Rice (knee) has been cleared to practice ahead of training camp, Matt McMullen of the Chiefs' official site reports. Visit RotoWire.com for more analysis on this update.",
+        "publishedAt": "2026-07-24T01:06:00Z",
         "url": null
       }
     ],
@@ -28,6 +36,22 @@
         "url": null
       }
     ],
+    "patrick mahomes": [
+      {
+        "headline": "Cleared for full practices",
+        "summary": "Chiefs head coach Andy Reid said Friday that Mahomes (knee) has \"been cleared to participate fully\" to begin training camp, Sam McDowell of The Kansas City Star reports. Visit RotoWire.com for more analysis on this update.",
+        "publishedAt": "2026-07-24T01:01:00Z",
+        "url": null
+      }
+    ],
+    "george kittle": [
+      {
+        "headline": "Starting training camp on PUP",
+        "summary": "The 49ers placed Kittle (Achilles) on the active/PUP list Saturday, Matt Maiocco of NBC Sports Bay Area reports. Visit RotoWire.com for more analysis on this update.",
+        "publishedAt": "2026-07-25T11:28:00Z",
+        "url": null
+      }
+    ],
     "hunter henry": [
       {
         "headline": "Remains top tight end",
@@ -41,6 +65,14 @@
         "headline": "Agrees to new contract with Saints",
         "summary": "Kamara and New Orleans agreed to terms Thursday on a restructured contract that gives him a $6 million base salary for the 2026 season, Ian Rapoport of NFL Network reports. Visit RotoWire.com for more analysis on this update.",
         "publishedAt": "2026-07-16T07:48:00Z",
+        "url": null
+      }
+    ],
+    "brandon aiyuk": [
+      {
+        "headline": "Remains on left squad list",
+        "summary": "San Francisco general manager John Lynch told reporters Saturday that Aiyuk (knee) will remain on the 49ers' reserve/left squad list, Adam Schefter of ESPN reports. Visit RotoWire.com for more analysis on this update.",
+        "publishedAt": "2026-07-25T11:38:00Z",
         "url": null
       }
     ]
