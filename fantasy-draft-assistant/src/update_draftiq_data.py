@@ -19,6 +19,12 @@ ESPN_PROJECTIONS_PATH = (
     / "espn_projections_2026.json"
 )
 
+RANKINGS_UPDATER_PATH = (
+    BASE_DIR
+    / "src"
+    / "update_rankings.py"
+)
+
 ROTOWIRE_IMPORTER_PATH = (
     BASE_DIR
     / "src"
@@ -59,6 +65,9 @@ def check_required_files():
     if not ESPN_PROJECTIONS_PATH.exists():
         missing_files.append(ESPN_PROJECTIONS_PATH)
 
+    if not RANKINGS_UPDATER_PATH.exists():
+        missing_files.append(RANKINGS_UPDATER_PATH)
+
     if not ROTOWIRE_IMPORTER_PATH.exists():
         missing_files.append(ROTOWIRE_IMPORTER_PATH)
 
@@ -78,9 +87,16 @@ def check_required_files():
                 "node scripts\\fetch_espn_playercard_data.js"
             )
 
+        if RANKINGS_UPDATER_PATH in missing_files:
+            print()
+            print("Missing rankings updater:")
+            print(
+                "src\\update_rankings.py"
+            )
+
         if ROTOWIRE_IMPORTER_PATH in missing_files:
             print()
-            print("Create this file:")
+            print("Missing RotoWire importer:")
             print(
                 "src\\importers\\rotowire.py"
             )
@@ -91,6 +107,10 @@ def check_required_files():
     print(
         f"Found ESPN projections: "
         f"{ESPN_PROJECTIONS_PATH}"
+    )
+    print(
+        f"Found rankings updater: "
+        f"{RANKINGS_UPDATER_PATH}"
     )
     print(
         f"Found RotoWire importer: "
@@ -124,7 +144,7 @@ def main():
     run_command(
         [
             python_cmd,
-            "src/build_consensus_rankings.py",
+            "src/update_rankings.py",
         ]
     )
 
@@ -151,18 +171,30 @@ def main():
     print("=" * 70)
 
     print()
+    print("Updated:")
+    print("- FantasyPros rankings")
+    print("- DraftSharks rankings")
+    print("- FantasyData rankings")
+    print("- Flock rankings")
+    print("- Equal-weight consensus rankings")
+    print("- League rankings")
+    print("- Extension data")
+    print("- RotoWire player news")
+
+    print()
     print("Next steps:")
     print(
-        "1. Run scripts\\refresh_draftiq.ps1"
+        "1. Wait for scripts\\refresh_draftiq.ps1 "
+        "to finish"
     )
     print(
-        "2. Wait for the GitHub push to finish"
+        "2. Confirm the GitHub push completed"
     )
     print(
         "3. Click the refresh button inside DraftIQ"
     )
     print(
-        "4. Open a player profile and check Latest Player News"
+        "4. Verify rankings and player news"
     )
 
 
